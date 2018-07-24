@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		530A3C8321074D8100F6FF20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530A3C8221074D8100F6FF20 /* AppDelegate.swift */; };
 		530A3C8521074D8100F6FF20 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530A3C8421074D8100F6FF20 /* ViewController.swift */; };
-		530A3C8821074D8100F6FF20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 530A3C8621074D8100F6FF20 /* Main.storyboard */; };
 		530A3C8B21074D8100F6FF20 /* goldbac.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 530A3C8921074D8100F6FF20 /* goldbac.xcdatamodeld */; };
 		530A3C8D21074D8200F6FF20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 530A3C8C21074D8200F6FF20 /* Assets.xcassets */; };
 		530A3C9021074D8200F6FF20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 530A3C8E21074D8200F6FF20 /* LaunchScreen.storyboard */; };
+		53759D7D210755B20006C718 /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D79210755B20006C718 /* Account+CoreDataClass.swift */; };
+		53759D7E210755B20006C718 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D7A210755B20006C718 /* Account+CoreDataProperties.swift */; };
+		53759D7F210755B20006C718 /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D7B210755B20006C718 /* Transaction+CoreDataClass.swift */; };
+		53759D80210755B20006C718 /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D7C210755B20006C718 /* Transaction+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		530A3C7F21074D8100F6FF20 /* goldbac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = goldbac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		530A3C8221074D8100F6FF20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		530A3C8421074D8100F6FF20 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		530A3C8721074D8100F6FF20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		530A3C8A21074D8100F6FF20 /* goldbac.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = goldbac.xcdatamodel; sourceTree = "<group>"; };
 		530A3C8C21074D8200F6FF20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		530A3C8F21074D8200F6FF20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		530A3C9121074D8200F6FF20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53759D79210755B20006C718 /* Account+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataClass.swift"; sourceTree = "<group>"; };
+		53759D7A210755B20006C718 /* Account+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		53759D7B210755B20006C718 /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
+		53759D7C210755B20006C718 /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +46,10 @@
 		530A3C7621074D8100F6FF20 = {
 			isa = PBXGroup;
 			children = (
+				53759D79210755B20006C718 /* Account+CoreDataClass.swift */,
+				53759D7A210755B20006C718 /* Account+CoreDataProperties.swift */,
+				53759D7B210755B20006C718 /* Transaction+CoreDataClass.swift */,
+				53759D7C210755B20006C718 /* Transaction+CoreDataProperties.swift */,
 				530A3C8121074D8100F6FF20 /* goldbac */,
 				530A3C8021074D8100F6FF20 /* Products */,
 			);
@@ -58,7 +68,6 @@
 			children = (
 				530A3C8221074D8100F6FF20 /* AppDelegate.swift */,
 				530A3C8421074D8100F6FF20 /* ViewController.swift */,
-				530A3C8621074D8100F6FF20 /* Main.storyboard */,
 				530A3C8C21074D8200F6FF20 /* Assets.xcassets */,
 				530A3C8E21074D8200F6FF20 /* LaunchScreen.storyboard */,
 				530A3C9121074D8200F6FF20 /* Info.plist */,
@@ -127,7 +136,6 @@
 			files = (
 				530A3C9021074D8200F6FF20 /* LaunchScreen.storyboard in Resources */,
 				530A3C8D21074D8200F6FF20 /* Assets.xcassets in Resources */,
-				530A3C8821074D8100F6FF20 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,22 +147,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				530A3C8B21074D8100F6FF20 /* goldbac.xcdatamodeld in Sources */,
+				53759D80210755B20006C718 /* Transaction+CoreDataProperties.swift in Sources */,
 				530A3C8521074D8100F6FF20 /* ViewController.swift in Sources */,
+				53759D7E210755B20006C718 /* Account+CoreDataProperties.swift in Sources */,
 				530A3C8321074D8100F6FF20 /* AppDelegate.swift in Sources */,
+				53759D7F210755B20006C718 /* Transaction+CoreDataClass.swift in Sources */,
+				53759D7D210755B20006C718 /* Account+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		530A3C8621074D8100F6FF20 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				530A3C8721074D8100F6FF20 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		530A3C8E21074D8200F6FF20 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -294,7 +298,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "goldbac-Inc.goldbac";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -312,7 +316,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "goldbac-Inc.goldbac";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
