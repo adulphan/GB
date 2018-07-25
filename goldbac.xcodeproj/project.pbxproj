@@ -20,6 +20,7 @@
 		53759D9021080B1B0006C718 /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D8E21080B1B0006C718 /* Account+CoreDataClass.swift */; };
 		53759D9121080B1B0006C718 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D8F21080B1B0006C718 /* Account+CoreDataProperties.swift */; };
 		53759D9321080C600006C718 /* TransactionCustomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D9221080C600006C718 /* TransactionCustomExtension.swift */; };
+		53759D9621082C360006C718 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D9521082C360006C718 /* CoreData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		53759D8E21080B1B0006C718 /* Account+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataClass.swift"; sourceTree = "<group>"; };
 		53759D8F21080B1B0006C718 /* Account+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		53759D9221080C600006C718 /* TransactionCustomExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCustomExtension.swift; sourceTree = "<group>"; };
+		53759D9521082C360006C718 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			children = (
 				53759D81210757FC0006C718 /* AccountCustomExtension.swift */,
 				53759D9221080C600006C718 /* TransactionCustomExtension.swift */,
+				53759D9521082C360006C718 /* CoreData.swift */,
 				53759D892107FB800006C718 /* ManageCoreData.swift */,
 				53759D8C2107FD990006C718 /* SimulateCoreData.swift */,
 			);
@@ -178,6 +181,7 @@
 				53759D9121080B1B0006C718 /* Account+CoreDataProperties.swift in Sources */,
 				53759D9021080B1B0006C718 /* Account+CoreDataClass.swift in Sources */,
 				53759D9321080C600006C718 /* TransactionCustomExtension.swift in Sources */,
+				53759D9621082C360006C718 /* CoreData.swift in Sources */,
 				53759D8D2107FD990006C718 /* SimulateCoreData.swift in Sources */,
 				53759D88210757FC0006C718 /* Transaction+CoreDataProperties.swift in Sources */,
 				530A3C8521074D8100F6FF20 /* ViewController.swift in Sources */,

@@ -24,20 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         controller.view.backgroundColor = UIColor.blue
         window?.rootViewController = controller
         
-        let context = CoreData.main.context
-        
-        let transaction = Transaction(context: context)
-        print(transaction.totalAmount)
-        transaction.moneyArray = [400,500,-900]
-        transaction.date = Date()
-        print(transaction.totalAmount)
-        
-        let account = Account(context: context)
-        account.type = 0
-        account.name = "Grocery"
-        
-        context.delete(transaction)
-        context.delete(account)
+        CoreData.main.clearAllCoreData()
+        CoreData.main.simulateAccounts()
+        CoreData.main.printData()
         
         return true
     }
