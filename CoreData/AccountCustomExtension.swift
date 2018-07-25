@@ -10,8 +10,7 @@
 import Foundation
 import CoreData
 
-
-public class Account: NSManagedObject {
+extension Account {
     
     var moneyArray: [Double] {
         get{
@@ -59,7 +58,7 @@ public class Account: NSManagedObject {
                 array.append(opposite)
             }
         }
-        return array    
+        return array
     }
     
 

@@ -2,7 +2,7 @@
 //  Account+CoreDataProperties.swift
 //  goldbac
 //
-//  Created by adulphan youngmod on 24/7/18.
+//  Created by adulphan youngmod on 25/7/18.
 //  Copyright © 2018 goldbac Inc. All rights reserved.
 //
 //
@@ -18,8 +18,9 @@ extension Account {
     }
 
     @NSManaged public var imageRecordID: String?
-    @NSManaged public var name: String?
-    @NSManaged public var recordID: String?
+    @NSManaged public var name: String
+    @NSManaged public var recordID: String
+    @NSManaged public var type: Int16
     @NSManaged public var transactions: NSOrderedSet?
 
 }

@@ -17,16 +17,18 @@ extension Transaction {
         return NSFetchRequest<Transaction>(entityName: "Transaction")
     }
 
+    @NSManaged public var recordID: String
+    
     @NSManaged public var date: Date
+    @NSManaged public var modified: Date
+    @NSManaged public var accounts: NSOrderedSet
+    @NSManaged public var moneyArray: [Double]
+    
+    @NSManaged public var title: String?
     @NSManaged public var fullImageRecordID: String?
     @NSManaged public var thumbNailRecordID: String?
-    @NSManaged public var modified: Date
-    @NSManaged public var moneyArray: [Double]
     @NSManaged public var note: String?
-    @NSManaged public var recordID: String
-    @NSManaged public var title: String?
     @NSManaged public var url: String?
-    @NSManaged public var accounts: NSOrderedSet
 
 }
 
