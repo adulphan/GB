@@ -12,10 +12,10 @@
 		530A3C8B21074D8100F6FF20 /* goldbac.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 530A3C8921074D8100F6FF20 /* goldbac.xcdatamodeld */; };
 		530A3C8D21074D8200F6FF20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 530A3C8C21074D8200F6FF20 /* Assets.xcassets */; };
 		530A3C9021074D8200F6FF20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 530A3C8E21074D8200F6FF20 /* LaunchScreen.storyboard */; };
-		53759D7D210755B20006C718 /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D79210755B20006C718 /* Account+CoreDataClass.swift */; };
-		53759D7E210755B20006C718 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D7A210755B20006C718 /* Account+CoreDataProperties.swift */; };
-		53759D7F210755B20006C718 /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D7B210755B20006C718 /* Transaction+CoreDataClass.swift */; };
-		53759D80210755B20006C718 /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D7C210755B20006C718 /* Transaction+CoreDataProperties.swift */; };
+		53759D85210757FC0006C718 /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D81210757FC0006C718 /* Account+CoreDataClass.swift */; };
+		53759D86210757FC0006C718 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D82210757FC0006C718 /* Account+CoreDataProperties.swift */; };
+		53759D87210757FC0006C718 /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D83210757FC0006C718 /* Transaction+CoreDataClass.swift */; };
+		53759D88210757FC0006C718 /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D84210757FC0006C718 /* Transaction+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,10 +26,10 @@
 		530A3C8C21074D8200F6FF20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		530A3C8F21074D8200F6FF20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		530A3C9121074D8200F6FF20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		53759D79210755B20006C718 /* Account+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataClass.swift"; sourceTree = "<group>"; };
-		53759D7A210755B20006C718 /* Account+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		53759D7B210755B20006C718 /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
-		53759D7C210755B20006C718 /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		53759D81210757FC0006C718 /* Account+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataClass.swift"; sourceTree = "<group>"; };
+		53759D82210757FC0006C718 /* Account+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		53759D83210757FC0006C718 /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
+		53759D84210757FC0006C718 /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,10 +46,10 @@
 		530A3C7621074D8100F6FF20 = {
 			isa = PBXGroup;
 			children = (
-				53759D79210755B20006C718 /* Account+CoreDataClass.swift */,
-				53759D7A210755B20006C718 /* Account+CoreDataProperties.swift */,
-				53759D7B210755B20006C718 /* Transaction+CoreDataClass.swift */,
-				53759D7C210755B20006C718 /* Transaction+CoreDataProperties.swift */,
+				53759D81210757FC0006C718 /* Account+CoreDataClass.swift */,
+				53759D82210757FC0006C718 /* Account+CoreDataProperties.swift */,
+				53759D83210757FC0006C718 /* Transaction+CoreDataClass.swift */,
+				53759D84210757FC0006C718 /* Transaction+CoreDataProperties.swift */,
 				530A3C8121074D8100F6FF20 /* goldbac */,
 				530A3C8021074D8100F6FF20 /* Products */,
 			);
@@ -147,12 +147,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				530A3C8B21074D8100F6FF20 /* goldbac.xcdatamodeld in Sources */,
-				53759D80210755B20006C718 /* Transaction+CoreDataProperties.swift in Sources */,
+				53759D88210757FC0006C718 /* Transaction+CoreDataProperties.swift in Sources */,
 				530A3C8521074D8100F6FF20 /* ViewController.swift in Sources */,
-				53759D7E210755B20006C718 /* Account+CoreDataProperties.swift in Sources */,
+				53759D86210757FC0006C718 /* Account+CoreDataProperties.swift in Sources */,
 				530A3C8321074D8100F6FF20 /* AppDelegate.swift in Sources */,
-				53759D7F210755B20006C718 /* Transaction+CoreDataClass.swift in Sources */,
-				53759D7D210755B20006C718 /* Account+CoreDataClass.swift in Sources */,
+				53759D87210757FC0006C718 /* Transaction+CoreDataClass.swift in Sources */,
+				53759D85210757FC0006C718 /* Account+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

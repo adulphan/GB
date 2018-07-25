@@ -26,8 +26,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
-
-        // Override point for customization after application launch.
+        let transaction = Transaction(context: context)
+        print(transaction.totalAmount)
+        transaction.moneyArray = [400,500,-900]
+        print(transaction.totalAmount)
+        
+        let account = Account(context: context)
+        
+        context.delete(transaction)
+        context.delete(account)
+        
         return true
     }
 
