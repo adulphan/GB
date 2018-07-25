@@ -1,17 +1,16 @@
 //
-//  Transaction+CoreDataClass.swift
+//  TransactionCustomExtension.swift
 //  goldbac
 //
-//  Created by adulphan youngmod on 24/7/18.
+//  Created by adulphan youngmod on 25/7/18.
 //  Copyright © 2018 goldbac Inc. All rights reserved.
-//
 //
 
 import Foundation
 import CoreData
 
 
-public class Transaction: NSManagedObject {
+extension Transaction {
     
     var totalAmount: Double {
         get{
@@ -43,7 +42,7 @@ public class Transaction: NSManagedObject {
         
         let numberOfToAccounts = self.moneyArray.filter{$0 > 0}.count
         let accountArray = (self.accounts.array as! [Account]).dropLast(numberOfToAccounts)
-            
+        
         return Array(accountArray)
     }
     
@@ -54,18 +53,6 @@ public class Transaction: NSManagedObject {
         
         return Array(accountArray)
     }
-
-
+    
+    
 }
-
-
-
-
-
-
-
-
-
-
-
-
