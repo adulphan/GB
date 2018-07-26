@@ -21,8 +21,9 @@ extension CoreData {
         case yearly = 365
 
     }
+    
 
-    func createPeriodicTransactions(from: [Account], to: [Account], title: String, amount: Double, proportion: [Double], note:String?, url:String? , frequency: frequency, count: Int, referenceData: Date) {
+    func createPeriodicTransactions(from: [Account], to: [Account], title: String, amount: Double, proportion: [Double], note:String?, url:String? , frequency: Calendar.Component, count: Int, referenceDate: Date) {
         
         for i in 0...count-1 {
 
@@ -40,11 +41,17 @@ extension CoreData {
             if let text = url {
                 transaction.url = text
             }
+
+            if let date = Calendar.current.date(byAdding: frequency, value: -i, to: referenceDate) {
+                transaction.date = DateFormat.main.standardized(date: date)
             
-            let double = Double(i)
-            let interval = -frequency.rawValue*24*60*60*double
-            let date = Date(timeInterval: interval, since: referenceData)
-            transaction.date = date
+            }
+            
+//            else {
+//                let date = Calendar.current.date(byAdding: frequency, value: -i, to: referenceDate)
+//            }
+
+            
             
             let recordID = UUID().uuidString
             transaction.recordID = recordID

@@ -22,6 +22,7 @@
 		53759D9321080C600006C718 /* TransactionCustomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D9221080C600006C718 /* TransactionCustomExtension.swift */; };
 		53759D9621082C360006C718 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D9521082C360006C718 /* CoreData.swift */; };
 		53759D9B210892420006C718 /* SimulateTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D9A210892420006C718 /* SimulateTransaction.swift */; };
+		5379B672210954CA00307909 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5379B671210954CA00307909 /* DateFormat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		53759D9221080C600006C718 /* TransactionCustomExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCustomExtension.swift; sourceTree = "<group>"; };
 		53759D9521082C360006C718 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 		53759D9A210892420006C718 /* SimulateTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulateTransaction.swift; sourceTree = "<group>"; };
+		5379B671210954CA00307909 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 		530A3C8121074D8100F6FF20 /* goldbac */ = {
 			isa = PBXGroup;
 			children = (
+				5379B671210954CA00307909 /* DateFormat.swift */,
 				530A3C8221074D8100F6FF20 /* AppDelegate.swift */,
 				530A3C8421074D8100F6FF20 /* ViewController.swift */,
 				530A3C8C21074D8200F6FF20 /* Assets.xcassets */,
@@ -189,6 +192,7 @@
 				53759D9B210892420006C718 /* SimulateTransaction.swift in Sources */,
 				53759D88210757FC0006C718 /* Transaction+CoreDataProperties.swift in Sources */,
 				530A3C8521074D8100F6FF20 /* ViewController.swift in Sources */,
+				5379B672210954CA00307909 /* DateFormat.swift in Sources */,
 				53759D8A2107FB800006C718 /* ManageCoreData.swift in Sources */,
 				530A3C8321074D8100F6FF20 /* AppDelegate.swift in Sources */,
 				53759D87210757FC0006C718 /* Transaction+CoreDataClass.swift in Sources */,

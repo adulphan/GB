@@ -31,8 +31,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let from = [all[0]]
         let to = [all[5],all[40]]
         
-        let date = Calendar.current.startOfDay(for: Date()).addingTimeInterval(12*60*60)
-        CoreData.main.createPeriodicTransactions(from: from, to: to, title: "title of periodic", amount: 500, proportion: [-1,0.8,0.2], note: nil, url: nil, frequency: CoreData.frequency.monthly, count: 3, referenceData: date)
+
+        var component = DateComponents()
+        component.day = 30
+        component.month = 5
+        component.year = 2018
+        let date = Calendar.current.date(from: component)!
+        
+        CoreData.main.createPeriodicTransactions(from: from, to: to, title: "title of periodic", amount: 500, proportion: [-1,0.8,0.2], note: nil, url: nil, frequency: .month, count: 4, referenceDate: date)
         
         //CoreData.main.printData()
         
