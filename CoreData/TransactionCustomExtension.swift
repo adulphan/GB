@@ -30,6 +30,8 @@ extension Transaction {
         }
     }
     
+    //var fromAccountsString: String
+    
     private func getTotalAmount() -> Double {
         var total:Double = 0
         for amount in self.moneyArray {
@@ -54,5 +56,13 @@ extension Transaction {
         return Array(accountArray)
     }
     
-    
+
 }
+
+
+
+
+
+
+
+

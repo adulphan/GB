@@ -25,17 +25,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = controller
         
         CoreData.main.clearAllCoreData()
-        CoreData.main.simulateAccounts()
+        CoreDataSimulation.main.simulateAccounts()
+//        CoreDataSimulation.main.printAllAccounts()
         
-        let all = CoreData.main.allAccountsInCoreData!
-        let from = [all[0]]
-        let to = [all[5],all[40]]
-        
+        CoreDataSimulation.main.simulateTransaction()
+        CoreDataSimulation.main.printAllTransactions()
 
-        CoreData.main.createPeriodicTransactions(from: from, to: to, title: "title of periodic", amount: 500, proportion: [-1,0.8,0.2], note: nil, url: nil, frequency: .month, multiple: 2, count: 4, startDate: 31, month: 5, year: 2018)
-        
-
-        //CoreData.main.printData()
+        let allAccounts = CoreData.main.allAccountsInCoreData!
+        CoreDataSimulation.main.printNumberOftransactionIn(accounts: allAccounts)
 
         return true
     }

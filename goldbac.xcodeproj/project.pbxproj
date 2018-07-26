@@ -23,6 +23,9 @@
 		53759D9621082C360006C718 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D9521082C360006C718 /* CoreData.swift */; };
 		53759D9B210892420006C718 /* SimulateTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D9A210892420006C718 /* SimulateTransaction.swift */; };
 		5379B672210954CA00307909 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5379B671210954CA00307909 /* DateFormat.swift */; };
+		5379B6742109C7DB00307909 /* PeriodicTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5379B6732109C7DB00307909 /* PeriodicTransactions.swift */; };
+		5379B6762109D46500307909 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5379B6752109D46500307909 /* Helper.swift */; };
+		5379B67B2109D92F00307909 /* CoreDataSimulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5379B67A2109D92F00307909 /* CoreDataSimulation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		53759D9521082C360006C718 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 		53759D9A210892420006C718 /* SimulateTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulateTransaction.swift; sourceTree = "<group>"; };
 		5379B671210954CA00307909 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
+		5379B6732109C7DB00307909 /* PeriodicTransactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTransactions.swift; sourceTree = "<group>"; };
+		5379B6752109D46500307909 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		5379B67A2109D92F00307909 /* CoreDataSimulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSimulation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +66,9 @@
 		530A3C7621074D8100F6FF20 = {
 			isa = PBXGroup;
 			children = (
+				5379B67C2109DC7A00307909 /* Format */,
 				53759D9421080D300006C718 /* CoreData_CodeGen */,
+				5379B6792109D4F500307909 /* CoreDataSimulation */,
 				53759D8B2107FB910006C718 /* CoreData */,
 				530A3C8121074D8100F6FF20 /* goldbac */,
 				530A3C8021074D8100F6FF20 /* Products */,
@@ -78,7 +86,6 @@
 		530A3C8121074D8100F6FF20 /* goldbac */ = {
 			isa = PBXGroup;
 			children = (
-				5379B671210954CA00307909 /* DateFormat.swift */,
 				530A3C8221074D8100F6FF20 /* AppDelegate.swift */,
 				530A3C8421074D8100F6FF20 /* ViewController.swift */,
 				530A3C8C21074D8200F6FF20 /* Assets.xcassets */,
@@ -96,8 +103,6 @@
 				53759D9221080C600006C718 /* TransactionCustomExtension.swift */,
 				53759D9521082C360006C718 /* CoreData.swift */,
 				53759D892107FB800006C718 /* ManageCoreData.swift */,
-				53759D8C2107FD990006C718 /* SimulateAccounts.swift */,
-				53759D9A210892420006C718 /* SimulateTransaction.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -111,6 +116,26 @@
 				53759D84210757FC0006C718 /* Transaction+CoreDataProperties.swift */,
 			);
 			path = CoreData_CodeGen;
+			sourceTree = "<group>";
+		};
+		5379B6792109D4F500307909 /* CoreDataSimulation */ = {
+			isa = PBXGroup;
+			children = (
+				5379B67A2109D92F00307909 /* CoreDataSimulation.swift */,
+				53759D8C2107FD990006C718 /* SimulateAccounts.swift */,
+				53759D9A210892420006C718 /* SimulateTransaction.swift */,
+				5379B6732109C7DB00307909 /* PeriodicTransactions.swift */,
+				5379B6752109D46500307909 /* Helper.swift */,
+			);
+			path = CoreDataSimulation;
+			sourceTree = "<group>";
+		};
+		5379B67C2109DC7A00307909 /* Format */ = {
+			isa = PBXGroup;
+			children = (
+				5379B671210954CA00307909 /* DateFormat.swift */,
+			);
+			path = Format;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,13 +215,16 @@
 				53759D9621082C360006C718 /* CoreData.swift in Sources */,
 				53759D8D2107FD990006C718 /* SimulateAccounts.swift in Sources */,
 				53759D9B210892420006C718 /* SimulateTransaction.swift in Sources */,
+				5379B6762109D46500307909 /* Helper.swift in Sources */,
 				53759D88210757FC0006C718 /* Transaction+CoreDataProperties.swift in Sources */,
 				530A3C8521074D8100F6FF20 /* ViewController.swift in Sources */,
 				5379B672210954CA00307909 /* DateFormat.swift in Sources */,
+				5379B6742109C7DB00307909 /* PeriodicTransactions.swift in Sources */,
 				53759D8A2107FB800006C718 /* ManageCoreData.swift in Sources */,
 				530A3C8321074D8100F6FF20 /* AppDelegate.swift in Sources */,
 				53759D87210757FC0006C718 /* Transaction+CoreDataClass.swift in Sources */,
 				53759D85210757FC0006C718 /* AccountCustomExtension.swift in Sources */,
+				5379B67B2109D92F00307909 /* CoreDataSimulation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

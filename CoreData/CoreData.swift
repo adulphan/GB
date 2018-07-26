@@ -21,6 +21,18 @@ class CoreData {
         }
 
     }
+    
+    enum AccountType : Int {
+        
+        case cash = 0
+        case card = 1
+        case bank = 2
+        case expense = 3
+        case income = 4
+        case asset = 5
+        case debt = 6
+        case equity = 7
+    }
 
     private func getAccountsWithType(type: AccountType) -> [Account]? {
         let allAccounts = allAccountsInCoreData
@@ -50,17 +62,8 @@ class CoreData {
         }
     }
 
-    enum AccountType : Int {
-        
-        case cash = 0
-        case card = 1
-        case bank = 2
-        case expense = 3
-        case income = 4
-        case asset = 5
-        case debt = 6
-        case equity = 7
-    }
+
+    
 }
 
 
