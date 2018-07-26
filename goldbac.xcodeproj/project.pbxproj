@@ -16,11 +16,12 @@
 		53759D87210757FC0006C718 /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D83210757FC0006C718 /* Transaction+CoreDataClass.swift */; };
 		53759D88210757FC0006C718 /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D84210757FC0006C718 /* Transaction+CoreDataProperties.swift */; };
 		53759D8A2107FB800006C718 /* ManageCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D892107FB800006C718 /* ManageCoreData.swift */; };
-		53759D8D2107FD990006C718 /* SimulateCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D8C2107FD990006C718 /* SimulateCoreData.swift */; };
+		53759D8D2107FD990006C718 /* SimulateAccounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D8C2107FD990006C718 /* SimulateAccounts.swift */; };
 		53759D9021080B1B0006C718 /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D8E21080B1B0006C718 /* Account+CoreDataClass.swift */; };
 		53759D9121080B1B0006C718 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D8F21080B1B0006C718 /* Account+CoreDataProperties.swift */; };
 		53759D9321080C600006C718 /* TransactionCustomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D9221080C600006C718 /* TransactionCustomExtension.swift */; };
 		53759D9621082C360006C718 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D9521082C360006C718 /* CoreData.swift */; };
+		53759D9B210892420006C718 /* SimulateTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D9A210892420006C718 /* SimulateTransaction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,11 +36,12 @@
 		53759D83210757FC0006C718 /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
 		53759D84210757FC0006C718 /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		53759D892107FB800006C718 /* ManageCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageCoreData.swift; sourceTree = "<group>"; };
-		53759D8C2107FD990006C718 /* SimulateCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulateCoreData.swift; sourceTree = "<group>"; };
+		53759D8C2107FD990006C718 /* SimulateAccounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulateAccounts.swift; sourceTree = "<group>"; };
 		53759D8E21080B1B0006C718 /* Account+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataClass.swift"; sourceTree = "<group>"; };
 		53759D8F21080B1B0006C718 /* Account+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		53759D9221080C600006C718 /* TransactionCustomExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCustomExtension.swift; sourceTree = "<group>"; };
 		53759D9521082C360006C718 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
+		53759D9A210892420006C718 /* SimulateTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulateTransaction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +93,8 @@
 				53759D9221080C600006C718 /* TransactionCustomExtension.swift */,
 				53759D9521082C360006C718 /* CoreData.swift */,
 				53759D892107FB800006C718 /* ManageCoreData.swift */,
-				53759D8C2107FD990006C718 /* SimulateCoreData.swift */,
+				53759D8C2107FD990006C718 /* SimulateAccounts.swift */,
+				53759D9A210892420006C718 /* SimulateTransaction.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -182,7 +185,8 @@
 				53759D9021080B1B0006C718 /* Account+CoreDataClass.swift in Sources */,
 				53759D9321080C600006C718 /* TransactionCustomExtension.swift in Sources */,
 				53759D9621082C360006C718 /* CoreData.swift in Sources */,
-				53759D8D2107FD990006C718 /* SimulateCoreData.swift in Sources */,
+				53759D8D2107FD990006C718 /* SimulateAccounts.swift in Sources */,
+				53759D9B210892420006C718 /* SimulateTransaction.swift in Sources */,
 				53759D88210757FC0006C718 /* Transaction+CoreDataProperties.swift in Sources */,
 				530A3C8521074D8100F6FF20 /* ViewController.swift in Sources */,
 				53759D8A2107FB800006C718 /* ManageCoreData.swift in Sources */,

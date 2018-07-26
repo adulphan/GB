@@ -1,5 +1,5 @@
 //
-//  SimulateCoreData.swift
+//  SimulateAccounts.swift
 //  goldbac
 //
 //  Created by adulphan youngmod on 25/7/18.
@@ -7,26 +7,41 @@
 //
 
 import Foundation
+import CoreData
+import UIKit
 
 extension CoreData {
     
-    enum AccountType : Int {
+//    func simulateTransaction() {
         
-        case cash = 0
-        case card = 1
-        case bank = 2
-        case expense = 3
-        case income = 4
-        case asset = 5
-        case debt = 6
-        case equity = 7
-    }
-    
-    func simulateTransaction() {
+//        let accounts = allAccountsInCoreData
+//        
+//        let groceryTitle = ["Big C","Tesco Online"]
+//        let cashTitle = ["Withdraw Cash"]
+//        let utilityTitle = ["Monthly electricity", "Water utility"]
+//        let eatOutTitle = ["MK Suki","McDonald"]
+//        let carTitle = ["Clean Vigo","Clean Yaris"]
+//        let transferTitle = ["Invest in Land","Buy stocks"]
+//        let catTitle = ["Buy cat food", "Cat vaccine"]
+//        let medicalTitle = ["Mom medical", "Vitamin B12"]
+//        let titles = groceryTitle + cashTitle + utilityTitle + eatOutTitle + carTitle + transferTitle + catTitle + medicalTitle
+//        let randomTitle = titles[randomInt(min: 0, max: titles.count-1)]
+//        
+//        switch <#value#> {
+//        case <#pattern#>:
+//            <#code#>
+//        default:
+//            <#code#>
+//        }
+//        
+//        
+//        
+//        let accountsCounterpart = []
+//        
+//        let newTransaction = Transaction(context: context)
+//        newTransaction.title
         
-        
-        
-    }
+//    }
     
     func simulateAccounts() {
         
@@ -46,7 +61,7 @@ extension CoreData {
                 let newAcount = Account(context: context)
                 newAcount.name = String(name.uppercased().first!) + String(name.dropFirst())
                 newAcount.type = Int16(type)
-                let recordID = UUID().uuidString + ".account"
+                let recordID = UUID().uuidString
                 newAcount.recordID = recordID
             }
         }
@@ -55,7 +70,7 @@ extension CoreData {
         
     }
     
-    
+
     
 }
 

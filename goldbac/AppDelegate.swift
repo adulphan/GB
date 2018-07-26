@@ -26,7 +26,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         CoreData.main.clearAllCoreData()
         CoreData.main.simulateAccounts()
-        CoreData.main.printData()
+        
+        let all = CoreData.main.allAccountsInCoreData!
+        let from = [all[0]]
+        let to = [all[5],all[40]]
+        
+        let date = Calendar.current.startOfDay(for: Date()).addingTimeInterval(12*60*60)
+        CoreData.main.createPeriodicTransactions(from: from, to: to, title: "title of periodic", amount: 500, proportion: [-1,0.8,0.2], note: nil, url: nil, frequency: CoreData.frequency.monthly, count: 3, referenceData: date)
+        
+        //CoreData.main.printData()
         
         return true
     }
