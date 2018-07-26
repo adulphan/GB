@@ -15,6 +15,17 @@ class CoreDataSimulation {
     static let main = CoreDataSimulation()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let components = Calendar.current.dateComponents([.day,.month,.year], from: Date())
-    var allAccounts:[Account] = []
+    var allAccounts: [Account] = []
+
 }
+
+
+
+
+
+
+
+
+
+
 
