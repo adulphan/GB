@@ -23,7 +23,7 @@ extension CoreData {
     }
     
 
-    func createPeriodicTransactions(from: [Account], to: [Account], title: String, amount: Double, proportion: [Double], note:String?, url:String? , frequency: Calendar.Component, count: Int, referenceDate: Date) {
+    func createPeriodicTransactions(from: [Account], to: [Account], title: String, amount: Double, proportion: [Double], note:String?, url:String? , frequency: Calendar.Component, multiple: Int, count: Int, startDate: Int, month: Int, year: Int) {
         
         for i in 0...count-1 {
 
@@ -41,18 +41,16 @@ extension CoreData {
             if let text = url {
                 transaction.url = text
             }
+            
+            var components = DateComponents()
+            components.day = startDate
+            components.month = month
+            components.year = year
+            let reference = Calendar.current.date(from: components)!
 
-            if let date = Calendar.current.date(byAdding: frequency, value: -i, to: referenceDate) {
-                transaction.date = DateFormat.main.standardized(date: date)
-            
-            }
-            
-//            else {
-//                let date = Calendar.current.date(byAdding: frequency, value: -i, to: referenceDate)
-//            }
+            let date = Calendar.current.date(byAdding: frequency, value: -i*multiple, to: reference)!
+            transaction.date = DateFormat.main.standardized(date: date)
 
-            
-            
             let recordID = UUID().uuidString
             transaction.recordID = recordID
             print(transaction)
