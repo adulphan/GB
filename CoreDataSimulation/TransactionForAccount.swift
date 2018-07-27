@@ -1,5 +1,5 @@
 //
-//  SimulateTransactionForAccount.swift
+//  TransactionForAccount.swift
 //  goldbac
 //
 //  Created by adulphan youngmod on 27/7/18.

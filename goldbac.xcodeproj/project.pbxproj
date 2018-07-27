@@ -27,7 +27,7 @@
 		5379B6742109C7DB00307909 /* PeriodicTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5379B6732109C7DB00307909 /* PeriodicTransactions.swift */; };
 		5379B6762109D46500307909 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5379B6752109D46500307909 /* Helper.swift */; };
 		5379B67B2109D92F00307909 /* CoreDataSimulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5379B67A2109D92F00307909 /* CoreDataSimulation.swift */; };
-		53E39921210B29CE00A31B41 /* SimulateTransactionForAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E39920210B29CE00A31B41 /* SimulateTransactionForAccount.swift */; };
+		53E39921210B29CE00A31B41 /* TransactionForAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E39920210B29CE00A31B41 /* TransactionForAccount.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,7 +53,7 @@
 		5379B6732109C7DB00307909 /* PeriodicTransactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTransactions.swift; sourceTree = "<group>"; };
 		5379B6752109D46500307909 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		5379B67A2109D92F00307909 /* CoreDataSimulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSimulation.swift; sourceTree = "<group>"; };
-		53E39920210B29CE00A31B41 /* SimulateTransactionForAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulateTransactionForAccount.swift; sourceTree = "<group>"; };
+		53E39920210B29CE00A31B41 /* TransactionForAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionForAccount.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,7 +129,7 @@
 				53759D8C2107FD990006C718 /* SimulateAccounts.swift */,
 				53759D9A210892420006C718 /* SimulateTransaction.swift */,
 				5379B6732109C7DB00307909 /* PeriodicTransactions.swift */,
-				53E39920210B29CE00A31B41 /* SimulateTransactionForAccount.swift */,
+				53E39920210B29CE00A31B41 /* TransactionForAccount.swift */,
 				534B22E8210AD7F5007F1DA6 /* SimulateChangeTransaction.swift */,
 				5379B6752109D46500307909 /* Helper.swift */,
 			);
@@ -226,7 +226,7 @@
 				53759D88210757FC0006C718 /* Transaction+CoreDataProperties.swift in Sources */,
 				530A3C8521074D8100F6FF20 /* ViewController.swift in Sources */,
 				5379B672210954CA00307909 /* DateFormat.swift in Sources */,
-				53E39921210B29CE00A31B41 /* SimulateTransactionForAccount.swift in Sources */,
+				53E39921210B29CE00A31B41 /* TransactionForAccount.swift in Sources */,
 				5379B6742109C7DB00307909 /* PeriodicTransactions.swift in Sources */,
 				53759D8A2107FB800006C718 /* ManageCoreData.swift in Sources */,
 				530A3C8321074D8100F6FF20 /* AppDelegate.swift in Sources */,
