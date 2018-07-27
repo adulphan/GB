@@ -16,9 +16,9 @@ extension CoreDataSimulation {
         
         allAccounts = CoreData.main.allAccountsInCoreData!
         
-//        simulateGroceryTransaction(yearsHistory: 1)
-//        simulateUtilityTransaction(yearsHistory: 1)
-//        simulateOtherExpenseTransaction(yearsHistory: 1)
+        simulateGroceryTransaction(yearsHistory: 1)
+        simulateUtilityTransaction(yearsHistory: 1)
+        simulateOtherExpenseTransaction(yearsHistory: 1)
 //        
         simulateIncome(yearsHistory: 1)
 

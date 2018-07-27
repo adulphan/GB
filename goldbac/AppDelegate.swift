@@ -27,11 +27,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         CoreDataSimulation.main.simulateAccounts()
 //        CoreDataSimulation.main.printAllAccounts()
         
-        CoreDataSimulation.main.simulateTransaction()
-        CoreDataSimulation.main.printAllTransactions()
+//        CoreDataSimulation.main.simulateTransaction()
+//        CoreDataSimulation.main.printAllTransactions()
 
-        let allAccounts = CoreData.main.allAccountsInCoreData!
-        CoreDataSimulation.main.printNumberOftransactionIn(accounts: allAccounts)
+//        let allAccounts = CoreData.main.allAccountsInCoreData!
+//        CoreDataSimulation.main.printNumberOftransactionIn(accounts: allAccounts)
+        
+//        CoreDataSimulation.main.simulateDeleteTransaction()
+//
+//        print("///")
+//        CoreDataSimulation.main.simulateEditTransaction()
+//
+//        print("///")
+//        CoreDataSimulation.main.simulateAddTransaction()
+//        print("///")
+        
+        CoreDataSimulation.main.createTransactionsForAnAccount()
 
         return true
     }

@@ -22,6 +22,13 @@ class CoreData {
 
     }
     
+    var allTransactionsInCoreData:[Transaction]? {
+        get{
+            return getAllTransactions()
+        }
+        
+    }
+    
     enum AccountType : Int {
         
         case cash = 0
@@ -56,6 +63,20 @@ class CoreData {
                 print("No account in CoreData")
             }
             return accounts
+        } catch {
+            print("Loading Account failed")
+            return nil
+        }
+    }
+    
+    private func getAllTransactions() -> [Transaction]? {
+        do {
+            let fetchRequest = try context.fetch(Transaction.fetchRequest())
+            let transactions = fetchRequest as! [Transaction]
+            if transactions.count == 0 {
+                print("No transaction in CoreData")
+            }
+            return transactions
         } catch {
             print("Loading Account failed")
             return nil

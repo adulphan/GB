@@ -16,7 +16,7 @@ class CoreDataSimulation {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let components = Calendar.current.dateComponents([.day,.month,.year], from: Date())
     var allAccounts: [Account] = []
-
+    var allTransactions: [Transaction] = []
 }
 
 

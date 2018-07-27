@@ -24,7 +24,7 @@ extension CoreDataSimulation {
             
             let randomAmount = amount[randomInt(min: 0, max: amount.count-1)]
             
-            let moneyArray:[Double] = [1,-1].map{$0*randomAmount}
+            let moneyArray:[Double] = [-1,1].map{$0*randomAmount}
             transaction.moneyArray = moneyArray
             
             let randomTitle = title[randomInt(min: 0, max: title.count-1)]

@@ -17,6 +17,12 @@ extension CoreData {
         catch { print("Saving CoreData failed") }
     }
     
+    func delete(transaction: Transaction) {
+        context.delete(transaction)
+
+    }
+    
+    
     func clearAllCoreData(){
 
         do {

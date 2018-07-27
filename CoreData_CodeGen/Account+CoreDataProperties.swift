@@ -21,7 +21,7 @@ extension Account {
     @NSManaged public var name: String
     @NSManaged public var recordID: String
     @NSManaged public var type: Int16
-    @NSManaged public var balance: [Double]
+    @NSManaged public var balance: Double
     @NSManaged public var transactions: NSOrderedSet?
 
 }

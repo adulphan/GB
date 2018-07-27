@@ -32,6 +32,7 @@ extension CoreDataSimulation {
                 newAcount.type = Int16(type)
                 let recordID = UUID().uuidString
                 newAcount.recordID = recordID
+                newAcount.balance = 0
             }
         }
         

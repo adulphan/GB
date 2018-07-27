@@ -29,9 +29,7 @@ extension Transaction {
             return getToAccounts()
         }
     }
-    
-    //var fromAccountsString: String
-    
+ 
     private func getTotalAmount() -> Double {
         var total:Double = 0
         for amount in self.moneyArray {
@@ -54,6 +52,18 @@ extension Transaction {
         let accountArray = (self.accounts.array as! [Account]).dropFirst(numberOfFromAccounts)
         
         return Array(accountArray)
+    }
+    
+    
+    func updateBalance() {        
+        let accounts = self.accounts
+        let moneyArray = self.moneyArray
+        
+        for i in 0...accounts.count-1 {
+            let account = accounts.array[i] as! Account
+            account.balance += moneyArray[i]
+        }
+        
     }
     
 
