@@ -13,6 +13,11 @@ import CoreData
 
 public class Transaction: NSManagedObject {
 
+    public override func didSave() {
+        super.didSave()
+        
+        
+    }
 
 }
 
