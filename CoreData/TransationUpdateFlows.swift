@@ -25,9 +25,6 @@ extension Transaction {
         if let moneyArray = cachedOldValues?.filter({(key,value) -> Bool in
             key == "moneyArray"
         }).first {
-            
-            print(moneyArray.value)
-            
             oldMoneyArray = moneyArray.value as! [Double]
         } else {
             oldMoneyArray = self.moneyArray
@@ -57,12 +54,25 @@ extension Transaction {
         for account in oldAccounts {
             let index = oldAccounts.index(of: account)!
             let monthEnd = DateFormat.main.standardized(date: oldDate.monthEnd)
+            let flowArray = account.flowArray
             
-            let monthFlow = account.flowArray.filter { (flow) -> Bool in
+            let withSameMonth = flowArray.filter { (flow) -> Bool in
                 flow.monthEnd == monthEnd
-                }.first!
+            }
             
-            monthFlow.number -= oldMoneyArray[index]
+            if let alreadyCreated = withSameMonth.first {
+                alreadyCreated.number -= oldMoneyArray[index]
+                if alreadyCreated.number == Double(0) {
+                    CoreData.main.context.delete(alreadyCreated)
+                }
+            } else {
+                
+                let flow = Flow(context: CoreData.main.context)
+                flow.account = account
+                flow.number = -oldMoneyArray[index]
+                flow.monthEnd = monthEnd
+                
+            }
             
         }
         
@@ -115,7 +125,9 @@ extension Transaction {
             
             if let alreadyCreated = withSameMonth.first {
                 alreadyCreated.number += moneyArray[index]
-                
+                if alreadyCreated.number == Double(0) {
+                    CoreData.main.context.delete(alreadyCreated)
+                }
             } else {
                 
                 let flow = Flow(context: CoreData.main.context)

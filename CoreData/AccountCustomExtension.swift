@@ -12,23 +12,8 @@ import CoreData
 
 extension Account {
     
-    var flowArray: [Flow] {
-        get{
-            return getFlowArray()
-        }
-    }
-    
-    var moneyArray: [Double] {
-        get{
-            return getMoneyArray()
-        }
-    }
-    
-    private var transactionArray: [Transaction] {
-        get{
-            return getTransactionArray()
-        }
-    }
+    var flowArray: [Flow] { get{return getFlowArray()}}
+    var transactionArray: [Transaction] {get{return getTransactionArray()}}
     
     private func getFlowArray() -> [Flow] {
         let orderedSet = self.flows as! NSMutableOrderedSet
@@ -45,35 +30,5 @@ extension Account {
         let transactionArray = orderedSet.array as! [Transaction]
         return transactionArray
     }
-    
-    private func getMoneyArray() -> [Double] {
-        var array: [Double] = []
-        let tArray = transactionArray
-        for transaction in tArray {
-            let accounts = transaction.accounts.array as! [Account]
-            let index = accounts.index(of: self)!
-            let money = transaction.moneyArray[index]
-            array.append(money)
-        }
-        return array
-    }
-    
-    private func getOpositeAccounts() -> [[Account]] {
-        
-        var array: [[Account]] = []
-        let tArray = transactionArray
-        for transaction in tArray {
-            let fromAccounts = transaction.fromAccounts
-            if fromAccounts.contains(self) {
-                let opposite = transaction.toAccounts
-                array.append(opposite)
-            } else {
-                let opposite = transaction.fromAccounts
-                array.append(opposite)
-            }
-        }
-        return array
-    }
-    
 
 }

@@ -16,27 +16,27 @@ extension CoreDataSimulation {
         allTransactions = CoreData.main.allTransactionsInCoreData!
         allAccounts = CoreData.main.allAccountsInCoreData!
         
-//        let transaction = allTransactions[randomInt(min: 0, max: allTransactions.count-1)]
-//        transaction.moneyArray = transaction.moneyArray.map{$0*10}
-//        
-//        
-//        let date = Calendar.current.date(byAdding: .month, value: 0, to: Date())!
-//        transaction.date = DateFormat.main.standardized(date: date)
-//        
-//        
-//        print("edtited: \(transaction.recordID)")
-//        
-//        let index = allTransactions.index(of: transaction)
-//        allTransactions.remove(at: index!)
-//        
-//        let transaction_2 = allTransactions[randomInt(min: 0, max: allTransactions.count-1)]
-//        let date2 = Calendar.current.date(byAdding: .month, value: -200, to: Date())!
-//        transaction_2.date = DateFormat.main.standardized(date: date2)
-//
-//        print("edtited: \(transaction_2.recordID)")
-//        
-//        let index2 = allTransactions.index(of: transaction_2)
-//        allTransactions.remove(at: index2!)
+        let transaction = allTransactions[randomInt(min: 0, max: allTransactions.count-1)]
+        transaction.moneyArray = transaction.moneyArray.map{$0*10}
+        
+        
+        let date = Calendar.current.date(byAdding: .month, value: 0, to: Date())!
+        transaction.date = DateFormat.main.standardized(date: date)
+        
+        
+        print("edtited: \(transaction.recordID)")
+        
+        let index = allTransactions.index(of: transaction)
+        allTransactions.remove(at: index!)
+        
+        let transaction_2 = allTransactions[randomInt(min: 0, max: allTransactions.count-1)]
+        let date2 = Calendar.current.date(byAdding: .month, value: -200, to: Date())!
+        transaction_2.date = DateFormat.main.standardized(date: date2)
+
+        print("edtited: \(transaction_2.recordID)")
+        
+        let index2 = allTransactions.index(of: transaction_2)
+        allTransactions.remove(at: index2!)
         
         let transaction_3 = allTransactions[randomInt(min: 0, max: allTransactions.count-1)]
 

@@ -48,7 +48,7 @@ extension CoreDataSimulation {
             printSequenceOf(contents: [account.name,"\(count ?? 0)"])
             total += count!
         }
-        
+
         print("Total splitBits: \(total)")
     }
     

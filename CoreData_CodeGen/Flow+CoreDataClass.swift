@@ -14,3 +14,11 @@ import CoreData
 public class Flow: NSManagedObject {
 
 }
+
+
+public class Balance: Flow {
+    
+    
+    
+    
+}
