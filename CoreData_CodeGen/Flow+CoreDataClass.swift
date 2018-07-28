@@ -1,5 +1,5 @@
 //
-//  Account+CoreDataClass.swift
+//  Flow+CoreDataClass.swift
 //  goldbac
 //
 //  Created by adulphan youngmod on 27/7/18.
@@ -11,6 +11,6 @@ import Foundation
 import CoreData
 
 
-public class Account: NSManagedObject {
+public class Flow: NSManagedObject {
 
 }

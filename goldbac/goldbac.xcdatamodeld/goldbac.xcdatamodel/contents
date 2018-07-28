@@ -1,26 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Account" representedClassName=".Account" syncable="YES">
-        <attribute name="balance" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="beginBalance" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="imageRecordID" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="recordID" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="recordID" attributeType="String" syncable="YES"/>
+        <attribute name="type" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="flows" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Flow" inverseName="account" inverseEntity="Flow" syncable="YES"/>
         <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Transaction" inverseName="accounts" inverseEntity="Transaction" syncable="YES"/>
     </entity>
+    <entity name="Flow" representedClassName=".Flow" syncable="YES">
+        <attribute name="monthEnd" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="number" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="flows" inverseEntity="Account" syncable="YES"/>
+    </entity>
     <entity name="Transaction" representedClassName=".Transaction" syncable="YES">
-        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="imageRecordID" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <attribute name="modified" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="moneyArray" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="fullImageRecordID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="modified" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="moneyArray" attributeType="Transformable" syncable="YES"/>
         <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="recordID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="recordID" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnailRecordID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="accounts" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Account" inverseName="transactions" inverseEntity="Account" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Account" positionX="-63" positionY="45" width="128" height="135"/>
-        <element name="Transaction" positionX="-63" positionY="-18" width="128" height="180"/>
+        <element name="Account" positionX="-63" positionY="45" width="128" height="150"/>
+        <element name="Transaction" positionX="-63" positionY="-18" width="128" height="195"/>
+        <element name="Flow" positionX="-54" positionY="63" width="128" height="90"/>
     </elements>
 </model>

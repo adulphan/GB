@@ -56,14 +56,14 @@ extension Transaction {
     
     
     func updateBalance() {        
-        let accounts = self.accounts
-        let moneyArray = self.moneyArray
-        
-        for i in 0...accounts.count-1 {
-            let account = accounts.array[i] as! Account
-            account.balance += moneyArray[i]
-        }
-        
+//        let accounts = self.accounts
+//        let moneyArray = self.moneyArray
+//        
+//        for i in 0...accounts.count-1 {
+//            let account = accounts.array[i] as! Account
+//            account.balance += moneyArray[i]
+//        }
+//        
     }
     
 

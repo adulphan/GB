@@ -14,7 +14,7 @@ extension CoreData {
     
     func saveData() {
         do { try context.save() }
-        catch { print("Saving CoreData failed") }
+        catch { print("Saving CoreData failed: \(error)") }
     }
     
     func delete(transaction: Transaction) {
@@ -32,7 +32,7 @@ extension CoreData {
             }
             
         } catch {
-            print("Deleting Account failed")
+            print("Deleting Account failed: \(error)")
         }
 
         do {
@@ -43,7 +43,7 @@ extension CoreData {
             }
             
         } catch {
-            print("Deleting Transaction failed")
+            print("Deleting Transaction failed: \(error)")
         }
 
     }

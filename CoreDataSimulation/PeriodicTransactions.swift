@@ -49,13 +49,14 @@ extension CoreDataSimulation {
             date = Calendar.current.date(byAdding: .day, value: addFlex, to: date)!
             
             transaction.date = DateFormat.main.standardized(date: date)
+            transaction.modified = DateFormat.main.standardized(date: date)
             
             let recordID = UUID().uuidString
             transaction.recordID = recordID
 
         }
         
-        CoreData.main.saveData()
+        //CoreData.main.saveData()
         
     }
 

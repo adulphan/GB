@@ -18,8 +18,6 @@
 		53759D88210757FC0006C718 /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D84210757FC0006C718 /* Transaction+CoreDataProperties.swift */; };
 		53759D8A2107FB800006C718 /* ManageCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D892107FB800006C718 /* ManageCoreData.swift */; };
 		53759D8D2107FD990006C718 /* SimulateAccounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D8C2107FD990006C718 /* SimulateAccounts.swift */; };
-		53759D9021080B1B0006C718 /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D8E21080B1B0006C718 /* Account+CoreDataClass.swift */; };
-		53759D9121080B1B0006C718 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D8F21080B1B0006C718 /* Account+CoreDataProperties.swift */; };
 		53759D9321080C600006C718 /* TransactionCustomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D9221080C600006C718 /* TransactionCustomExtension.swift */; };
 		53759D9621082C360006C718 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D9521082C360006C718 /* CoreData.swift */; };
 		53759D9B210892420006C718 /* SimulateTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D9A210892420006C718 /* SimulateTransaction.swift */; };
@@ -27,6 +25,10 @@
 		5379B6742109C7DB00307909 /* PeriodicTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5379B6732109C7DB00307909 /* PeriodicTransactions.swift */; };
 		5379B6762109D46500307909 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5379B6752109D46500307909 /* Helper.swift */; };
 		5379B67B2109D92F00307909 /* CoreDataSimulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5379B67A2109D92F00307909 /* CoreDataSimulation.swift */; };
+		53839FCB210B7F0F00F469EF /* Flow+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53839FC5210B7F0F00F469EF /* Flow+CoreDataClass.swift */; };
+		53839FCC210B7F0F00F469EF /* Flow+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53839FC6210B7F0F00F469EF /* Flow+CoreDataProperties.swift */; };
+		53839FCF210B802A00F469EF /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53839FCD210B802A00F469EF /* Account+CoreDataClass.swift */; };
+		53839FD0210B802A00F469EF /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53839FCE210B802A00F469EF /* Account+CoreDataProperties.swift */; };
 		53E39921210B29CE00A31B41 /* TransactionForAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E39920210B29CE00A31B41 /* TransactionForAccount.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,8 +46,6 @@
 		53759D84210757FC0006C718 /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		53759D892107FB800006C718 /* ManageCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageCoreData.swift; sourceTree = "<group>"; };
 		53759D8C2107FD990006C718 /* SimulateAccounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulateAccounts.swift; sourceTree = "<group>"; };
-		53759D8E21080B1B0006C718 /* Account+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataClass.swift"; sourceTree = "<group>"; };
-		53759D8F21080B1B0006C718 /* Account+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		53759D9221080C600006C718 /* TransactionCustomExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCustomExtension.swift; sourceTree = "<group>"; };
 		53759D9521082C360006C718 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 		53759D9A210892420006C718 /* SimulateTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulateTransaction.swift; sourceTree = "<group>"; };
@@ -53,6 +53,10 @@
 		5379B6732109C7DB00307909 /* PeriodicTransactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTransactions.swift; sourceTree = "<group>"; };
 		5379B6752109D46500307909 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		5379B67A2109D92F00307909 /* CoreDataSimulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSimulation.swift; sourceTree = "<group>"; };
+		53839FC5210B7F0F00F469EF /* Flow+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flow+CoreDataClass.swift"; sourceTree = "<group>"; };
+		53839FC6210B7F0F00F469EF /* Flow+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flow+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		53839FCD210B802A00F469EF /* Account+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataClass.swift"; sourceTree = "<group>"; };
+		53839FCE210B802A00F469EF /* Account+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		53E39920210B29CE00A31B41 /* TransactionForAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionForAccount.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,8 +118,10 @@
 		53759D9421080D300006C718 /* CoreData_CodeGen */ = {
 			isa = PBXGroup;
 			children = (
-				53759D8E21080B1B0006C718 /* Account+CoreDataClass.swift */,
-				53759D8F21080B1B0006C718 /* Account+CoreDataProperties.swift */,
+				53839FCD210B802A00F469EF /* Account+CoreDataClass.swift */,
+				53839FCE210B802A00F469EF /* Account+CoreDataProperties.swift */,
+				53839FC5210B7F0F00F469EF /* Flow+CoreDataClass.swift */,
+				53839FC6210B7F0F00F469EF /* Flow+CoreDataProperties.swift */,
 				53759D83210757FC0006C718 /* Transaction+CoreDataClass.swift */,
 				53759D84210757FC0006C718 /* Transaction+CoreDataProperties.swift */,
 			);
@@ -215,10 +221,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				534B22E9210AD7F5007F1DA6 /* SimulateChangeTransaction.swift in Sources */,
+				53839FCF210B802A00F469EF /* Account+CoreDataClass.swift in Sources */,
+				53839FD0210B802A00F469EF /* Account+CoreDataProperties.swift in Sources */,
 				530A3C8B21074D8100F6FF20 /* goldbac.xcdatamodeld in Sources */,
-				53759D9121080B1B0006C718 /* Account+CoreDataProperties.swift in Sources */,
-				53759D9021080B1B0006C718 /* Account+CoreDataClass.swift in Sources */,
 				53759D9321080C600006C718 /* TransactionCustomExtension.swift in Sources */,
+				53839FCC210B7F0F00F469EF /* Flow+CoreDataProperties.swift in Sources */,
 				53759D9621082C360006C718 /* CoreData.swift in Sources */,
 				53759D8D2107FD990006C718 /* SimulateAccounts.swift in Sources */,
 				53759D9B210892420006C718 /* SimulateTransaction.swift in Sources */,
@@ -226,6 +233,7 @@
 				53759D88210757FC0006C718 /* Transaction+CoreDataProperties.swift in Sources */,
 				530A3C8521074D8100F6FF20 /* ViewController.swift in Sources */,
 				5379B672210954CA00307909 /* DateFormat.swift in Sources */,
+				53839FCB210B7F0F00F469EF /* Flow+CoreDataClass.swift in Sources */,
 				53E39921210B29CE00A31B41 /* TransactionForAccount.swift in Sources */,
 				5379B6742109C7DB00307909 /* PeriodicTransactions.swift in Sources */,
 				53759D8A2107FB800006C718 /* ManageCoreData.swift in Sources */,

@@ -40,7 +40,7 @@ extension CoreDataSimulation {
             
         }
         
-        print(account.balance)
+        //print(account.balance)
 
     }
     
