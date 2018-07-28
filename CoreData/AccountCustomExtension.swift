@@ -12,6 +12,12 @@ import CoreData
 
 extension Account {
     
+    var flowArray: [Flow] {
+        get{
+            return getFlowArray()
+        }
+    }
+    
     var moneyArray: [Double] {
         get{
             return getMoneyArray()
@@ -22,6 +28,14 @@ extension Account {
         get{
             return getTransactionArray()
         }
+    }
+    
+    private func getFlowArray() -> [Flow] {
+        let orderedSet = self.flows as! NSMutableOrderedSet
+        let sortDescriptor = NSSortDescriptor(key: "monthEnd", ascending: false)
+        orderedSet.sort(using: [sortDescriptor])
+        let flowArray = orderedSet.array as! [Flow]
+        return flowArray
     }
     
     private func getTransactionArray() -> [Transaction] {

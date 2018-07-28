@@ -31,6 +31,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        CoreDataSimulation.main.printAllTransactions()
 
         CoreDataSimulation.main.createTransactionsForAnAccount()
+        
+        CoreDataSimulation.main.simulateDeleteTransaction()
+        
+        print(CoreData.main.allFlowsInCoreData?.count ?? 9999)
 
         return true
     }

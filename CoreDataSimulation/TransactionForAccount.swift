@@ -24,9 +24,9 @@ extension CoreDataSimulation {
     
         let opposite = allAccounts[randomInt(min: 0, max: allAccounts.count-1)]
         
-        createPeriodicTransactions(from: [account], to: [opposite], title: ["PayOut"], amount: [100,200,300,400,500,600,700,800], note: nil, url: nil, frequency: .month, multiple: 1, count: 2, startDate: day, month: month, year: year, flexibleDate: 1)
+        createPeriodicTransactions(from: [account], to: [opposite], title: ["PayOut"], amount: [100,200,300,400,500,600,700,800], note: nil, url: nil, frequency: .month, multiple: 1, count: 5, startDate: day, month: month, year: year, flexibleDate: 1)
         
-        createPeriodicTransactions(from: [opposite], to: [account], title: ["Receive"], amount: [100,200,300,400,500,600,700,800], note: nil, url: nil, frequency: .month, multiple: 1, count: 2, startDate: day-15, month: month, year: year, flexibleDate: 1)
+        createPeriodicTransactions(from: [opposite], to: [account], title: ["Receive"], amount: [100,200,300,400,500,600,700,800], note: nil, url: nil, frequency: .month, multiple: 1, count: 5, startDate: day-15, month: month, year: year, flexibleDate: 1)
         
         CoreData.main.saveData()
         
@@ -36,11 +36,20 @@ extension CoreDataSimulation {
             
             let index = transaction.accounts.index(of: account)
             let money = transaction.moneyArray[index]
-            print("\(transaction.recordID):  \(money)")
+            print("\(transaction.date):  \(money)")
             
         }
         
-        //print(account.balance)
+        print("\(account.name) has \(account.flows?.count ?? 0) flows")
+        
+        let flowArray = account.flowArray
+        
+        for flow in flowArray {
+            
+            print("\(flow.monthEnd) : \(flow.number)")
+            
+            
+        }
 
     }
     

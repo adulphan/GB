@@ -36,6 +36,7 @@ extension CoreDataSimulation {
         
         print("deleted: \(transaction.recordID)")
         CoreData.main.saveData()
+        
     }
     
     func simulateAddTransaction() {

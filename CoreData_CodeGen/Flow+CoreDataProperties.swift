@@ -18,7 +18,7 @@ extension Flow {
     }
 
     @NSManaged public var number: Double
-    @NSManaged public var monthEnd: NSDate?
-    @NSManaged public var account: Account?
+    @NSManaged public var monthEnd: Date
+    @NSManaged public var account: Account
 
 }

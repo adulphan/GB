@@ -29,6 +29,13 @@ class CoreData {
         
     }
     
+    var allFlowsInCoreData:[Flow]? {
+        get{
+            return getAllFlows()
+        }
+        
+    }
+    
     enum AccountType : Int {
         
         case cash = 0
@@ -79,6 +86,20 @@ class CoreData {
             return transactions
         } catch {
             print("Loading Account failed")
+            return nil
+        }
+    }
+    
+    private func getAllFlows() -> [Flow]? {
+        do {
+            let fetchRequest = try context.fetch(Flow.fetchRequest())
+            let flows = fetchRequest as! [Flow]
+            if flows.count == 0 {
+                print("No account in CoreData")
+            }
+            return flows
+        } catch {
+            print("Loading Flow failed")
             return nil
         }
     }

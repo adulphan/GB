@@ -12,6 +12,35 @@ import CoreData
 
 extension Transaction {
     
+    public override func didSave() {
+        super.didSave()
+        
+        if self.isDeleted {
+            
+            print("\(self.recordID) is deleted")
+            self.deleteFlows()
+            
+        } else if self.isUpdated {
+            
+            print("\(self.recordID) is updated")
+            
+        } else if self.isInserted {
+            
+            print("\(self.recordID) is inserted")
+            
+            self.insertFlows()
+            
+        } else if self.isFault {
+            
+            print("\(self.recordID) is fault")
+        } else {
+            
+            print("\(self.recordID) is doing sth else")
+        }
+        
+        
+    }
+    
     var totalAmount: Double {
         get{
             return getTotalAmount()
@@ -55,22 +84,78 @@ extension Transaction {
     }
     
     
-    func updateBalance() {        
+    private func deleteFlows() {
 //        let accounts = self.accounts
 //        let moneyArray = self.moneyArray
 //        
 //        for i in 0...accounts.count-1 {
 //            let account = accounts.array[i] as! Account
-//            account.balance += moneyArray[i]
+//            
+//            let monthEnd = DateFormat.main.standardized(date: self.date.monthEnd)
+//            let flowArray = account.flowArray
+//            
+//            let withSameMonth = flowArray.filter { (flow) -> Bool in
+//                flow.monthEnd == monthEnd
+//            }
+//            
+//            if let alreadyCreated = withSameMonth.first {
+//                alreadyCreated.number += -moneyArray[i]
+//                
+//            }
+//
 //        }
 //        
+//        CoreData.main.saveData()
+    }
+    
+    private func insertFlows() {
+        let accounts = self.accounts
+        let moneyArray = self.moneyArray
+        
+        for i in 0...accounts.count-1 {
+            let account = accounts.array[i] as! Account
+            
+            let monthEnd = DateFormat.main.standardized(date: self.date.monthEnd)
+            let flowArray = account.flowArray
+            
+            let withSameMonth = flowArray.filter { (flow) -> Bool in
+                flow.monthEnd == monthEnd
+            }
+                
+            if let alreadyCreated = withSameMonth.first {
+                
+                alreadyCreated.number += moneyArray[i]
+                
+            } else {
+            
+                let flow = Flow(context: CoreData.main.context)
+                flow.account = account
+                flow.number = moneyArray[i]
+                flow.monthEnd = monthEnd
+                
+            }
+        }
+        
+        CoreData.main.saveData()
     }
     
 
 }
 
 
+extension Date {
+    
+    var monthEnd: Date {
+        get{
+            let components = Calendar.current.dateComponents([.year, .month], from: self)
+            let startOfMonth = Calendar.current.date(from: components)!
+            let firstNextMonth = Calendar.current.date(byAdding: .month, value: 1, to: startOfMonth)!
+            let endOfMonth = Calendar.current.date(byAdding: .day, value: -1, to: firstNextMonth)!
+            return endOfMonth
+        }
 
+    }
+}
 
 
 

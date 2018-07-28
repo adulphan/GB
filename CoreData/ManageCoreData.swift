@@ -45,6 +45,17 @@ extension CoreData {
         } catch {
             print("Deleting Transaction failed: \(error)")
         }
+        
+        do {
+            
+            let result = try context.fetch(Flow.fetchRequest())
+            for object in result {
+                context.delete(object as! NSManagedObject)
+            }
+            
+        } catch {
+            print("Deleting Flows failed: \(error)")
+        }
 
     }
 
