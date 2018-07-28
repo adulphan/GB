@@ -45,12 +45,7 @@ extension Transaction {
         } else {
             oldDate = self.date
         }
-        
-        print(oldMoneyArray)
-        print(oldAccounts.map{$0.name})
-        print(oldDate)
-        
-        
+
         for account in oldAccounts {
             let index = oldAccounts.index(of: account)!
             let monthEnd = DateFormat.main.standardized(date: oldDate.monthEnd)
@@ -75,16 +70,14 @@ extension Transaction {
             }
             
         }
-        
-        print(self.moneyArray)
-        print((self.accounts.array as! [Account]).map{$0.name})
-        print(self.date)
-        
         insertFlows()
         
     }
 
     func deleteFlows() {
+        
+        if CoreData.main.allFlowsInCoreData?.count == 0 { return }
+        
         let accounts = self.accounts.array as! [Account]
         let moneyArray = self.moneyArray
         

@@ -39,18 +39,6 @@ extension CoreDataSimulation {
             print("\(transaction.recordID):  \(money)")
             
         }
-        
-        
-//        print("\(account.name) has \(account.flows?.count ?? 0) flows")
-//        
-//        let flowArray = account.flowArray
-//        
-//        for flow in flowArray {
-//            
-//            print("\(flow.monthEnd) : \(flow.number)")
-//            
-//            
-//        }
 
     }
     

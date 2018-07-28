@@ -16,11 +16,12 @@ extension CoreDataSimulation {
         
         allAccounts = CoreData.main.allAccountsInCoreData!
         
- //       simulateGroceryTransaction(yearsHistory: 1)
-//        simulateUtilityTransaction(yearsHistory: 1)
-//        simulateOtherExpenseTransaction(yearsHistory: 1)
-////        
-        simulateIncome(yearsHistory: 1)
+        let year = 5
+        
+        simulateGroceryTransaction(yearsHistory: year)
+        simulateUtilityTransaction(yearsHistory: year)
+        simulateOtherExpenseTransaction(yearsHistory: year)
+        simulateIncome(yearsHistory: year)
 
         CoreData.main.saveData()
     }

@@ -15,29 +15,11 @@ class CoreData {
     static let main = CoreData()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    var allAccountsInCoreData:[Account]? {
-        get{
-            return getAllAccounts()
-        }
-
-    }
-    
-    var allTransactionsInCoreData:[Transaction]? {
-        get{
-            return getAllTransactions()
-        }
-        
-    }
-    
-    var allFlowsInCoreData:[Flow]? {
-        get{
-            return getAllFlows()
-        }
-        
-    }
+    var allAccountsInCoreData:[Account]? {get{return getAllAccounts()}}
+    var allTransactionsInCoreData:[Transaction]? {get{return getAllTransactions()}}
+    var allFlowsInCoreData:[Flow]? {get{return getAllFlows()}}
     
     enum AccountType : Int {
-        
         case cash = 0
         case card = 1
         case bank = 2
@@ -53,8 +35,6 @@ class CoreData {
         let accountWithType = allAccounts?.filter({ (account) -> Bool in
             return account.type == Int16(type.rawValue)
         })
-        
-        print("Account type: \(type)")
         guard let accountArray = accountWithType else {
             print("No account with type: \(type)")
             return nil
@@ -79,7 +59,9 @@ class CoreData {
     private func getAllTransactions() -> [Transaction]? {
         do {
             let fetchRequest = try context.fetch(Transaction.fetchRequest())
-            let transactions = fetchRequest as! [Transaction]
+            let transactions = (fetchRequest as! [Transaction]).sorted { (s1, s2) -> Bool in
+                s1.date > s2.date
+            }
             if transactions.count == 0 {
                 print("No transaction in CoreData")
             }
@@ -93,7 +75,6 @@ class CoreData {
     private func getAllFlows() -> [Flow]? {
         do {
             let fetchRequest = try context.fetch(Flow.fetchRequest())
-
             let flowArray = fetchRequest.sorted { (s1, s2) -> Bool in
                 (s1 as! Flow).monthEnd > (s2 as! Flow).monthEnd
             } as! [Flow]

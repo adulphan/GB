@@ -45,7 +45,7 @@ extension CoreDataSimulation {
 
         transaction_3.setValue(NSOrderedSet(array: [newAccount,newAccount2]), forKey: "accounts")
         
-        CoreData.main.saveData()
+        //CoreData.main.saveData()
         
     }
     
@@ -73,7 +73,7 @@ extension CoreDataSimulation {
         newTransaction.accounts = transaction.accounts
         newTransaction.moneyArray = transaction.moneyArray
         print("added: \(transaction.recordID)")
-        CoreData.main.saveData()
+        //CoreData.main.saveData()
     }
 
 

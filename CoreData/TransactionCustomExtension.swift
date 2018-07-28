@@ -14,21 +14,16 @@ extension Transaction {
     
     public override func prepareForDeletion() {
         super.prepareForDeletion()
-        self.deleteFlows()
-        
+        deleteFlows()
     }
 
     public override func didSave() {
-        if self.isDeleted {
-            print("didSave(): \(self.recordID) is deleted")
-        } else if self.isInserted {
-            print("didSave(): \(self.recordID) is inserted")
-            self.insertFlows()
-        } else {
-            print("didSave(): \(self.recordID) is doing sth else")
+        if self.isInserted {
+            insertFlows()
+            
+        } else if !self.isDeleted && !self.isFault && !self.isUpdated {
             editFlows()
         }
-        
         super.didSave()
     }
     
