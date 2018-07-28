@@ -25,17 +25,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         CoreData.main.clearAllCoreData()
         CoreDataSimulation.main.simulateAccounts()
-        CoreDataSimulation.main.printAllAccounts()
+//        CoreDataSimulation.main.printAllAccounts()
         
 //        CoreDataSimulation.main.simulateTransaction()
 //        CoreDataSimulation.main.printAllTransactions()
 
         CoreDataSimulation.main.createTransactionsForAnAccount()
         
-        CoreDataSimulation.main.simulateDeleteTransaction()
+        print("Total flow before: \(CoreData.main.allFlowsInCoreData?.count ?? 9999)")
         
-        print(CoreData.main.allFlowsInCoreData?.count ?? 9999)
-
+        
+        var number:Double = 0
+        for flow in CoreData.main.allFlowsInCoreData! {
+            
+            print("\(flow.monthEnd): \(flow.account.name): \(flow.number)")
+            number += flow.number
+        }
+        
+        print("Total: \(number)")
+        number = 0
+        CoreDataSimulation.main.simulateEditTransaction()
+        
+        print("Total flow left: \(CoreData.main.allFlowsInCoreData?.count ?? 9999)")
+        
+        for flow in CoreData.main.allFlowsInCoreData! {
+            
+            print("\(flow.monthEnd): \(flow.account.name): \(flow.number)")
+            number += flow.number
+        }
+        print("Total: \(number)")
         return true
     }
 

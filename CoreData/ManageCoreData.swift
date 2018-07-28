@@ -17,35 +17,8 @@ extension CoreData {
         catch { print("Saving CoreData failed: \(error)") }
     }
     
-    func delete(transaction: Transaction) {
-        context.delete(transaction)
-
-    }
-    
-    
     func clearAllCoreData(){
 
-        do {
-            let result = try context.fetch(Account.fetchRequest())
-            for object in result {
-                context.delete(object as! NSManagedObject)
-            }
-            
-        } catch {
-            print("Deleting Account failed: \(error)")
-        }
-
-        do {
-
-            let result = try context.fetch(Transaction.fetchRequest())
-            for object in result {
-                context.delete(object as! NSManagedObject)
-            }
-            
-        } catch {
-            print("Deleting Transaction failed: \(error)")
-        }
-        
         do {
             
             let result = try context.fetch(Flow.fetchRequest())
@@ -56,6 +29,29 @@ extension CoreData {
         } catch {
             print("Deleting Flows failed: \(error)")
         }
+        
+        do {
+            
+            let result = try context.fetch(Transaction.fetchRequest())
+            for object in result {
+                context.delete(object as! NSManagedObject)
+            }
+            
+        } catch {
+            print("Deleting Transaction failed: \(error)")
+        }
+        
+        do {
+            let result = try context.fetch(Account.fetchRequest())
+            for object in result {
+                context.delete(object as! NSManagedObject)
+            }
+            
+        } catch {
+            print("Deleting Account failed: \(error)")
+        }
+        
+        CoreData.main.saveData()
 
     }
 

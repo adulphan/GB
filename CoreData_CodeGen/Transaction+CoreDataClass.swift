@@ -13,7 +13,7 @@ import CoreData
 
 public class Transaction: NSManagedObject {
 
-
+    var cachedOldValues:[String : Any]?
 
 }
 

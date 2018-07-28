@@ -93,11 +93,15 @@ class CoreData {
     private func getAllFlows() -> [Flow]? {
         do {
             let fetchRequest = try context.fetch(Flow.fetchRequest())
-            let flows = fetchRequest as! [Flow]
-            if flows.count == 0 {
-                print("No account in CoreData")
+
+            let flowArray = fetchRequest.sorted { (s1, s2) -> Bool in
+                (s1 as! Flow).monthEnd > (s2 as! Flow).monthEnd
+            } as! [Flow]
+            
+            if flowArray.count == 0 {
+                print("No flow in CoreData")
             }
-            return flows
+            return flowArray
         } catch {
             print("Loading Flow failed")
             return nil

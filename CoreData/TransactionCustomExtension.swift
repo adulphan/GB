@@ -12,34 +12,56 @@ import CoreData
 
 extension Transaction {
     
-    public override func didSave() {
-        super.didSave()
-        
-        if self.isDeleted {
-            
-            print("\(self.recordID) is deleted")
-            self.deleteFlows()
-            
-        } else if self.isUpdated {
-            
-            print("\(self.recordID) is updated")
-            
-        } else if self.isInserted {
-            
-            print("\(self.recordID) is inserted")
-            
-            self.insertFlows()
-            
-        } else if self.isFault {
-            
-            print("\(self.recordID) is fault")
-        } else {
-            
-            print("\(self.recordID) is doing sth else")
-        }
-        
+    public override func prepareForDeletion() {
+        super.prepareForDeletion()
+        //print("Prepare to delete transaction: \(self.recordID)")
+        self.deleteFlows()
         
     }
+    
+    
+    public override func willSave() {
+
+//        if self.isUpdated {
+//            print("willSave(): \(self.recordID) is updated")
+//
+//            let old = self.changedValuesForCurrentEvent().filter({(key,value) -> Bool in
+//                key == "accounts"
+//            }).first?.value
+//
+//
+//        }
+    }
+
+    public override func didSave() {
+        
+        if self.isDeleted {
+            print("didSave(): \(self.recordID) is deleted")
+            self.deleteFlows()
+            
+        } else if self.isInserted {
+            print("didSave(): \(self.recordID) is inserted")
+            self.insertFlows()
+        
+        } else if self.isUpdated {
+            print("didSave(): \(self.recordID) is updated")
+            
+        } else {
+            print("didSave(): \(self.recordID) is doing sth else")
+            //print(self.value(forKey: "moneyArray"))
+            
+            editFlows()
+        }
+        
+        super.didSave()
+    }
+    
+    public override func didChangeValue(forKey key: String) {
+        super.didChangeValue(forKey: key)
+        cachedOldValues = self.changedValuesForCurrentEvent()
+        
+    }
+
     
     var totalAmount: Double {
         get{
@@ -82,63 +104,6 @@ extension Transaction {
         
         return Array(accountArray)
     }
-    
-    
-    private func deleteFlows() {
-//        let accounts = self.accounts
-//        let moneyArray = self.moneyArray
-//        
-//        for i in 0...accounts.count-1 {
-//            let account = accounts.array[i] as! Account
-//            
-//            let monthEnd = DateFormat.main.standardized(date: self.date.monthEnd)
-//            let flowArray = account.flowArray
-//            
-//            let withSameMonth = flowArray.filter { (flow) -> Bool in
-//                flow.monthEnd == monthEnd
-//            }
-//            
-//            if let alreadyCreated = withSameMonth.first {
-//                alreadyCreated.number += -moneyArray[i]
-//                
-//            }
-//
-//        }
-//        
-//        CoreData.main.saveData()
-    }
-    
-    private func insertFlows() {
-        let accounts = self.accounts
-        let moneyArray = self.moneyArray
-        
-        for i in 0...accounts.count-1 {
-            let account = accounts.array[i] as! Account
-            
-            let monthEnd = DateFormat.main.standardized(date: self.date.monthEnd)
-            let flowArray = account.flowArray
-            
-            let withSameMonth = flowArray.filter { (flow) -> Bool in
-                flow.monthEnd == monthEnd
-            }
-                
-            if let alreadyCreated = withSameMonth.first {
-                
-                alreadyCreated.number += moneyArray[i]
-                
-            } else {
-            
-                let flow = Flow(context: CoreData.main.context)
-                flow.account = account
-                flow.number = moneyArray[i]
-                flow.monthEnd = monthEnd
-                
-            }
-        }
-        
-        CoreData.main.saveData()
-    }
-    
 
 }
 
