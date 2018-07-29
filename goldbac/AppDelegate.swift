@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        
+        // Master Branch
 
         let controller = UIViewController()
         controller.view.backgroundColor = UIColor.blue
