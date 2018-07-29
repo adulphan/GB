@@ -38,7 +38,7 @@ extension CoreDataSimulation {
             let accounts = fetchRequest as! [Account]
             print("Number of accounts: \(fetchRequest.count)")
             for account in accounts {
-                print("\(account.name): \(account.recordID)")
+                print("\(account.name): \(account.transactions?.count ?? 00000)")
             }
             
         } catch {print("Printing accounts failed")}

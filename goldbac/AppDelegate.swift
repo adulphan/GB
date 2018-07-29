@@ -45,11 +45,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print("Total transactions: \(CoreData.main.allTransactionsInCoreData?.count ?? 999)")
         print("Total accounts: \(CoreData.main.allAccountsInCoreData?.count ?? 999)")
-        
         print("Time to clear data: \(time2-time)")
         print("Time to simulate accounts: \(time3-time2)")
         print("Time to simulate transactions: \(time4-time3)")
         print("Time to print flows: \(time5-time4)")
+        
+        
+        CoreDataSimulation.main.printAllAccounts()
+        
         return true
     }
 
