@@ -63,9 +63,13 @@ extension Transaction {
             } else {
                 
                 let flow = Flow(context: CoreData.main.context)
-                flow.account = account
                 flow.number = -oldMoneyArray[index]
                 flow.monthEnd = monthEnd
+                if let index = flowArray.index(where: {$0.monthEnd < flow.monthEnd}) {
+                    account.insertIntoFlows(flow, at: index)
+                } else {
+                    account.addToFlows(flow)
+                }
                 
             }
             
@@ -128,10 +132,14 @@ extension Transaction {
             } else {
                 
                 let flow = Flow(context: CoreData.main.context)
-                flow.account = account
                 flow.number = moneyArray[index]
                 flow.monthEnd = monthEnd
-                
+                if let index = flowArray.index(where: {$0.monthEnd < flow.monthEnd}) {
+                    account.insertIntoFlows(flow, at: index)
+                } else {
+                    account.addToFlows(flow)
+                }
+
             }
         }
         

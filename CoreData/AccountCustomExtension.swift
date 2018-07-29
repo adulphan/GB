@@ -12,13 +12,18 @@ import CoreData
 
 extension Account {
     
+    public override func validateForInsert() throws {
+        
+        
+    }
+    
     var flowArray: [Flow] { get{return getFlowArray()}}
     var transactionArray: [Transaction] {get{return getTransactionArray()}}
     
     private func getFlowArray() -> [Flow] {
         let orderedSet = self.flows as! NSMutableOrderedSet
-        let sortDescriptor = NSSortDescriptor(key: "monthEnd", ascending: false)
-        orderedSet.sort(using: [sortDescriptor])
+//        let sortDescriptor = NSSortDescriptor(key: "monthEnd", ascending: false)
+//        orderedSet.sort(using: [sortDescriptor])
         let flowArray = orderedSet.array as! [Flow]
         return flowArray
     }

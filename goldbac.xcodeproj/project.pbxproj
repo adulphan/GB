@@ -34,6 +34,7 @@
 		53839FD4210C74EE00F469EF /* TransationUpdateFlows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53839FD3210C74EE00F469EF /* TransationUpdateFlows.swift */; };
 		53D8879B210DC43B00A57277 /* SplitTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D8879A210DC43B00A57277 /* SplitTransactions.swift */; };
 		53E39921210B29CE00A31B41 /* TransactionForAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E39920210B29CE00A31B41 /* TransactionForAccount.swift */; };
+		53F2912B210DF5D900BDEB60 /* FlowCustomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F2912A210DF5D800BDEB60 /* FlowCustomExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		53839FD3210C74EE00F469EF /* TransationUpdateFlows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransationUpdateFlows.swift; sourceTree = "<group>"; };
 		53D8879A210DC43B00A57277 /* SplitTransactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitTransactions.swift; sourceTree = "<group>"; };
 		53E39920210B29CE00A31B41 /* TransactionForAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionForAccount.swift; sourceTree = "<group>"; };
+		53F2912A210DF5D800BDEB60 /* FlowCustomExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCustomExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			children = (
 				53759D81210757FC0006C718 /* AccountCustomExtension.swift */,
 				53759D9221080C600006C718 /* TransactionCustomExtension.swift */,
+				53F2912A210DF5D800BDEB60 /* FlowCustomExtension.swift */,
 				53839FD3210C74EE00F469EF /* TransationUpdateFlows.swift */,
 				53759D9521082C360006C718 /* CoreData.swift */,
 				53759D892107FB800006C718 /* ManageCoreData.swift */,
@@ -244,6 +247,7 @@
 				534B22E9210AD7F5007F1DA6 /* SimulateChangeTransaction.swift in Sources */,
 				53839FCF210B802A00F469EF /* Account+CoreDataClass.swift in Sources */,
 				53839FD0210B802A00F469EF /* Account+CoreDataProperties.swift in Sources */,
+				53F2912B210DF5D900BDEB60 /* FlowCustomExtension.swift in Sources */,
 				530A3C8B21074D8100F6FF20 /* goldbac.xcdatamodeld in Sources */,
 				5322ED99210D3C010094301F /* SimulateFlows.swift in Sources */,
 				53759D9321080C600006C718 /* TransactionCustomExtension.swift in Sources */,

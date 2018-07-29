@@ -16,9 +16,9 @@ public class Flow: NSManagedObject {
 }
 
 
-public class Balance: Flow {
-    
-    
-    
-    
-}
+//public class Balance: Flow {
+//    
+//    
+//    
+//    
+//}

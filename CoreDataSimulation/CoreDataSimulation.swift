@@ -50,9 +50,9 @@ extension CoreDataSimulation {
         print("Time to simulate transactions: \(time4-time3)")
         print("Time to print flows: \(time5-time4)")
         
-        CoreDataSimulation.main.printAllAccounts()
+        //CoreDataSimulation.main.printAllAccounts()
         
-        let account = accountsDictionary["citi"]
+        let account = accountsDictionary["bofa"]
         let transactionArray = account?.transactionArray
         var totalMoney:Double = 0
         var totalMonthlyFlow:Double = 0
@@ -68,7 +68,7 @@ extension CoreDataSimulation {
         let flowArray = account?.flowArray
         for flow in flowArray! {
             totalMonthlyFlow += flow.number
-            //printSequenceOf(contents: [flow.monthEnd.description, flow.number.description])
+            printSequenceOf(contents: [flow.monthEnd.description, flow.number.description])
             
         }
         
