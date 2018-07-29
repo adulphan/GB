@@ -70,14 +70,15 @@ extension Transaction {
             }
             
         }
-        insertFlows()
+        
+        if CoreDataSimulation.main.isSimulating == false {
+            CoreData.main.saveData()
+        }
         
     }
 
     func deleteFlows() {
-        
-        if CoreData.main.allFlowsInCoreData?.count == 0 { return }
-        
+
         let accounts = self.accounts.array as! [Account]
         let moneyArray = self.moneyArray
         
@@ -99,7 +100,10 @@ extension Transaction {
             }
             
         }
-        CoreData.main.saveData()
+        
+        if CoreDataSimulation.main.isSimulating == false {
+            CoreData.main.saveData()
+        }
     }
 
     func insertFlows() {
@@ -131,8 +135,9 @@ extension Transaction {
             }
         }
         
-        CoreData.main.saveData()
-        
+        if CoreDataSimulation.main.isSimulating == false {
+            CoreData.main.saveData()
+        }
     }
 
 }

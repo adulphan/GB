@@ -14,6 +14,7 @@ extension CoreDataSimulation {
     
     func simulateTransaction() {
         
+        CoreDataSimulation.main.isSimulating = true
         allAccounts = CoreData.main.allAccountsInCoreData!
         
         let year = 5
@@ -24,6 +25,7 @@ extension CoreDataSimulation {
         simulateIncome(yearsHistory: year)
 
         CoreData.main.saveData()
+        CoreDataSimulation.main.isSimulating = false
     }
     
     func simulateIncome(yearsHistory:Int) {

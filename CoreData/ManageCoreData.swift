@@ -19,6 +19,7 @@ extension CoreData {
     
     func clearAllCoreData(){
 
+        CoreDataSimulation.main.isSimulating = true
         do {
             
             let result = try context.fetch(Flow.fetchRequest())
@@ -52,7 +53,7 @@ extension CoreData {
         }
         
         CoreData.main.saveData()
-
+        CoreDataSimulation.main.isSimulating = false
     }
 
 }

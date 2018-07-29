@@ -13,6 +13,7 @@
 		530A3C8D21074D8200F6FF20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 530A3C8C21074D8200F6FF20 /* Assets.xcassets */; };
 		530A3C9021074D8200F6FF20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 530A3C8E21074D8200F6FF20 /* LaunchScreen.storyboard */; };
 		5322ED96210C960A0094301F /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5322ED95210C960A0094301F /* DateExtensions.swift */; };
+		5322ED99210D3C010094301F /* SimulateFlows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5322ED98210D3C010094301F /* SimulateFlows.swift */; };
 		534B22E9210AD7F5007F1DA6 /* SimulateChangeTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534B22E8210AD7F5007F1DA6 /* SimulateChangeTransaction.swift */; };
 		53759D85210757FC0006C718 /* AccountCustomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D81210757FC0006C718 /* AccountCustomExtension.swift */; };
 		53759D87210757FC0006C718 /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D83210757FC0006C718 /* Transaction+CoreDataClass.swift */; };
@@ -43,6 +44,7 @@
 		530A3C8F21074D8200F6FF20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		530A3C9121074D8200F6FF20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5322ED95210C960A0094301F /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		5322ED98210D3C010094301F /* SimulateFlows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulateFlows.swift; sourceTree = "<group>"; };
 		534B22E8210AD7F5007F1DA6 /* SimulateChangeTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulateChangeTransaction.swift; sourceTree = "<group>"; };
 		53759D81210757FC0006C718 /* AccountCustomExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCustomExtension.swift; sourceTree = "<group>"; };
 		53759D83210757FC0006C718 /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				5379B67A2109D92F00307909 /* CoreDataSimulation.swift */,
 				53759D8C2107FD990006C718 /* SimulateAccounts.swift */,
 				53759D9A210892420006C718 /* SimulateTransaction.swift */,
+				5322ED98210D3C010094301F /* SimulateFlows.swift */,
 				5379B6732109C7DB00307909 /* PeriodicTransactions.swift */,
 				53E39920210B29CE00A31B41 /* TransactionForAccount.swift */,
 				534B22E8210AD7F5007F1DA6 /* SimulateChangeTransaction.swift */,
@@ -239,6 +242,7 @@
 				53839FCF210B802A00F469EF /* Account+CoreDataClass.swift in Sources */,
 				53839FD0210B802A00F469EF /* Account+CoreDataProperties.swift in Sources */,
 				530A3C8B21074D8100F6FF20 /* goldbac.xcdatamodeld in Sources */,
+				5322ED99210D3C010094301F /* SimulateFlows.swift in Sources */,
 				53759D9321080C600006C718 /* TransactionCustomExtension.swift in Sources */,
 				53839FCC210B7F0F00F469EF /* Flow+CoreDataProperties.swift in Sources */,
 				53759D9621082C360006C718 /* CoreData.swift in Sources */,

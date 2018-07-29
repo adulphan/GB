@@ -12,9 +12,11 @@ import CoreData
 
 extension Transaction {
     
-    public override func prepareForDeletion() {
-        super.prepareForDeletion()
-        deleteFlows()
+    public override func prepareForDeletion() {       
+        if CoreDataSimulation.main.isSimulating == false {
+            super.prepareForDeletion()
+            deleteFlows()
+        }
     }
 
     public override func didSave() {
