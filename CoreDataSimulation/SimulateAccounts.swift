@@ -17,13 +17,13 @@ extension CoreDataSimulation {
         let cashName = ["wallet"]
         let cardName = ["amex","citi"]
         let bankName = ["bofa","barclays","chase","suntrust"]
-        let expenseName = ["grocery","eatout","fuel","utility","medical","home","car","appliance","subscription","family"]
-        let incomeName = ["salary", "interests"]
+        let expenseName = ["grocery","eatout","fuel","utility","medical","home","car","appliance","subscription","family","interest expense"]
+        let incomeName = ["salary", "interest income"]
         let assetName = ["savings","land","stock"]
-        let debtName = ["autoLease","homeLoan","personalLoan"]
+        let debtName = ["auto leasing","homeLoan","personalLoan"]
         let equityName = ["adjustmant","paidup"]
         let accountName = [cashName,cardName,bankName,expenseName,incomeName,assetName,debtName,equityName]
-        
+
         for array in accountName {
             let type = accountName.index(of: array)!
             for name in array {
@@ -32,7 +32,8 @@ extension CoreDataSimulation {
                 newAcount.type = Int16(type)
                 let recordID = UUID().uuidString
                 newAcount.recordID = recordID
-                newAcount.beginBalance = 0
+                newAcount.beginBalance = 0                
+                accountsDictionary[name] = newAcount
             }
         }
         

@@ -25,33 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         controller.view.backgroundColor = UIColor.blue
         window?.rootViewController = controller
         
-        let multiplier:Double = 1
-        
-        let time = Date().timeIntervalSince1970*multiplier
-        CoreData.main.clearAllCoreData()
-        let time2 = Date().timeIntervalSince1970*multiplier
-        CoreDataSimulation.main.simulateAccounts()
-        let time3 = Date().timeIntervalSince1970*multiplier
-        CoreDataSimulation.main.simulateTransaction()
-        let time4 = Date().timeIntervalSince1970*multiplier
-        print("Total flow: \(CoreData.main.allFlowsInCoreData?.count ?? 9999)")
-        var number:Double = 0
-        for flow in CoreData.main.allFlowsInCoreData! {
-            //print("\(flow.monthEnd): \(flow.account.name): \(flow.number)")
-            number += flow.number
-        }
-        print("Total: \(number)")
-        let time5 = Date().timeIntervalSince1970*multiplier
-        
-        print("Total transactions: \(CoreData.main.allTransactionsInCoreData?.count ?? 999)")
-        print("Total accounts: \(CoreData.main.allAccountsInCoreData?.count ?? 999)")
-        print("Time to clear data: \(time2-time)")
-        print("Time to simulate accounts: \(time3-time2)")
-        print("Time to simulate transactions: \(time4-time3)")
-        print("Time to print flows: \(time5-time4)")
-        
-        
-        CoreDataSimulation.main.printAllAccounts()
+        CoreDataSimulation.main.simulateData()
         
         return true
     }

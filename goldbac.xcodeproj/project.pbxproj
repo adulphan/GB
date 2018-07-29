@@ -32,6 +32,7 @@
 		53839FCF210B802A00F469EF /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53839FCD210B802A00F469EF /* Account+CoreDataClass.swift */; };
 		53839FD0210B802A00F469EF /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53839FCE210B802A00F469EF /* Account+CoreDataProperties.swift */; };
 		53839FD4210C74EE00F469EF /* TransationUpdateFlows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53839FD3210C74EE00F469EF /* TransationUpdateFlows.swift */; };
+		53D8879B210DC43B00A57277 /* SplitTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D8879A210DC43B00A57277 /* SplitTransactions.swift */; };
 		53E39921210B29CE00A31B41 /* TransactionForAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E39920210B29CE00A31B41 /* TransactionForAccount.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		53839FCD210B802A00F469EF /* Account+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataClass.swift"; sourceTree = "<group>"; };
 		53839FCE210B802A00F469EF /* Account+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		53839FD3210C74EE00F469EF /* TransationUpdateFlows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransationUpdateFlows.swift; sourceTree = "<group>"; };
+		53D8879A210DC43B00A57277 /* SplitTransactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitTransactions.swift; sourceTree = "<group>"; };
 		53E39920210B29CE00A31B41 /* TransactionForAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionForAccount.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,6 +153,7 @@
 				53759D8C2107FD990006C718 /* SimulateAccounts.swift */,
 				53759D9A210892420006C718 /* SimulateTransaction.swift */,
 				5322ED98210D3C010094301F /* SimulateFlows.swift */,
+				53D8879A210DC43B00A57277 /* SplitTransactions.swift */,
 				5379B6732109C7DB00307909 /* PeriodicTransactions.swift */,
 				53E39920210B29CE00A31B41 /* TransactionForAccount.swift */,
 				534B22E8210AD7F5007F1DA6 /* SimulateChangeTransaction.swift */,
@@ -260,6 +263,7 @@
 				530A3C8321074D8100F6FF20 /* AppDelegate.swift in Sources */,
 				53759D87210757FC0006C718 /* Transaction+CoreDataClass.swift in Sources */,
 				53759D85210757FC0006C718 /* AccountCustomExtension.swift in Sources */,
+				53D8879B210DC43B00A57277 /* SplitTransactions.swift in Sources */,
 				5379B67B2109D92F00307909 /* CoreDataSimulation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
