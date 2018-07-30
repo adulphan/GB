@@ -21,8 +21,6 @@ class CoreDataSimulation {
     var accountsDictionary:[String:Account] = [:]
 }
 
-
-
 extension CoreDataSimulation {
     
     func simulateData() {
@@ -35,49 +33,61 @@ extension CoreDataSimulation {
         CoreDataSimulation.main.simulateTransaction()
         let time4 = Date().timeIntervalSince1970*multiplier
         print("Total flow: \(CoreData.main.allFlowsInCoreData?.count ?? 9999)")
-        var number:Double = 0
-        for flow in CoreData.main.allFlowsInCoreData! {
-            //print("\(flow.monthEnd): \(flow.account.name): \(flow.number)")
-            number += flow.number
-        }
-        print("Total: \(number)")
-        let time5 = Date().timeIntervalSince1970*multiplier
         
         print("Total transactions: \(CoreData.main.allTransactionsInCoreData?.count ?? 999)")
         print("Total accounts: \(CoreData.main.allAccountsInCoreData?.count ?? 999)")
         print("Time to clear data: \(time2-time)")
         print("Time to simulate accounts: \(time3-time2)")
         print("Time to simulate transactions: \(time4-time3)")
-        print("Time to print flows: \(time5-time4)")
-        
-        //CoreDataSimulation.main.printAllAccounts()
-        
-        let account = accountsDictionary["bofa"]
-        let transactionArray = account?.transactionArray
-        var totalMoney:Double = 0
-        var totalMonthlyFlow:Double = 0
-        for transaction in transactionArray! {
-            
-            let index = transaction.accounts.index(of: account!)
-            let money = transaction.moneyArray[index]
-            totalMoney += money
-            //printSequenceOf(contents: [transaction.date.description, money.description])
- 
-        }
-        
-        let flowArray = account?.flowArray
-        for flow in flowArray! {
-            totalMonthlyFlow += flow.number
-            printSequenceOf(contents: [flow.monthEnd.description, flow.number.description])
-            
-        }
-        
-        print("Tatal in transactions \(totalMoney)")
-        print("Total in monthly flows: \(totalMonthlyFlow)")
-        
-        
+
+        checkBalanceWithTransactionMoney()
+
     }
 
+    func checkBalanceWithTransactionMoney() {
+        
+        for account in CoreData.main.allAccountsInCoreData! {
+
+            let transactionArray = account.transactionArray
+            var totalAmount:Double = 0
+            for transaction in transactionArray {
+                let index = (transaction.accounts.array as! [Account]).index(of: account)
+                let money = transaction.moneyArray[index!]
+                totalAmount += money
+            }
+
+            let balance = account.flowArray.count == 0 ?  account.beginBalance : account.flowArray.first?.number
+            
+            if balance?.rounded() != totalAmount.rounded() {
+                print("Eror: Balance mismatched:")
+                printSequenceOf(contents: ["\(account.name)","\(balance!)","\(totalAmount + account.beginBalance)", "\(account.beginBalance)"])
+            }
+        }
+
+    }
+    
+    func printAllTransactionsFor(account: Account) {
+        
+        let transactionArray = account.transactionArray
+        for transaction in transactionArray {
+            let index = (transaction.accounts.array as! [Account]).index(of: account)
+            let money = transaction.moneyArray[index!]
+            
+            printSequenceOf(contents: ["\(transaction.date)","\(money)"])
+        }
+
+    }
+    
+    func printAllFlowsFor(account: Account) {
+        
+        let flowArray = account.flowArray
+        for flow in flowArray {
+            
+            printSequenceOf(contents: ["\(flow.monthEnd)","\(flow.number)"])
+        }
+        
+    }
+    
 }
 
 

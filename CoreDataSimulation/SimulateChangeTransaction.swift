@@ -24,7 +24,7 @@ extension CoreDataSimulation {
         transaction.date = DateFormat.main.standardized(date: date)
         
         
-        print("edtited: \(transaction.recordID)")
+        print("edtited: \(transaction.title ?? "No Title") : \((transaction.accounts.array as! [Account]).map{$0.name})")
         
         let index = allTransactions.index(of: transaction)
         allTransactions.remove(at: index!)
@@ -33,7 +33,7 @@ extension CoreDataSimulation {
         let date2 = Calendar.current.date(byAdding: .month, value: -200, to: Date())!
         transaction_2.date = DateFormat.main.standardized(date: date2)
 
-        print("edtited: \(transaction_2.recordID)")
+        print("edtited: \(transaction_2.title ?? "No Title") : \((transaction_2.accounts.array as! [Account]).map{$0.name})")
         
         let index2 = allTransactions.index(of: transaction_2)
         allTransactions.remove(at: index2!)
@@ -45,6 +45,8 @@ extension CoreDataSimulation {
 
         transaction_3.setValue(NSOrderedSet(array: [newAccount,newAccount2]), forKey: "accounts")
         
+        print("edtited: \(transaction_3.title ?? "No Title") : \((transaction_3.accounts.array as! [Account]).map{$0.name})")
+        
         //CoreData.main.saveData()
         
     }
@@ -53,10 +55,10 @@ extension CoreDataSimulation {
         
         allTransactions = CoreData.main.allTransactionsInCoreData!
         let transaction = allTransactions[randomInt(min: 0, max: allTransactions.count-1)]
-
+        print("deleted: \(transaction.title ?? "No Title") : \((transaction.accounts.array as! [Account]).map{$0.name})")
         CoreData.main.context.delete(transaction)
         
-        print("deleted: \(transaction.recordID)")
+        
         //CoreData.main.saveData()
         
     }
@@ -68,11 +70,12 @@ extension CoreDataSimulation {
         
         let newTransaction = Transaction(context: CoreData.main.context)
         newTransaction.title = transaction.title
-        
+        newTransaction.date = DateFormat.main.standardized(date: Date())
+        newTransaction.modified = DateFormat.main.standardized(date: Date())
         newTransaction.recordID = UUID().uuidString
         newTransaction.accounts = transaction.accounts
         newTransaction.moneyArray = transaction.moneyArray
-        print("added: \(transaction.recordID)")
+        print("added: \(transaction.title ?? "No Title") : \((transaction.accounts.array as! [Account]).map{$0.name})")
         //CoreData.main.saveData()
     }
 

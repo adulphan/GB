@@ -17,13 +17,12 @@ extension CoreDataSimulation {
         CoreDataSimulation.main.isSimulating = true
         allAccounts = CoreData.main.allAccountsInCoreData!
         
-        let year = 1
+        let year = 10
         
         simulateGroceryTransaction(yearsHistory: year)
         simulateUtilityTransaction(yearsHistory: year)
         simulateOtherExpenseTransaction(yearsHistory: year)
         simulateIncome(yearsHistory: year)
-        
         simulateAutoLease(yearsHistory: year)
 
         CoreData.main.saveData()
@@ -37,9 +36,7 @@ extension CoreDataSimulation {
         let day = components.day!
 
         let mainBankAccount = [accountsDictionary["bofa"]!]
-
         let autoLeaseAccount = [accountsDictionary["auto leasing"]!]
-
         let interestAccount = [accountsDictionary["interest expense"]!]
 
         createPeriodicSplitTransactions(from: mainBankAccount, to: autoLeaseAccount+interestAccount, title: ["Monthly car leasing"], amount: [20000], moneySTD: [-1,0.8,0.2], note: nil, url: nil, frequency: .month, multiple: 1, count: 12*yearsHistory, startDate: day-20, month: month, year: year, flexibleDate: 0)
@@ -123,7 +120,7 @@ extension CoreDataSimulation {
 
         let subscriptionAccount = [accountsDictionary["subscription"]!]
 
-        createPeriodicTransactions(from: fromAccounts, to: subscriptionAccount, title: ["Monthly NetFlix $10"], amount: [350], note: nil, url: nil, frequency: .month, multiple: 1, count: 12*yearsHistory, startDate: day-7, month: month, year: year, flexibleDate:0)
+        createPeriodicTransactions(from: fromAccounts, to: subscriptionAccount, title: ["Monthly NetFlix $10"], amount: [350], note: nil, url: nil, frequency: .month, multiple: 1, count: 12*yearsHistory, startDate: day-5, month: month, year: year, flexibleDate:0)
 
 
 

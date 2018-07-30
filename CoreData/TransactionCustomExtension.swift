@@ -21,8 +21,7 @@ extension Transaction {
 
     public override func didSave() {
         if self.isInserted {
-            insertFlows()
-            
+            insertFlows()            
         } else if !self.isDeleted && !self.isFault && !self.isUpdated {
             editFlows()
         }
