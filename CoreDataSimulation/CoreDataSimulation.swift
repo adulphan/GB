@@ -19,6 +19,7 @@ class CoreDataSimulation {
     var allTransactions: [Transaction] = []
     var isSimulating:Bool = false
     var accountsDictionary:[String:Account] = [:]
+
 }
 
 extension CoreDataSimulation {
@@ -66,6 +67,32 @@ extension CoreDataSimulation {
 
     }
     
+    func testSpecifics() {
+        
+        let account = accountsDictionary["wallet"]!
+        printAllFlowsFor(account: account)
+        let array = account.transactionArray
+        let transaction = array[randomInt(min: 0, max: array.count-1)]
+        
+        
+        print("\(transaction.date) : \(transaction.title ?? "No Title") : \((transaction.accounts.array as! [Account]).map{$0.name}) : \(transaction.moneyArray)")
+        //CoreData.main.context.delete(transaction)
+        
+        //transaction.moneyArray = [-200,200]
+        transaction.date = DateFormat.main.standardized(date: Date())
+        transaction.removeFromAccounts(at: 1)
+        transaction.addToAccounts(accountsDictionary["utility"]!)
+        
+        
+        CoreData.main.saveData()
+        print("\(transaction.date) : \(transaction.title ?? "No Title") : \((transaction.accounts.array as! [Account]).map{$0.name}) : \(transaction.moneyArray)")
+        
+        printAllFlowsFor(account: account)
+        
+        
+        
+    }
+    
     func printAllTransactionsFor(account: Account) {
         
         let transactionArray = account.transactionArray
@@ -84,6 +111,20 @@ extension CoreDataSimulation {
         for flow in flowArray {
             
             printSequenceOf(contents: ["\(flow.monthEnd)","\(flow.number)"])
+        }
+        
+    }
+    
+    func printBalanceForAllAccounts() {
+        
+        for account in CoreData.main.allAccountsInCoreData! {
+            
+            if let balance = (account.flows?.array as! [Flow]).first {
+                print("\(account.name) : \(balance.number)")
+            } else {
+                print("\(account.name) : \(account.beginBalance)")
+            }
+            
         }
         
     }

@@ -53,9 +53,11 @@ extension CoreDataSimulation {
     
     func simulateDeleteTransaction() {
         
+        
+        
         allTransactions = CoreData.main.allTransactionsInCoreData!
         let transaction = allTransactions[randomInt(min: 0, max: allTransactions.count-1)]
-        print("deleted: \(transaction.title ?? "No Title") : \((transaction.accounts.array as! [Account]).map{$0.name})")
+        print("deleted: \(transaction.title ?? "No Title") : \((transaction.accounts.array as! [Account]).map{$0.name}) : \(transaction.moneyArray)")
         CoreData.main.context.delete(transaction)
         
         
