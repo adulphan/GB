@@ -17,7 +17,7 @@ class CoreData {
     
     var allAccountsInCoreData:[Account]? {get{return getAllAccounts()}}
     var allTransactionsInCoreData:[Transaction]? {get{return getAllTransactions()}}
-    var allFlowsInCoreData:[Flow]? {get{return getAllFlows()}}
+    var allMonthlyInCoreData:[Monthly]? {get{return getAllMonthly()}}
     
     enum AccountType : Int {
         case cash = 0
@@ -72,17 +72,14 @@ class CoreData {
         }
     }
     
-    private func getAllFlows() -> [Flow]? {
+    private func getAllMonthly() -> [Monthly]? {
         do {
-            let fetchRequest = try context.fetch(Flow.fetchRequest())
-            let flowArray = fetchRequest.sorted { (s1, s2) -> Bool in
-                (s1 as! Flow).monthEnd > (s2 as! Flow).monthEnd
-            } as! [Flow]
-            
-            if flowArray.count == 0 {
+            let fetchRequest = try context.fetch(Monthly.fetchRequest())
+            let monthlyArray = fetchRequest as! [Monthly]
+            if monthlyArray.count == 0 {
                 print("No flow in CoreData")
             }
-            return flowArray
+            return monthlyArray
         } catch {
             print("Loading Flow failed")
             return nil

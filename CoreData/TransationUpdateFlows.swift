@@ -46,8 +46,8 @@ extension Transaction {
             oldDate = self.date
         }
         
-        handleUpdateFlowsIn(accounts: oldAccounts, moneyArray: oldMoneyArray, date: oldDate, isInsert:false)
-        handleUpdateFlowsIn(accounts: self.accounts, moneyArray: self.moneyArray, date: self.date, isInsert:true)
+        handleUpdateBalanceIn(accounts: oldAccounts, moneyArray: oldMoneyArray, date: oldDate, isInsert:false)
+        handleUpdateBalanceIn(accounts: self.accounts, moneyArray: self.moneyArray, date: self.date, isInsert:true)
         
         if CoreDataSimulation.main.isSimulating == false {
             CoreData.main.saveData()
@@ -57,7 +57,7 @@ extension Transaction {
 
     func deleteFlows() {
 
-        handleUpdateFlowsIn(accounts: self.accounts, moneyArray: self.moneyArray, date: self.date, isInsert:false)
+        handleUpdateBalanceIn(accounts: self.accounts, moneyArray: self.moneyArray, date: self.date, isInsert:false)
         if CoreDataSimulation.main.isSimulating == false {
             CoreData.main.saveData()
         }
@@ -65,13 +65,13 @@ extension Transaction {
 
     func insertFlows() {
         
-        handleUpdateFlowsIn(accounts: self.accounts, moneyArray: self.moneyArray, date: self.date, isInsert:true)
+        handleUpdateBalanceIn(accounts: self.accounts, moneyArray: self.moneyArray, date: self.date, isInsert:true)
         if CoreDataSimulation.main.isSimulating == false {
             CoreData.main.saveData()
         }
     }
     
-    private func handleUpdateFlowsIn(accounts: NSOrderedSet, moneyArray: [Double], date: Date, isInsert:Bool) {
+    private func handleUpdateBalanceIn(accounts: NSOrderedSet, moneyArray: [Double], date: Date, isInsert:Bool) {
         
         let accounts = accounts.array as! [Account]
         let moneyArray = isInsert ? moneyArray : moneyArray.map{$0*(-1)}
@@ -80,40 +80,44 @@ extension Transaction {
             
             let index = accounts.index(of: account)!
             let monthEnd = DateFormat.main.standardized(date: date.monthEnd)
-            let flowArray = account.flowArray
+            let monthlyArray = account.monthlyArray
             
-            let withSameMonth = flowArray.filter { (flow) -> Bool in
-                flow.monthEnd == monthEnd
+            let withSameMonth = monthlyArray.filter { (monthly) -> Bool in
+                monthly.endDate == monthEnd
             }
             
             if let alreadyCreated = withSameMonth.first {
-                alreadyCreated.number += moneyArray[index]
-                let flowIndex = flowArray.index(of: alreadyCreated)!
-                if flowIndex != 0 {
-                    for i in 0...flowIndex-1 {
-                        (account.flows?.object(at: i) as! Flow).number += moneyArray[index]
+                alreadyCreated.balance += moneyArray[index]
+                alreadyCreated.flow += moneyArray[index]
+                
+                let mIndex = monthlyArray.index(of: alreadyCreated)!
+                if mIndex != 0 {
+                    for i in 0...mIndex-1 {
+                        (account.monthly?.object(at: i) as! Monthly).balance += moneyArray[index]
                     }
                 }
                 
             } else {
                 
-                let flow = Flow(context: CoreData.main.context)
-                flow.monthEnd = monthEnd
-                if let flowIndex = flowArray.index(where: {$0.monthEnd < monthEnd}) {
-                    flow.number = flowArray[flowIndex].number + moneyArray[index]
-                    account.insertIntoFlows(flow, at: flowIndex)
-                    if flowIndex != 0 {
-                        for i in 0...flowIndex-1 {
-                            (account.flows?.object(at: i) as! Flow).number += moneyArray[index]
+                let monthly = Monthly(context: CoreData.main.context)
+                monthly.endDate = monthEnd
+                if let mIndex = monthlyArray.index(where: {$0.endDate < monthEnd}) {
+                    monthly.balance = monthlyArray[mIndex].balance + moneyArray[index]
+                    monthly.flow = moneyArray[index]
+                    account.insertIntoMonthly(monthly, at: mIndex)
+                    if mIndex != 0 {
+                        for i in 0...mIndex-1 {
+                            (account.monthly?.object(at: i) as! Monthly).balance += moneyArray[index]
                         }
                     }
                     
                 } else {
-                    for object in account.flows! {
-                        (object as! Flow).number += moneyArray[index]
+                    for object in account.monthly! {
+                        (object as! Monthly).balance += moneyArray[index]
                     }
-                    flow.number = account.beginBalance + moneyArray[index]
-                    account.addToFlows(flow)
+                    monthly.balance = account.beginBalance + moneyArray[index]
+                    monthly.flow = moneyArray[index]
+                    account.addToMonthly(monthly)
                 }
                 
             }

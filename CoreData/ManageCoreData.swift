@@ -22,13 +22,13 @@ extension CoreData {
         CoreDataSimulation.main.isSimulating = true
         do {
             
-            let result = try context.fetch(Flow.fetchRequest())
+            let result = try context.fetch(Monthly.fetchRequest())
             for object in result {
                 context.delete(object as! NSManagedObject)
             }
             
         } catch {
-            print("Deleting Flows failed: \(error)")
+            print("Deleting Monthly failed: \(error)")
         }
         
         do {

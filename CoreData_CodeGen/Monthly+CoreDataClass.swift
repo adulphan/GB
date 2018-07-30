@@ -1,5 +1,5 @@
 //
-//  Account+CoreDataClass.swift
+//  Monthly+CoreDataClass.swift
 //  goldbac
 //
 //  Created by adulphan youngmod on 30/7/18.
@@ -11,6 +11,6 @@ import Foundation
 import CoreData
 
 
-public class Account: NSManagedObject {
+public class Monthly: NSManagedObject {
 
 }

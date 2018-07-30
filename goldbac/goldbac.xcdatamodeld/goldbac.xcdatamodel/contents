@@ -6,13 +6,14 @@
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="recordID" attributeType="String" syncable="YES"/>
         <attribute name="type" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="flows" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Flow" inverseName="account" inverseEntity="Flow" syncable="YES"/>
+        <relationship name="monthly" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Monthly" inverseName="account" inverseEntity="Monthly" syncable="YES"/>
         <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Transaction" inverseName="accounts" inverseEntity="Transaction" syncable="YES"/>
     </entity>
-    <entity name="Flow" representedClassName=".Flow" syncable="YES">
-        <attribute name="monthEnd" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="number" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="flows" inverseEntity="Account" syncable="YES"/>
+    <entity name="Monthly" representedClassName=".Monthly" syncable="YES">
+        <attribute name="balance" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="flow" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="monthly" inverseEntity="Account" syncable="YES"/>
     </entity>
     <entity name="Transaction" representedClassName=".Transaction" syncable="YES">
         <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -29,6 +30,6 @@
     <elements>
         <element name="Account" positionX="-63" positionY="45" width="128" height="150"/>
         <element name="Transaction" positionX="-63" positionY="-18" width="128" height="195"/>
-        <element name="Flow" positionX="-54" positionY="63" width="128" height="90"/>
+        <element name="Monthly" positionX="-54" positionY="72" width="128" height="105"/>
     </elements>
 </model>

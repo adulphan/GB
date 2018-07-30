@@ -25,6 +25,15 @@ class CoreDataSimulation {
 extension CoreDataSimulation {
     
     func simulateData() {
+
+
+        
+        
+        
+    }
+    
+    func printTimeSpendEachProcess() {
+        
         let multiplier:Double = 1
         let time = Date().timeIntervalSince1970*multiplier
         CoreData.main.clearAllCoreData()
@@ -33,17 +42,15 @@ extension CoreDataSimulation {
         let time3 = Date().timeIntervalSince1970*multiplier
         CoreDataSimulation.main.simulateTransaction()
         let time4 = Date().timeIntervalSince1970*multiplier
-        print("Total flow: \(CoreData.main.allFlowsInCoreData?.count ?? 9999)")
-        
+        print("Total monthly: \(CoreData.main.allMonthlyInCoreData?.count ?? 9999)")
         print("Total transactions: \(CoreData.main.allTransactionsInCoreData?.count ?? 999)")
         print("Total accounts: \(CoreData.main.allAccountsInCoreData?.count ?? 999)")
         print("Time to clear data: \(time2-time)")
         print("Time to simulate accounts: \(time3-time2)")
         print("Time to simulate transactions: \(time4-time3)")
-
-        checkBalanceWithTransactionMoney()
-
+        
     }
+    
 
     func checkBalanceWithTransactionMoney() {
         
@@ -57,7 +64,7 @@ extension CoreDataSimulation {
                 totalAmount += money
             }
 
-            let balance = account.flowArray.count == 0 ?  account.beginBalance : account.flowArray.first?.number
+            let balance = account.monthly?.count == 0 ?  account.beginBalance : account.monthlyArray.first?.balance
             
             if balance?.rounded() != totalAmount.rounded() {
                 print("Eror: Balance mismatched:")
@@ -70,7 +77,7 @@ extension CoreDataSimulation {
     func testSpecifics() {
         
         let account = accountsDictionary["wallet"]!
-        printAllFlowsFor(account: account)
+        printAllMonthlyFor(account: account)
         let array = account.transactionArray
         let transaction = array[randomInt(min: 0, max: array.count-1)]
         
@@ -87,10 +94,8 @@ extension CoreDataSimulation {
         CoreData.main.saveData()
         print("\(transaction.date) : \(transaction.title ?? "No Title") : \((transaction.accounts.array as! [Account]).map{$0.name}) : \(transaction.moneyArray)")
         
-        printAllFlowsFor(account: account)
-        
-        
-        
+        printAllMonthlyFor(account: account)
+
     }
     
     func printAllTransactionsFor(account: Account) {
@@ -105,13 +110,15 @@ extension CoreDataSimulation {
 
     }
     
-    func printAllFlowsFor(account: Account) {
+    func printAllMonthlyFor(account: Account) {
         
-        let flowArray = account.flowArray
-        for flow in flowArray {
+        let monthlyArray = account.monthlyArray
+        for monthly in monthlyArray {
             
-            printSequenceOf(contents: ["\(flow.monthEnd)","\(flow.number)"])
+            printSequenceOf(contents: ["\(monthly.endDate)","FLow \(monthly.flow)","Balance \(monthly.balance)"])
         }
+
+        print("Total flows: \(monthlyArray.map{$0.flow}.reduce(0,+))")
         
     }
     
@@ -119,8 +126,8 @@ extension CoreDataSimulation {
         
         for account in CoreData.main.allAccountsInCoreData! {
             
-            if let balance = (account.flows?.array as! [Flow]).first {
-                print("\(account.name) : \(balance.number)")
+            if let monthy = account.monthlyArray.first {
+                print("\(account.name) : \(monthy.balance)")
             } else {
                 print("\(account.name) : \(account.beginBalance)")
             }

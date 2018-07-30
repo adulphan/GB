@@ -2,7 +2,7 @@
 //  Transaction+CoreDataProperties.swift
 //  goldbac
 //
-//  Created by adulphan youngmod on 24/7/18.
+//  Created by adulphan youngmod on 30/7/18.
 //  Copyright © 2018 goldbac Inc. All rights reserved.
 //
 //
@@ -16,7 +16,7 @@ extension Transaction {
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Transaction> {
         return NSFetchRequest<Transaction>(entityName: "Transaction")
     }
-
+    
     @NSManaged public var recordID: String
     
     @NSManaged public var date: Date
