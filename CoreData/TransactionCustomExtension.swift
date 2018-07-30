@@ -21,7 +21,8 @@ extension Transaction {
 
     public override func didSave() {
         if self.isInserted {
-            insertFlows()            
+            insertFlows()
+            
         } else if !self.isDeleted && !self.isFault && !self.isUpdated {
             editFlows()
         }
@@ -64,20 +65,6 @@ extension Transaction {
 
 }
 
-
-extension Date {
-    
-    var monthEnd: Date {
-        get{
-            let components = Calendar.current.dateComponents([.year, .month], from: self)
-            let startOfMonth = Calendar.current.date(from: components)!
-            let firstNextMonth = Calendar.current.date(byAdding: .month, value: 1, to: startOfMonth)!
-            let endOfMonth = Calendar.current.date(byAdding: .day, value: -1, to: firstNextMonth)!
-            return endOfMonth
-        }
-
-    }
-}
 
 
 
