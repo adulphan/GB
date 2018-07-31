@@ -38,6 +38,16 @@ extension Transaction {
     var totalAmount: Double {get{ return getTotalAmount()}}
     var fromAccounts: [Account] {get{ return getFromAccounts()}}
     var toAccounts: [Account] {get{return getToAccounts()}}
+    
+    func getMoneyFor(account: Account) -> Double {
+        if let index = (self.accounts.array as! [Account]).index(of: account) {
+            let money = self.moneyArray[index]
+            return money
+        } else {
+            
+            return 0
+        }
+    }
  
     private func getTotalAmount() -> Double {
         var total:Double = 0
