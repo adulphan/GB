@@ -26,9 +26,9 @@ extension CoreDataSimulation {
     
     func simulateData() {
 
-
+        printTimeSpendEachProcess()
         
-        
+        printBalanceForAllAccounts()
         
     }
     

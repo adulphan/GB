@@ -17,7 +17,7 @@ extension CoreDataSimulation {
         CoreDataSimulation.main.isSimulating = true
         allAccounts = CoreData.main.allAccountsInCoreData!
         
-        let year = 10
+        let year = 1
         
         simulateGroceryTransaction(yearsHistory: year)
         simulateUtilityTransaction(yearsHistory: year)
