@@ -7,12 +7,12 @@
 //
 //
 
-import Foundation
-import CoreData
-
-
-public class Transaction: NSManagedObject {
-    
-    var cachedOldValues:[String : Any]?
-    
-}
+//import Foundation
+//import CoreData
+//
+//
+//public class Transaction: NSManagedObject {
+//    
+//    var cachedOldValues:[String : Any]?
+//    
+//}

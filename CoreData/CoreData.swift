@@ -12,12 +12,12 @@ import UIKit
 
 class CoreData {
 
-    static let main = CoreData()
+    static let app = CoreData()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-    var allAccountsInCoreData:[Account]? {get{return getAllAccounts()}}
-    var allTransactionsInCoreData:[Transaction]? {get{return getAllTransactions()}}
-    var allMonthlyInCoreData:[Monthly]? {get{return getAllMonthly()}}
+//
+//    var allAccountsInCoreData:[Account]? {get{return getAllAccounts()}}
+//    var allTransactionsInCoreData:[Transaction]? {get{return getAllTransactions()}}
+//    var allMonthlyInCoreData:[Monthly]? {get{return getAllMonthly()}}
     
     enum AccountType : Int {
         case cash = 0
@@ -30,61 +30,61 @@ class CoreData {
         case equity = 7
     }
 
-    private func getAccountsWithType(type: AccountType) -> [Account]? {
-        let allAccounts = allAccountsInCoreData
-        let accountWithType = allAccounts?.filter({ (account) -> Bool in
-            return account.type == Int16(type.rawValue)
-        })
-        guard let accountArray = accountWithType else {
-            print("No account with type: \(type)")
-            return nil
-        }
-        return accountArray
-    }
-
-    private func getAllAccounts() -> [Account]? {
-        do {
-            let fetchRequest = try context.fetch(Account.fetchRequest())
-            let accounts = fetchRequest as! [Account]
-            if accounts.count == 0 {
-                print("No account in CoreData")
-            }
-            return accounts
-        } catch {
-            print("Loading Account failed")
-            return nil
-        }
-    }
-    
-    private func getAllTransactions() -> [Transaction]? {
-        do {
-            let fetchRequest = try context.fetch(Transaction.fetchRequest())
-            let transactions = (fetchRequest as! [Transaction]).sorted { (s1, s2) -> Bool in
-                s1.date > s2.date
-            }
-            if transactions.count == 0 {
-                print("No transaction in CoreData")
-            }
-            return transactions
-        } catch {
-            print("Loading Account failed")
-            return nil
-        }
-    }
-    
-    private func getAllMonthly() -> [Monthly]? {
-        do {
-            let fetchRequest = try context.fetch(Monthly.fetchRequest())
-            let monthlyArray = fetchRequest as! [Monthly]
-            if monthlyArray.count == 0 {
-                print("No flow in CoreData")
-            }
-            return monthlyArray
-        } catch {
-            print("Loading Flow failed")
-            return nil
-        }
-    }
+//    private func getAccountsWithType(type: AccountType) -> [Account]? {
+//        let allAccounts = allAccountsInCoreData
+//        let accountWithType = allAccounts?.filter({ (account) -> Bool in
+//            return account.type == Int16(type.rawValue)
+//        })
+//        guard let accountArray = accountWithType else {
+//            print("No account with type: \(type)")
+//            return nil
+//        }
+//        return accountArray
+//    }
+//
+//    private func getAllAccounts() -> [Account]? {
+//        do {
+//            let fetchRequest = try context.fetch(Account.fetchRequest())
+//            let accounts = fetchRequest as! [Account]
+//            if accounts.count == 0 {
+//                print("No account in CoreData")
+//            }
+//            return accounts
+//        } catch {
+//            print("Loading Account failed")
+//            return nil
+//        }
+//    }
+//
+//    private func getAllTransactions() -> [Transaction]? {
+//        do {
+//            let fetchRequest = try context.fetch(Transaction.fetchRequest())
+//            let transactions = (fetchRequest as! [Transaction]).sorted { (s1, s2) -> Bool in
+//                s1.date > s2.date
+//            }
+//            if transactions.count == 0 {
+//                print("No transaction in CoreData")
+//            }
+//            return transactions
+//        } catch {
+//            print("Loading Account failed")
+//            return nil
+//        }
+//    }
+//
+//    private func getAllMonthly() -> [Monthly]? {
+//        do {
+//            let fetchRequest = try context.fetch(Monthly.fetchRequest())
+//            let monthlyArray = fetchRequest as! [Monthly]
+//            if monthlyArray.count == 0 {
+//                print("No flow in CoreData")
+//            }
+//            return monthlyArray
+//        } catch {
+//            print("Loading Flow failed")
+//            return nil
+//        }
+//    }
 
 
     

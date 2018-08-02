@@ -7,19 +7,19 @@
 //
 //
 
-import Foundation
-import CoreData
-
-
-extension Monthly {
-
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Monthly> {
-        return NSFetchRequest<Monthly>(entityName: "Monthly")
-    }
-
-    @NSManaged public var endDate: Date
-    @NSManaged public var flow: Double
-    @NSManaged public var balance: Double
-    @NSManaged public var account: Account
-
-}
+//import Foundation
+//import CoreData
+//
+//
+//extension Monthly {
+//
+//    @nonobjc public class func fetchRequest() -> NSFetchRequest<Monthly> {
+//        return NSFetchRequest<Monthly>(entityName: "Monthly")
+//    }
+//
+//    @NSManaged public var endDate: Date
+//    @NSManaged public var flow: Double
+//    @NSManaged public var balance: Double
+//    @NSManaged public var account: Account
+//
+//}

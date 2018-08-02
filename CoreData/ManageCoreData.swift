@@ -19,41 +19,41 @@ extension CoreData {
     
     func clearAllCoreData(){
 
-        CoreDataSimulation.main.isSimulating = true
-        do {
-            
-            let result = try context.fetch(Monthly.fetchRequest())
-            for object in result {
-                context.delete(object as! NSManagedObject)
-            }
-            
-        } catch {
-            print("Deleting Monthly failed: \(error)")
-        }
-        
-        do {
-            
-            let result = try context.fetch(Transaction.fetchRequest())
-            for object in result {
-                context.delete(object as! NSManagedObject)
-            }
-            
-        } catch {
-            print("Deleting Transaction failed: \(error)")
-        }
-        
-        do {
-            let result = try context.fetch(Account.fetchRequest())
-            for object in result {
-                context.delete(object as! NSManagedObject)
-            }
-            
-        } catch {
-            print("Deleting Account failed: \(error)")
-        }
-        
-        CoreData.main.saveData()
-        CoreDataSimulation.main.isSimulating = false
+//        //CoreDataSimulation.main.isSimulating = true
+//        do {
+//            
+//            let result = try context.fetch(Monthly.fetchRequest())
+//            for object in result {
+//                context.delete(object as! NSManagedObject)
+//            }
+//            
+//        } catch {
+//            print("Deleting Monthly failed: \(error)")
+//        }
+//        
+//        do {
+//            
+//            let result = try context.fetch(Transaction.fetchRequest())
+//            for object in result {
+//                context.delete(object as! NSManagedObject)
+//            }
+//            
+//        } catch {
+//            print("Deleting Transaction failed: \(error)")
+//        }
+//        
+//        do {
+//            let result = try context.fetch(Account.fetchRequest())
+//            for object in result {
+//                context.delete(object as! NSManagedObject)
+//            }
+//            
+//        } catch {
+//            print("Deleting Account failed: \(error)")
+//        }
+//        
+//        CoreData.app.saveData()
+        //CoreDataSimulation.main.isSimulating = false
     }
 
 }

@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         controller.view.backgroundColor = UIColor.blue
         window?.rootViewController = controller
         
-        CoreDataSimulation.main.simulateData()
+        //CoreDataSimulation.main.simulateData()
         
         return true
     }

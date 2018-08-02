@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Account" representedClassName=".Account" syncable="YES">
+    <entity name="AccountCoreData" representedClassName=".AccountCoreData" syncable="YES">
         <attribute name="beginBalance" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="imageRecordID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="recordID" attributeType="String" syncable="YES"/>
         <attribute name="type" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="monthly" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Monthly" inverseName="account" inverseEntity="Monthly" syncable="YES"/>
-        <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Transaction" inverseName="accounts" inverseEntity="Transaction" syncable="YES"/>
+        <relationship name="statement" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="StatementCoreData" inverseName="account" inverseEntity="StatementCoreData" syncable="YES"/>
+        <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="TransactionCoreData" inverseName="accounts" inverseEntity="TransactionCoreData" syncable="YES"/>
     </entity>
-    <entity name="Monthly" representedClassName=".Monthly" syncable="YES">
+    <entity name="StatementCoreData" representedClassName=".StatementCoreData" syncable="YES">
         <attribute name="balance" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="flow" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="monthly" inverseEntity="Account" syncable="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AccountCoreData" inverseName="statement" inverseEntity="AccountCoreData" syncable="YES"/>
     </entity>
-    <entity name="Transaction" representedClassName=".Transaction" syncable="YES">
+    <entity name="TransactionCoreData" representedClassName=".TransactionCoreData" syncable="YES">
         <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="fullImageRecordID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="modified" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -25,11 +25,11 @@
         <attribute name="thumbnailRecordID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="accounts" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Account" inverseName="transactions" inverseEntity="Account" syncable="YES"/>
+        <relationship name="accounts" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="AccountCoreData" inverseName="transactions" inverseEntity="AccountCoreData" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Account" positionX="-63" positionY="45" width="128" height="150"/>
-        <element name="Transaction" positionX="-63" positionY="-18" width="128" height="195"/>
-        <element name="Monthly" positionX="-54" positionY="72" width="128" height="105"/>
+        <element name="AccountCoreData" positionX="-63" positionY="45" width="128" height="150"/>
+        <element name="StatementCoreData" positionX="-54" positionY="72" width="128" height="105"/>
+        <element name="TransactionCoreData" positionX="-63" positionY="-18" width="128" height="195"/>
     </elements>
 </model>
