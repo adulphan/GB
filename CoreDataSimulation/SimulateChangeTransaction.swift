@@ -41,6 +41,9 @@ extension CoreDataSimulation {
         let transaction_3 = allTransactions[randomInt(min: 0, max: allTransactions.count-1)]
 
         let newAccount = allAccounts[randomInt(min: 0, max: allAccounts.count-1)]
+        let nIndex = allAccounts.index(of: newAccount)
+        
+        allAccounts.remove(at: nIndex!)
         let newAccount2 = allAccounts[randomInt(min: 0, max: allAccounts.count-1)]
 
         transaction_3.setValue(NSOrderedSet(array: [newAccount,newAccount2]), forKey: "accounts")
