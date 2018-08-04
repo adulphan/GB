@@ -2,7 +2,7 @@
 //  TransactionCoreData+CoreDataProperties.swift
 //  goldbac
 //
-//  Created by adulphan youngmod on 2/8/18.
+//  Created by adulphan youngmod on 3/8/18.
 //  Copyright © 2018 goldbac Inc. All rights reserved.
 //
 //
@@ -20,12 +20,12 @@ extension TransactionCoreData {
     @NSManaged public var date: Date?
     @NSManaged public var fullImageRecordID: String?
     @NSManaged public var modified: Date?
-    @NSManaged public var moneyArray: [Double]?
     @NSManaged public var note: String?
     @NSManaged public var recordID: String?
     @NSManaged public var thumbnailRecordID: String?
     @NSManaged public var title: String?
     @NSManaged public var url: String?
+    @NSManaged public var flowArray: [Double]?
     @NSManaged public var accounts: NSOrderedSet?
 
 }

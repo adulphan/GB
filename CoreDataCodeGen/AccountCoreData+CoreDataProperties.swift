@@ -2,7 +2,7 @@
 //  AccountCoreData+CoreDataProperties.swift
 //  goldbac
 //
-//  Created by adulphan youngmod on 2/8/18.
+//  Created by adulphan youngmod on 3/8/18.
 //  Copyright © 2018 goldbac Inc. All rights reserved.
 //
 //
@@ -22,43 +22,44 @@ extension AccountCoreData {
     @NSManaged public var name: String?
     @NSManaged public var recordID: String?
     @NSManaged public var type: Int16
-    @NSManaged public var statement: NSOrderedSet?
+    @NSManaged public var endBalance: Double
+    @NSManaged public var monthlyData: NSOrderedSet?
     @NSManaged public var transactions: NSOrderedSet?
 
 }
 
-// MARK: Generated accessors for statement
+// MARK: Generated accessors for monthlyData
 extension AccountCoreData {
 
-    @objc(insertObject:inStatementAtIndex:)
-    @NSManaged public func insertIntoStatement(_ value: StatementCoreData, at idx: Int)
+    @objc(insertObject:inMonthlyDataAtIndex:)
+    @NSManaged public func insertIntoMonthlyData(_ value: MonthCoreData, at idx: Int)
 
-    @objc(removeObjectFromStatementAtIndex:)
-    @NSManaged public func removeFromStatement(at idx: Int)
+    @objc(removeObjectFromMonthlyDataAtIndex:)
+    @NSManaged public func removeFromMonthlyData(at idx: Int)
 
-    @objc(insertStatement:atIndexes:)
-    @NSManaged public func insertIntoStatement(_ values: [StatementCoreData], at indexes: NSIndexSet)
+    @objc(insertMonthlyData:atIndexes:)
+    @NSManaged public func insertIntoMonthlyData(_ values: [MonthCoreData], at indexes: NSIndexSet)
 
-    @objc(removeStatementAtIndexes:)
-    @NSManaged public func removeFromStatement(at indexes: NSIndexSet)
+    @objc(removeMonthlyDataAtIndexes:)
+    @NSManaged public func removeFromMonthlyData(at indexes: NSIndexSet)
 
-    @objc(replaceObjectInStatementAtIndex:withObject:)
-    @NSManaged public func replaceStatement(at idx: Int, with value: StatementCoreData)
+    @objc(replaceObjectInMonthlyDataAtIndex:withObject:)
+    @NSManaged public func replaceMonthlyData(at idx: Int, with value: MonthCoreData)
 
-    @objc(replaceStatementAtIndexes:withStatement:)
-    @NSManaged public func replaceStatement(at indexes: NSIndexSet, with values: [StatementCoreData])
+    @objc(replaceMonthlyDataAtIndexes:withMonthlyData:)
+    @NSManaged public func replaceMonthlyData(at indexes: NSIndexSet, with values: [MonthCoreData])
 
-    @objc(addStatementObject:)
-    @NSManaged public func addToStatement(_ value: StatementCoreData)
+    @objc(addMonthlyDataObject:)
+    @NSManaged public func addToMonthlyData(_ value: MonthCoreData)
 
-    @objc(removeStatementObject:)
-    @NSManaged public func removeFromStatement(_ value: StatementCoreData)
+    @objc(removeMonthlyDataObject:)
+    @NSManaged public func removeFromMonthlyData(_ value: MonthCoreData)
 
-    @objc(addStatement:)
-    @NSManaged public func addToStatement(_ values: NSOrderedSet)
+    @objc(addMonthlyData:)
+    @NSManaged public func addToMonthlyData(_ values: NSOrderedSet)
 
-    @objc(removeStatement:)
-    @NSManaged public func removeFromStatement(_ values: NSOrderedSet)
+    @objc(removeMonthlyData:)
+    @NSManaged public func removeFromMonthlyData(_ values: NSOrderedSet)
 
 }
 

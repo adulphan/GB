@@ -2,7 +2,7 @@
 //  TransactionCoreData+CoreDataClass.swift
 //  goldbac
 //
-//  Created by adulphan youngmod on 2/8/18.
+//  Created by adulphan youngmod on 3/8/18.
 //  Copyright © 2018 goldbac Inc. All rights reserved.
 //
 //
@@ -13,4 +13,7 @@ import CoreData
 
 public class TransactionCoreData: NSManagedObject {
 
+    var cachedLastCommitted:Transaction?
+    var wasUpdated:Bool = false
+    
 }

@@ -20,14 +20,14 @@ extension Date {
         }
     }
     
-//    var standardized: Date {
-//        
-//        get{
-//            let calendar = DateFormat.main.calendar
-//            let components = Calendar.current.dateComponents([.day, .month, .year], from: self)
-//            let date = calendar.date(from: components)!
-//            return date
-//        }
-//    }
+    var standardized: Date {
+        
+        get{
+            let calendar = DateFormat.main.calendar
+            let components = Calendar.current.dateComponents([.day, .month, .year], from: self)
+            let date = calendar.date(from: components)!
+            return date
+        }
+    }
 
 }

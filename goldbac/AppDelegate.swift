@@ -23,9 +23,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let controller = UIViewController()
         controller.view.backgroundColor = UIColor.blue
-        window?.rootViewController = controller
+        window?.rootViewController = controller        
         
-        //CoreDataSimulation.main.simulateData()
+        SimulateData.app.clearAllCoreData()
+        SimulateData.app.simulateAccounts()
+        SimulateData.app.simulateTransaction()
+
+//        SimulateData.app.simulateInsertTransaction()
+        SimulateData.app.simulateDeleteTransaciton()
+//        SimulateData.app.simulateEditTransaction()
+        
+        SimulateData.app.printAllAccountsCoreData()
+        SimulateData.app.printAllTransactionsCoreData()
+        
+        let account = SimulateData.app.accountsDictionary["bofa"]!
+        SimulateData.app.printAllMonthsInCoreDataFor(account: account)
+        
+        print("//")
+        let account2 = SimulateData.app.accountsDictionary["grocery"]!
+        SimulateData.app.printAllMonthsInCoreDataFor(account: account2)
         
         return true
     }

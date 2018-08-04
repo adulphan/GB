@@ -1,8 +1,8 @@
 //
-//  StatementCoreData+CoreDataProperties.swift
+//  MonthCoreData+CoreDataProperties.swift
 //  goldbac
 //
-//  Created by adulphan youngmod on 2/8/18.
+//  Created by adulphan youngmod on 3/8/18.
 //  Copyright © 2018 goldbac Inc. All rights reserved.
 //
 //
@@ -11,10 +11,10 @@ import Foundation
 import CoreData
 
 
-extension StatementCoreData {
+extension MonthCoreData {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<StatementCoreData> {
-        return NSFetchRequest<StatementCoreData>(entityName: "StatementCoreData")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<MonthCoreData> {
+        return NSFetchRequest<MonthCoreData>(entityName: "MonthCoreData")
     }
 
     @NSManaged public var balance: Double

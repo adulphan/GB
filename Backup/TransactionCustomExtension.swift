@@ -10,13 +10,13 @@
 //import CoreData
 //
 //
-//extension Transaction {
+//extension TransactionCoreData {
 //    
-//    public override func prepareForDeletion() {       
-//        if CoreDataSimulation.main.isSimulating == false {
+//    public override func prepareForDeletion() {
+//        //if CoreDataSimulation.main.isSimulating == false {
 //            super.prepareForDeletion()
 //            deleteFlows()
-//        }
+//        //}
 //    }
 //
 //    public override func didSave() {
@@ -39,15 +39,15 @@
 //    var fromAccounts: [Account] {get{ return getFromAccounts()}}
 //    var toAccounts: [Account] {get{return getToAccounts()}}
 //    
-//    func getMoneyFor(account: Account) -> Double {
-//        if let index = (self.accounts.array as! [Account]).index(of: account) {
-//            let money = self.moneyArray[index]
-//            return money
-//        } else {
-//            
-//            return 0
-//        }
-//    }
+////    func getMoneyFor(account: Account) -> Double {
+////        if let index = (self.accounts.array as! [Account]).index(of: account) {
+////            let money = self.moneyArray[index]
+////            return money
+////        } else {
+////
+////            return 0
+////        }
+////    }
 // 
 //    private func getTotalAmount() -> Double {
 //        var total:Double = 0

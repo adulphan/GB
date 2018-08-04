@@ -10,7 +10,7 @@
 //import CoreData
 //import UIKit
 //
-//extension Transaction {
+//extension TransactionCoreData {
 //    
 //    func editFlows() {
 //        
