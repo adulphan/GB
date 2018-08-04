@@ -56,6 +56,50 @@ extension SimulateData {
         }
 
     }
+    
+    func createPeriodicSplitTransactions(from: [Account], to: [Account], title: [String], amount: [Double], flowSTD:[Double], note:String?, url:String? , frequency: Calendar.Component, multiple: Int, count: Int, startDate: Int, month: Int, year: Int, flexibleDate:Int) {
+
+        for i in 0...count-1 {
+
+            let transaction = Transaction()
+            let combine = from + to
+            transaction.accounts = combine
+
+            let randomAmount = amount[randomInt(min: 0, max: amount.count-1)]
+            let flowArray:[Double] = flowSTD.map{$0*randomAmount}
+            transaction.flowArray = flowArray
+
+            let randomTitle = title[randomInt(min: 0, max: title.count-1)]
+            transaction.title = randomTitle
+
+            if let text = note {
+                transaction.note = text
+            }
+
+            if let text = url {
+                transaction.url = text
+            }
+
+            var components = DateComponents()
+            components.day = startDate
+            components.month = month
+            components.year = year
+            let reference = Calendar.current.date(from: components)?.standardized
+            let addFlex = randomInt(min: -flexibleDate, max: +flexibleDate)
+
+            var date = DateFormat.main.calendar.date(byAdding: frequency, value: -i*multiple, to: reference!)
+            date = DateFormat.main.calendar.date(byAdding: .day, value: addFlex, to: date!)
+
+            transaction.date = DateFormat.main.standardized(date: date!)
+            transaction.modified = DateFormat.main.standardized(date: date!)
+
+            transaction.addToCoreData()
+
+        }
+
+
+
+    }
 
 }
 

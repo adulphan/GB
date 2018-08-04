@@ -41,6 +41,10 @@ class Transaction {
         transaction.title = title
         transaction.url = url
         transaction.accounts = getAccountCoreData()
+        
+        
+        
+        
     }
     
     func overwriteCoreData() {

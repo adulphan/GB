@@ -11,69 +11,44 @@ import CoreData
 
 extension TransactionCoreData {
     
-    
     public override func willSave() {
         super.willSave()
-
-        if isUpdated {
-            print("Transaction isUpdated")
-            wasUpdated = true
-        }
-
+        if isUpdated { wasUpdated = true }
     }
-    
     
     public override func didSave() {
         super.didSave()
 
-        if isInserted {
-            print("Transaction isInserted")
-            insertFlow()
-        }
-        
-        if isDeleted {
-            print("Transaction isDeleted")
-            deleteFlow() 
-        }
-        
-        
-        if isUpdated { print("Transaction wasUpdated") }
-        
-        if let lastCommitted = cachedLastCommitted {
-            print(lastCommitted.accounts?.map{$0.name} ?? ["No names"])
-        }
-        
+        if isInserted { insertFlows() }
+        if isDeleted { deleteFlows() }
+        if wasUpdated { updateFlows() }
+
         let committedTransation = Transaction()
         committedTransation.referenceTo(coreData: self)
         cachedLastCommitted = committedTransation
-        
         wasUpdated = false
 
     }
     
-    
-    func getFlowOf(account: AccountCoreData) -> Double? {
-        guard let accounts = self.accounts else {return nil}
-        let accountArray = accounts.array as! [AccountCoreData]
-        let index = accountArray.index(of: account)
-        guard let flows = self.flowArray else {return nil}
-        if let i = index {
-            return flows[i]
-        } else {
-            return nil
-        }
-    }
-    
-    func deleteFlow() {
+    func deleteFlows() {
         if SimulateData.app.isClearingData { return }
         guard let transaction = cachedLastCommitted else{return}
         updateBalanceWith(transaction: transaction, isDeleted: true)
     }
     
-    func insertFlow() {
+    func insertFlows() {
         let transaction = Transaction()
         transaction.referenceTo(coreData: self)
         updateBalanceWith(transaction: transaction, isDeleted: false)
+    }
+    
+    func updateFlows() {
+        guard let oldTransaction = cachedLastCommitted else{return}
+        let updateTransaction = Transaction()
+        updateTransaction.referenceTo(coreData: self)
+        
+        updateBalanceWith(transaction: oldTransaction, isDeleted: true)
+        updateBalanceWith(transaction: updateTransaction, isDeleted: false)
     }
     
     func updateBalanceWith(transaction: Transaction, isDeleted: Bool) {
@@ -131,14 +106,22 @@ extension TransactionCoreData {
                     }
 
                 }
-                
             }
-            
         }
-        
-        
+    
     }
     
+    func getFlowOf(account: AccountCoreData) -> Double? {
+        guard let accounts = self.accounts else {return nil}
+        let accountArray = accounts.array as! [AccountCoreData]
+        let index = accountArray.index(of: account)
+        guard let flows = self.flowArray else {return nil}
+        if let i = index {
+            return flows[i]
+        } else {
+            return nil
+        }
+    }
 }
 
 

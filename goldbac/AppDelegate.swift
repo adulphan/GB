@@ -30,18 +30,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SimulateData.app.simulateTransaction()
 
 //        SimulateData.app.simulateInsertTransaction()
-        SimulateData.app.simulateDeleteTransaciton()
+//        SimulateData.app.simulateDeleteTransaciton()
 //        SimulateData.app.simulateEditTransaction()
         
         SimulateData.app.printAllAccountsCoreData()
-        SimulateData.app.printAllTransactionsCoreData()
+        SimulateData.app.printAllTransactionsCoreData()        
+        SimulateData.app.printBalanceFor(monthEnd: Date().monthEnd)
         
-        let account = SimulateData.app.accountsDictionary["bofa"]!
-        SimulateData.app.printAllMonthsInCoreDataFor(account: account)
-        
-        print("//")
-        let account2 = SimulateData.app.accountsDictionary["grocery"]!
-        SimulateData.app.printAllMonthsInCoreDataFor(account: account2)
         
         return true
     }

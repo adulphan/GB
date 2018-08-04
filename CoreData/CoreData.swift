@@ -14,7 +14,6 @@ class CoreData {
 
     static let app = CoreData()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//
     var allAccountsInCoreData:[AccountCoreData]? {get{return getAllAccounts()}}
     var allTransactionsInCoreData:[TransactionCoreData]? {get{return getAllTransactions()}}
     var allMonthInCoreData:[MonthCoreData]? {get{return getAllMonth()}}
@@ -30,18 +29,6 @@ class CoreData {
         case equity = 7
     }
 
-//    private func getAccountsWithType(type: AccountType) -> [Account]? {
-//        let allAccounts = allAccountsInCoreData
-//        let accountWithType = allAccounts?.filter({ (account) -> Bool in
-//            return account.type == Int16(type.rawValue)
-//        })
-//        guard let accountArray = accountWithType else {
-//            print("No account with type: \(type)")
-//            return nil
-//        }
-//        return accountArray
-//    }
-//
     private func getAllAccounts() -> [AccountCoreData]? {
         do {
             let fetchRequest = try context.fetch(AccountCoreData.fetchRequest())
@@ -97,6 +84,18 @@ class CoreData {
 
 
 
+//    private func getAccountsWithType(type: AccountType) -> [Account]? {
+//        let allAccounts = allAccountsInCoreData
+//        let accountWithType = allAccounts?.filter({ (account) -> Bool in
+//            return account.type == Int16(type.rawValue)
+//        })
+//        guard let accountArray = accountWithType else {
+//            print("No account with type: \(type)")
+//            return nil
+//        }
+//        return accountArray
+//    }
+//
 
 
 
