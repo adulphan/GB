@@ -27,7 +27,7 @@ class Account {
     private var accountCoreData: AccountCoreData?
     
     func addToCoreData() {
-        let account = AccountCoreData(context: CoreData.app.context)
+        let account = AccountCoreData(context: CoreData.shared.context)
         account.recordID = UUID().uuidString
         account.beginBalance = beginBalance!
         account.imageRecordID = imageRecordID
@@ -45,8 +45,8 @@ class Account {
     
     func deleteCoreData() {
         let account = accountCoreData!
-        CoreData.app.context.delete(account)
-        CoreData.app.saveData()
+        CoreData.shared.context.delete(account)
+        CoreData.shared.saveData()
         
         accountCoreData = nil
         beginBalance = nil

@@ -28,15 +28,16 @@ extension SimulateData {
         for array in accountName {
             let type = accountName.index(of: array)!
             for name in array {
-                let newAcount = AccountCoreData(context: CoreData.app.context)
+                let newAcount = AccountCoreData(context: CoreData.shared.context)
                 newAcount.name = String(name.uppercased().first!) + String(name.dropFirst())
                 newAcount.type = Int16(type)
                 newAcount.beginBalance = 0
                 newAcount.endBalance = 0
+                newAcount.recordID = UUID().uuidString
                 accountsDictionary[name] = newAcount
             }
         }
-        CoreData.app.saveData()
+        CoreData.shared.saveData()
         
     }
 

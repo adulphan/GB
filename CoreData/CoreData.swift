@@ -12,7 +12,7 @@ import UIKit
 
 class CoreData {
 
-    static let app = CoreData()
+    static let shared = CoreData()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var allAccountsInCoreData:[AccountCoreData]? {get{return getAllAccounts()}}
     var allTransactionsInCoreData:[TransactionCoreData]? {get{return getAllTransactions()}}

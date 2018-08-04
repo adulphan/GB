@@ -42,14 +42,14 @@ extension SimulateData {
             components.day = startDate
             components.month = month
             components.year = year
-            let reference = Calendar.current.date(from: components)?.standardized
+            let reference = Calendar.current.date(from: components)?.adjustedToAppCalendar
             let addFlex = randomInt(min: -flexibleDate, max: +flexibleDate)
             
-            var date = DateFormat.main.calendar.date(byAdding: frequency, value: -i*multiple, to: reference!)
-            date = DateFormat.main.calendar.date(byAdding: .day, value: addFlex, to: date!)
+            var date = Application.calendar.date(byAdding: frequency, value: -i*multiple, to: reference!)
+            date = Application.calendar.date(byAdding: .day, value: addFlex, to: date!)
             
             transaction.date = date
-            transaction.modified = date
+            transaction.modified = Date()
             
             transaction.addToCoreData()
             
@@ -84,15 +84,15 @@ extension SimulateData {
             components.day = startDate
             components.month = month
             components.year = year
-            let reference = Calendar.current.date(from: components)?.standardized
+            let reference = Calendar.current.date(from: components)?.adjustedToAppCalendar
             let addFlex = randomInt(min: -flexibleDate, max: +flexibleDate)
+            
+            var date = Application.calendar.date(byAdding: frequency, value: -i*multiple, to: reference!)
+            date = Application.calendar.date(byAdding: .day, value: addFlex, to: date!)
 
-            var date = DateFormat.main.calendar.date(byAdding: frequency, value: -i*multiple, to: reference!)
-            date = DateFormat.main.calendar.date(byAdding: .day, value: addFlex, to: date!)
-
-            transaction.date = DateFormat.main.standardized(date: date!)
-            transaction.modified = DateFormat.main.standardized(date: date!)
-
+            transaction.date = date
+            transaction.modified = Date()
+            
             transaction.addToCoreData()
 
         }

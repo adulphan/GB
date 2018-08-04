@@ -24,7 +24,7 @@ extension SimulateData {
         simulateOtherExpense(yearsHistory: years)
         simulateNonRecurring()
         
-        CoreData.app.saveData()
+        CoreData.shared.saveData()
     }
     
     func simulateNonRecurring() {
@@ -52,8 +52,7 @@ extension SimulateData {
         personalLoanAccount.referenceTo(coreData: accountsDictionary["personalLoan"]!)
         
         createPeriodicSplitTransactions(from: [mainBankAccount,personalLoanAccount], to: [stockAccount], title: ["Invest in Stock"], amount: [100000], flowSTD: [-0.9,-0.1,1], note: nil, url: nil, frequency: .year, multiple: 1, count: 1, startDate: day, month: month-5, year: year, flexibleDate: 30)
-        
-        
+ 
     }
     
     func simulateAutoLease(yearsHistory:Int) {
@@ -109,12 +108,12 @@ extension SimulateData {
         let month = components.month!
         let day = components.day!
         
-        let allAccounts = CoreData.app.allAccountsInCoreData!
+        let allAccounts = CoreData.shared.allAccountsInCoreData!
         let fromAccountsCoreData = allAccounts.filter { (account) -> Bool in
                 account.type == CoreData.AccountType.bank.rawValue
         }
         
-        let fromAccounts = CoreData.app.createAccountsFrom(coreData: fromAccountsCoreData)
+        let fromAccounts = CoreData.shared.createAccountsFrom(coreData: fromAccountsCoreData)
 
         let medicalAccount = Account()
         medicalAccount.referenceTo(coreData: accountsDictionary["medical"]!)
@@ -154,13 +153,13 @@ extension SimulateData {
         let month = components.month!
         let day = components.day!
         
-        let allAccounts = CoreData.app.allAccountsInCoreData!
+        let allAccounts = CoreData.shared.allAccountsInCoreData!
         let fromAccountsCoreData = allAccounts.filter { (account) -> Bool in
                 account.type == CoreData.AccountType.card.rawValue ||
                 account.type == CoreData.AccountType.bank.rawValue
         }
         
-        let fromAccounts = CoreData.app.createAccountsFrom(coreData: fromAccountsCoreData)
+        let fromAccounts = CoreData.shared.createAccountsFrom(coreData: fromAccountsCoreData)
 
         let utilityAccounts = Account()
         utilityAccounts.referenceTo(coreData: accountsDictionary["utility"]!)
@@ -189,14 +188,14 @@ extension SimulateData {
         let month = components.month!
         let day = components.day!
 
-        let allAccounts = CoreData.app.allAccountsInCoreData!
+        let allAccounts = CoreData.shared.allAccountsInCoreData!
         let fromAccountsCoreData = allAccounts.filter { (account) -> Bool in
             account.type == CoreData.AccountType.cash.rawValue ||
             account.type == CoreData.AccountType.card.rawValue ||
             account.type == CoreData.AccountType.bank.rawValue
         }
 
-        let fromAccounts = CoreData.app.createAccountsFrom(coreData: fromAccountsCoreData)
+        let fromAccounts = CoreData.shared.createAccountsFrom(coreData: fromAccountsCoreData)
         
         let groceryAccount = Account()
         groceryAccount.referenceTo(coreData: accountsDictionary["grocery"]!)

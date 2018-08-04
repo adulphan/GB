@@ -21,21 +21,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Master Branch
 
-        let controller = UIViewController()
-        controller.view.backgroundColor = UIColor.blue
+        let controller = ViewController()
         window?.rootViewController = controller        
         
-        SimulateData.app.clearAllCoreData()
-        SimulateData.app.simulateAccounts()
-        SimulateData.app.simulateTransaction()
+        SimulateData.shared.clearAllCoreData()
+//        SimulateData.shared.simulateAccounts()
+//        SimulateData.shared.simulateTransaction()
 
 //        SimulateData.app.simulateInsertTransaction()
 //        SimulateData.app.simulateDeleteTransaciton()
 //        SimulateData.app.simulateEditTransaction()
         
-        SimulateData.app.printAllAccountsCoreData()
-        SimulateData.app.printAllTransactionsCoreData()        
-        SimulateData.app.printBalanceFor(monthEnd: Date().monthEnd)
+        SimulateData.shared.printAllAccountsCoreData()
+        SimulateData.shared.printAllTransactionsCoreData()        
+        SimulateData.shared.printBalanceFor(monthEnd: Date().monthEnd)
         
         
         return true

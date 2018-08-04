@@ -15,15 +15,15 @@ extension SimulateData {
     
     
     func printAllAccountsCoreData() {
-        for account in CoreData.app.allAccountsInCoreData! {
+        for account in CoreData.shared.allAccountsInCoreData! {
             print("\(account.name ?? "No name")")
         }
-        print("Total accounts: \(CoreData.app.allAccountsInCoreData?.count ?? 999999)")
+        print("Total accounts: \(CoreData.shared.allAccountsInCoreData?.count ?? 999999)")
         
     }
     
     func printAllTransactionsCoreData() {
-        for transactionCD in CoreData.app.allTransactionsInCoreData! {
+        for transactionCD in CoreData.shared.allTransactionsInCoreData! {
             let transaction = Transaction()
             transaction.referenceTo(coreData: transactionCD)
             
@@ -33,7 +33,7 @@ extension SimulateData {
             print("\(transaction.date!) : \(transaction.title ?? "No Title") : \(accountNames)")
         }
         
-        print("Total transactions: \(CoreData.app.allTransactionsInCoreData?.count ?? 999999)")
+        print("Total transactions: \(CoreData.shared.allTransactionsInCoreData?.count ?? 999999)")
         
     }
     
@@ -43,12 +43,12 @@ extension SimulateData {
         }
     }
     
-    func printBalanceFor(monthEnd:Date) {
+    func printBalanceFor(monthEnd: Date) {
         
         var sumOfBalances:Double = 0
-        for account in CoreData.app.allAccountsInCoreData! {
+        for account in CoreData.shared.allAccountsInCoreData! {
             let array = account.monthlyData?.array as! [MonthCoreData]
-            if let index = array.index(where: {$0.endDate! < monthEnd}) {
+            if let index = array.index(where: {$0.endDate! <= monthEnd}) {
                 let month = array[index]
                 print("\(account.name ?? "No name") balance: \(month.balance)")
                 sumOfBalances += month.balance

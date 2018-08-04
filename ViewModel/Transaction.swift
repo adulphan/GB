@@ -30,7 +30,7 @@ class Transaction {
     var accounts: [Account]?
     
     func addToCoreData() {
-        let transaction = TransactionCoreData(context: CoreData.app.context)
+        let transaction = TransactionCoreData(context: CoreData.shared.context)
         transaction.recordID = UUID().uuidString
         transaction.date = date
         transaction.fullImageRecordID = fullImageRecordID
@@ -41,10 +41,7 @@ class Transaction {
         transaction.title = title
         transaction.url = url
         transaction.accounts = getAccountCoreData()
-        
-        
-        
-        
+
     }
     
     func overwriteCoreData() {
@@ -62,8 +59,8 @@ class Transaction {
     
     func deleteCoreData() {
         let transaction = transactionCoreData!
-        CoreData.app.context.delete(transaction)
-        CoreData.app.saveData()
+        CoreData.shared.context.delete(transaction)
+        CoreData.shared.saveData()
         transaction.date = nil
         
         transaction.fullImageRecordID = nil
@@ -93,12 +90,12 @@ class Transaction {
     
     private func getAccountCoreData() -> NSOrderedSet {
         guard let array = accounts else { return [] }
-        var outPutArray:[AccountCoreData] = []
+        var outputArray:[AccountCoreData] = []
         for account in array {
             guard let reference = account.referenceAccount else { return [] }
-            outPutArray.append(reference)
+            outputArray.append(reference)
         }
-        return NSOrderedSet(array: outPutArray)
+        return NSOrderedSet(array: outputArray)
     }
     
     private func getAccountArray() -> [Account] {

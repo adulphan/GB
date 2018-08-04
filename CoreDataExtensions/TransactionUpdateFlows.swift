@@ -11,27 +11,14 @@ import CoreData
 
 extension TransactionCoreData {
     
-    public override func willSave() {
-        super.willSave()
-        if isUpdated { wasUpdated = true }
-    }
-    
-    public override func didSave() {
-        super.didSave()
-
-        if isInserted { insertFlows() }
-        if isDeleted { deleteFlows() }
-        if wasUpdated { updateFlows() }
-
+    func cacheThisCommittedTransaction() {
         let committedTransation = Transaction()
         committedTransation.referenceTo(coreData: self)
-        cachedLastCommitted = committedTransation
-        wasUpdated = false
-
+        cachedLastCommitted = committedTransation        
     }
     
     func deleteFlows() {
-        if SimulateData.app.isClearingData { return }
+        if SimulateData.shared.isClearingData { return }
         guard let transaction = cachedLastCommitted else{return}
         updateBalanceWith(transaction: transaction, isDeleted: true)
     }
@@ -63,7 +50,7 @@ extension TransactionCoreData {
             
             let account = accountsCoreData[i]
             let flow = flowArray[i]
-            let monthEnd = date.standardized.monthEnd
+            let monthEnd = date.adjustedToAppCalendar.monthEnd
             
             let monthArray = account.monthlyData?.array as! [MonthCoreData]
             let withSameMonth = monthArray.filter { (month) -> Bool in
@@ -82,7 +69,7 @@ extension TransactionCoreData {
             }
             else {
                 
-                let newMonth = MonthCoreData(context: CoreData.app.context)
+                let newMonth = MonthCoreData(context: CoreData.shared.context)
                 newMonth.endDate = monthEnd
                 newMonth.flow = flow
                 

@@ -16,7 +16,7 @@ extension SimulateData {
     func clearAllCoreData(){
         
         isClearingData = true
-        let context = CoreData.app.context
+        let context = CoreData.shared.context
         
         do {
             let result = try context.fetch(AccountCoreData.fetchRequest())
@@ -28,7 +28,18 @@ extension SimulateData {
             print("Deleting Account failed: \(error)")
         }
         
-        CoreData.app.saveData()
+        
+        do {
+            let result = try context.fetch(TransactionCoreData.fetchRequest())
+            for object in result {
+                context.delete(object as! NSManagedObject)
+            }
+            
+        } catch {
+            print("Deleting Transaction failed: \(error)")
+        }
+        
+        CoreData.shared.saveData()
         isClearingData = false
     }
 }
