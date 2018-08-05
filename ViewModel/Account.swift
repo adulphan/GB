@@ -17,6 +17,7 @@ class Account {
     }
 
     var beginBalance: Double?
+    var endBalance: Double?
     var imageRecordID: String?
     var name: String?
     var type: Int16?
@@ -30,6 +31,7 @@ class Account {
         let account = AccountCoreData(context: CoreData.shared.context)
         account.recordID = UUID().uuidString
         account.beginBalance = beginBalance!
+        account.endBalance = beginBalance!
         account.imageRecordID = imageRecordID
         account.name = name
         account.type = type!
@@ -38,6 +40,7 @@ class Account {
     func overwriteCoreData() {
         let account = accountCoreData!
         account.beginBalance = beginBalance!
+        account.endBalance = beginBalance!
         account.imageRecordID = imageRecordID
         account.name = name
         account.type = type!
@@ -48,17 +51,19 @@ class Account {
         CoreData.shared.context.delete(account)
         CoreData.shared.saveData()
         
-        accountCoreData = nil
-        beginBalance = nil
-        imageRecordID = nil
-        name = nil
-        type = nil
+//        accountCoreData = nil
+//        beginBalance = nil
+//        endBalance = nil
+//        imageRecordID = nil
+//        name = nil
+//        type = nil
     }
     
     
     func referenceTo(coreData: AccountCoreData) {
         accountCoreData = coreData
         beginBalance = coreData.beginBalance
+        endBalance = coreData.endBalance
         imageRecordID = coreData.imageRecordID
         name = coreData.name
         type = coreData.type

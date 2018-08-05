@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import SystemConfiguration
 
 class Application {
     
@@ -29,7 +29,7 @@ class Application {
         case debt = 6
         case equity = 7
     }
-    
+
 }
 
 
