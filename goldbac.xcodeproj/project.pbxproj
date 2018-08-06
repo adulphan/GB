@@ -31,6 +31,7 @@
 		5353B7AC21155E8300ED45A6 /* CoreDataTranslation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5353B7AB21155E8300ED45A6 /* CoreDataTranslation.swift */; };
 		5353B7AE2115AA6A00ED45A6 /* TransactionToCloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5353B7AD2115AA6A00ED45A6 /* TransactionToCloudKit.swift */; };
 		5353B7B02115AA8F00ED45A6 /* TransactionObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5353B7AF2115AA8F00ED45A6 /* TransactionObservers.swift */; };
+		535677702117EBF6001CD19D /* ReachabilityReactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5356776F2117EBF6001CD19D /* ReachabilityReactions.swift */; };
 		53759D85210757FC0006C718 /* AccountCustomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D81210757FC0006C718 /* AccountCustomExtension.swift */; };
 		53759D9321080C600006C718 /* TransactionCustomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D9221080C600006C718 /* TransactionCustomExtension.swift */; };
 		53759D9621082C360006C718 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D9521082C360006C718 /* CoreData.swift */; };
@@ -84,6 +85,7 @@
 		5353B7AB21155E8300ED45A6 /* CoreDataTranslation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTranslation.swift; sourceTree = "<group>"; };
 		5353B7AD2115AA6A00ED45A6 /* TransactionToCloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionToCloudKit.swift; sourceTree = "<group>"; };
 		5353B7AF2115AA8F00ED45A6 /* TransactionObservers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionObservers.swift; sourceTree = "<group>"; };
+		5356776F2117EBF6001CD19D /* ReachabilityReactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityReactions.swift; sourceTree = "<group>"; };
 		53759D81210757FC0006C718 /* AccountCustomExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCustomExtension.swift; sourceTree = "<group>"; };
 		53759D9221080C600006C718 /* TransactionCustomExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCustomExtension.swift; sourceTree = "<group>"; };
 		53759D9521082C360006C718 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				5379B671210954CA00307909 /* DateFormat.swift */,
 				53ABB7522115E319009DE57B /* Application.swift */,
 				53ABB76021170E63009DE57B /* Reachability.swift */,
+				5356776F2117EBF6001CD19D /* ReachabilityReactions.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				5353B79D211465BD00ED45A6 /* MonthCoreData+CoreDataClass.swift in Sources */,
 				5353B78C211429A500ED45A6 /* TransactionUpdateFlows.swift in Sources */,
 				5353B79A211465BD00ED45A6 /* TransactionCoreData+CoreDataProperties.swift in Sources */,
+				535677702117EBF6001CD19D /* ReachabilityReactions.swift in Sources */,
 				5379B6762109D46500307909 /* SimulationHelper.swift in Sources */,
 				53ABB75D2116D4AE009DE57B /* ReachabilityOld.swift in Sources */,
 				539E45972112A481002096BD /* Account.swift in Sources */,

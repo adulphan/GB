@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        // Master Branch
+        setupReachability()
 
         let controller = ViewController()
         window?.rootViewController = controller        
@@ -36,8 +36,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SimulateData.shared.printAllTransactionsCoreData()        
         SimulateData.shared.printBalanceFor(monthEnd: Date().monthEnd)
         
-        
         return true
+    }
+    
+    
+    func setupReachability() {
+        
+        let reachability = Reachability.shared
+        reachability.stopNotifier()        
+        NotificationCenter.default.addObserver(reachability, selector: #selector(reachability.reachabilityDidChange(_:)), name: NSNotification.Name(rawValue: ReachabilityDidChangeNotificationName), object: nil)
+        reachability.startNotifier()
+   
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

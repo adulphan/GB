@@ -10,8 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var reachability = Reachability.shared
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.orange
@@ -19,43 +17,25 @@ class ViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTapOnView(sender:)))
         view.addGestureRecognizer(tap)
         view.isUserInteractionEnabled = true
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityDidChange(_:)), name: NSNotification.Name(rawValue: ReachabilityDidChangeNotificationName), object: nil)
-        
-        reachability.startNotifier()
    
     }
     
     var steps:Int = 1
     var accountDictionary:[String:AccountCoreData] = [:]
     var transactionDictionary:[String:TransactionCoreData] = [:]
-
-    
-    @objc func reachabilityDidChange(_ notification: Notification) {
-        checkReachability()
-        print("Reachability really did changes")
-        
-    }
-    
-    func checkReachability() {
-
-        if reachability.isReachable  {
-            view.backgroundColor = UIColor.green
-        } else {
-            view.backgroundColor = UIColor.red
-        }
-    }
-
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-        reachability.stopNotifier()
-    }
     
     @objc func handleTapOnView(sender: UITapGestureRecognizer) {
         
+        print(Reachability.shared.isReachable)
+//        action(steps: steps)
+//        steps += 1
+    }
+
+    func action(steps:Int) {
+        
         switch steps {
         case 1:
-
+            
             let newAcount = AccountCoreData(context: CoreData.shared.context)
             newAcount.name = "Bofa"
             newAcount.type = Application.accountType.bank.rawValue
@@ -64,9 +44,9 @@ class ViewController: UIViewController {
             newAcount.recordID = UUID().uuidString
             accountDictionary[newAcount.name!] = newAcount
             CoreData.shared.saveData()
-
+            
         case 2:
-
+            
             let newAcount = AccountCoreData(context: CoreData.shared.context)
             newAcount.name = "Grocery"
             newAcount.type = Application.accountType.bank.rawValue
@@ -75,9 +55,9 @@ class ViewController: UIViewController {
             newAcount.recordID = UUID().uuidString
             accountDictionary[newAcount.name!] = newAcount
             CoreData.shared.saveData()
-
+            
         case 3:
-
+            
             let newTransaction = TransactionCoreData(context: CoreData.shared.context)
             newTransaction.title = "Tesco Lotus"
             newTransaction.recordID = UUID().uuidString
@@ -88,32 +68,29 @@ class ViewController: UIViewController {
             newTransaction.note = nil
             newTransaction.thumbnailRecordID = nil
             newTransaction.url = "www.goldbac.com"
-
+            
             let accountArray = [accountDictionary["Bofa"]!,accountDictionary["Grocery"]!]
             newTransaction.accounts = NSOrderedSet(array: accountArray)
-
-
+            
+            
             CoreData.shared.saveData()
-
+            
         case 4:
             CoreData.shared.saveData()
-
+            
             SimulateData.shared.printAllAccountsCoreData()
             SimulateData.shared.printAllTransactionsCoreData()
             SimulateData.shared.printAllMonthsInCoreDataFor(account: accountDictionary["Bofa"]!)
             SimulateData.shared.printAllMonthsInCoreDataFor(account: accountDictionary["Grocery"]!)
             SimulateData.shared.printBalanceFor(monthEnd: Date().monthEnd)
-
+            
         default:
             print(steps)
         }
-
+        
         print(steps)
-        steps += 1
 
     }
-
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

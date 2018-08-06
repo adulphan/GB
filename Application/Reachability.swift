@@ -24,6 +24,7 @@ public class Reachability: NSObject {
     static let shared = Reachability()
     
     private var networkReachability: SCNetworkReachability?
+    private var notifying: Bool = false
     
     override init() {
         super.init()
@@ -42,12 +43,11 @@ public class Reachability: NSObject {
 
     }
  
-    private var notifying: Bool = false
+   
 
     func startNotifier() {
         
         guard notifying == false else { return }
-        
         var context = SCNetworkReachabilityContext()
         context.info = UnsafeMutableRawPointer(Unmanaged.passUnretained(self).toOpaque())
         
@@ -81,15 +81,13 @@ public class Reachability: NSObject {
     private var flags: SCNetworkReachabilityFlags {
         
         var flags = SCNetworkReachabilityFlags(rawValue: 0)
-        
         if let reachability = networkReachability, withUnsafeMutablePointer(to: &flags, { SCNetworkReachabilityGetFlags(reachability, UnsafeMutablePointer($0)) }) == true {
             return flags
         }
         else {
             return []
         }
-    }
-    
+    }    
     
     var currentReachabilityStatus: ReachabilityStatus {
         
@@ -123,6 +121,5 @@ public class Reachability: NSObject {
             return true
         }
     }
-
     
 }
