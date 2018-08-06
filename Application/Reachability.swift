@@ -21,6 +21,8 @@ enum ReachabilityStatus {
 
 public class Reachability: NSObject {
     
+    static let shared = Reachability()
+    
     private var networkReachability: SCNetworkReachability?
     
     override init() {
