@@ -32,6 +32,7 @@ class Cloudkit {
                 print(error!)
             } else {
                 print("Account: \(recordID.recordName) is saved to CloudKit")
+                account.modified = record?.modificationDate
             }
         })
     }

@@ -135,6 +135,7 @@
 				539E45952112A45F002096BD /* ViewModel */,
 				5379B67C2109DC7A00307909 /* Application */,
 				5353B78A2114297200ED45A6 /* CoreDataExtensions */,
+				5356776E2117E5CA001CD19D /* Cloudkit */,
 				53759D8B2107FB910006C718 /* CoreData */,
 				530A3C8121074D8100F6FF20 /* goldbac */,
 				53C8454E2110929E0076A8E5 /* UnitTest */,
@@ -186,8 +187,6 @@
 				5379B6732109C7DB00307909 /* PeriodicTransactions.swift */,
 				5379B6752109D46500307909 /* SimulationHelper.swift */,
 				53ABB74E2115D90F009DE57B /* TalkToCloudkit.swift */,
-				53ABB7502115D94E009DE57B /* CloudKitOld.swift */,
-				53ABB75421169CF9009DE57B /* CloudKit.swift */,
 			);
 			path = SimulateData;
 			sourceTree = "<group>";
@@ -195,6 +194,7 @@
 		5353B76F211426F500ED45A6 /* Backup */ = {
 			isa = PBXGroup;
 			children = (
+				53ABB7502115D94E009DE57B /* CloudKitOld.swift */,
 				53ABB75C2116D4AE009DE57B /* ReachabilityOld.swift */,
 				53F29138210F12BF00BDEB60 /* MonthlyCustomExtensions.swift */,
 				53759D81210757FC0006C718 /* AccountCustomExtension.swift */,
@@ -233,6 +233,14 @@
 				5353B7AD2115AA6A00ED45A6 /* TransactionToCloudKit.swift */,
 			);
 			path = CoreDataExtensions;
+			sourceTree = "<group>";
+		};
+		5356776E2117E5CA001CD19D /* Cloudkit */ = {
+			isa = PBXGroup;
+			children = (
+				53ABB75421169CF9009DE57B /* CloudKit.swift */,
+			);
+			path = Cloudkit;
 			sourceTree = "<group>";
 		};
 		53759D8B2107FB910006C718 /* CoreData */ = {

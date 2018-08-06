@@ -19,6 +19,7 @@ extension AccountCoreData {
 
     @NSManaged public var beginBalance: Double
     @NSManaged public var imageRecordID: String?
+    @NSManaged public var modified: Date?
     @NSManaged public var name: String?
     @NSManaged public var recordID: String?
     @NSManaged public var type: Int16
