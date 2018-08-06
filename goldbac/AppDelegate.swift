@@ -35,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SimulateData.shared.printAllAccountsCoreData()
         SimulateData.shared.printAllTransactionsCoreData()        
         SimulateData.shared.printBalanceFor(monthEnd: Date().monthEnd)
+        SimulateData.shared.printAllCKPendingInCoreData()
         
         return true
     }

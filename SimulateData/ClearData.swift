@@ -39,6 +39,16 @@ extension SimulateData {
             print("Deleting Transaction failed: \(error)")
         }
         
+        do {
+            let result = try context.fetch(CKPending.fetchRequest())
+            for object in result {
+                context.delete(object as! NSManagedObject)
+            }
+            
+        } catch {
+            print("Deleting CKPending failed: \(error)")
+        }
+        
         CoreData.shared.saveData()
         isClearingData = false
     }

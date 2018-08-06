@@ -17,6 +17,7 @@ class CoreData {
     var allAccountsInCoreData:[AccountCoreData]? {get{return getAllAccounts()}}
     var allTransactionsInCoreData:[TransactionCoreData]? {get{return getAllTransactions()}}
     var allMonthInCoreData:[MonthCoreData]? {get{return getAllMonth()}}
+    var allPending:[CKPending]? {get{return getAllPending()}}
     
     enum AccountType : Int {
         case cash = 0
@@ -69,6 +70,22 @@ class CoreData {
             return monthlyArray
         } catch {
             print("Loading Month failed")
+            return nil
+        }
+    }
+    
+    private func getAllPending() -> [CKPending]? {
+        do {
+            let fetchRequest = try context.fetch(CKPending.fetchRequest())
+            let pendingArray = (fetchRequest as! [CKPending]).sorted { (s1, s2) -> Bool in
+                s2.date! > s1.date!
+            }
+            if pendingArray.count == 0 {
+                print("No CKPending in CoreData")
+            }
+            return pendingArray
+        } catch {
+            print("Loading CKPending failed")
             return nil
         }
     }

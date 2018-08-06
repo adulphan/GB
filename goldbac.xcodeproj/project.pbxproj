@@ -32,6 +32,8 @@
 		5353B7AE2115AA6A00ED45A6 /* TransactionToCloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5353B7AD2115AA6A00ED45A6 /* TransactionToCloudKit.swift */; };
 		5353B7B02115AA8F00ED45A6 /* TransactionObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5353B7AF2115AA8F00ED45A6 /* TransactionObservers.swift */; };
 		535677702117EBF6001CD19D /* ReachabilityReactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5356776F2117EBF6001CD19D /* ReachabilityReactions.swift */; };
+		535677732117F5F6001CD19D /* CKPending+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535677712117F5F6001CD19D /* CKPending+CoreDataClass.swift */; };
+		535677742117F5F6001CD19D /* CKPending+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535677722117F5F6001CD19D /* CKPending+CoreDataProperties.swift */; };
 		53759D85210757FC0006C718 /* AccountCustomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D81210757FC0006C718 /* AccountCustomExtension.swift */; };
 		53759D9321080C600006C718 /* TransactionCustomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D9221080C600006C718 /* TransactionCustomExtension.swift */; };
 		53759D9621082C360006C718 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D9521082C360006C718 /* CoreData.swift */; };
@@ -86,6 +88,8 @@
 		5353B7AD2115AA6A00ED45A6 /* TransactionToCloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionToCloudKit.swift; sourceTree = "<group>"; };
 		5353B7AF2115AA8F00ED45A6 /* TransactionObservers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionObservers.swift; sourceTree = "<group>"; };
 		5356776F2117EBF6001CD19D /* ReachabilityReactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityReactions.swift; sourceTree = "<group>"; };
+		535677712117F5F6001CD19D /* CKPending+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CKPending+CoreDataClass.swift"; sourceTree = "<group>"; };
+		535677722117F5F6001CD19D /* CKPending+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CKPending+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		53759D81210757FC0006C718 /* AccountCustomExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCustomExtension.swift; sourceTree = "<group>"; };
 		53759D9221080C600006C718 /* TransactionCustomExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCustomExtension.swift; sourceTree = "<group>"; };
 		53759D9521082C360006C718 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
@@ -222,6 +226,8 @@
 				5353B796211465BD00ED45A6 /* AccountCoreData+CoreDataProperties.swift */,
 				5353B797211465BD00ED45A6 /* MonthCoreData+CoreDataClass.swift */,
 				5353B798211465BD00ED45A6 /* MonthCoreData+CoreDataProperties.swift */,
+				535677712117F5F6001CD19D /* CKPending+CoreDataClass.swift */,
+				535677722117F5F6001CD19D /* CKPending+CoreDataProperties.swift */,
 			);
 			path = CoreDataCodeGen;
 			sourceTree = "<group>";
@@ -376,6 +382,7 @@
 				53ABB75521169CF9009DE57B /* CloudKit.swift in Sources */,
 				53F2912B210DF5D900BDEB60 /* FlowCustomExtension.swift in Sources */,
 				5353B7B02115AA8F00ED45A6 /* TransactionObservers.swift in Sources */,
+				535677742117F5F6001CD19D /* CKPending+CoreDataProperties.swift in Sources */,
 				53C845482110917A0076A8E5 /* FilePaper.swift in Sources */,
 				530A3C8B21074D8100F6FF20 /* goldbac.xcdatamodeld in Sources */,
 				5353B7A021155A8200ED45A6 /* SingleEvent.swift in Sources */,
@@ -414,6 +421,7 @@
 				5353B76D211400E100ED45A6 /* SimulateData.swift in Sources */,
 				5353B7A221155ADA00ED45A6 /* PrintThingsOut.swift in Sources */,
 				53ABB7532115E319009DE57B /* Application.swift in Sources */,
+				535677732117F5F6001CD19D /* CKPending+CoreDataClass.swift in Sources */,
 				5353B79E211465BD00ED45A6 /* MonthCoreData+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

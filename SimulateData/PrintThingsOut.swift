@@ -37,11 +37,21 @@ extension SimulateData {
         
     }
     
+    func printAllCKPendingInCoreData() {
+        for pending in CoreData.shared.allPending! {
+            print("\(pending.date!) : \(pending.toDelete ? "pendingDelete":"pendingSave") : \(pending.record?.recordID.recordName ?? "No record name")")
+        }
+        
+        print("Total pending: \(CoreData.shared.allPending?.count ?? 999999)")
+        
+    }
+    
     func printAllMonthsInCoreDataFor(account: AccountCoreData) {
         for month in account.monthlyData?.array as! [MonthCoreData] {
             print("\(month.endDate?.description ?? "No Date") Flow: \(month.flow) Balance: \(month.balance)")
         }
     }
+    
     
     func printBalanceFor(monthEnd: Date) {
         

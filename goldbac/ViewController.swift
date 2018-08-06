@@ -26,9 +26,9 @@ class ViewController: UIViewController {
     
     @objc func handleTapOnView(sender: UITapGestureRecognizer) {
         
-        print(Reachability.shared.isReachable)
-//        action(steps: steps)
-//        steps += 1
+        //print(Reachability.shared.isReachable)
+        action(steps: steps)
+        steps += 1
     }
 
     func action(steps:Int) {
@@ -58,30 +58,34 @@ class ViewController: UIViewController {
             
         case 3:
             
-            let newTransaction = TransactionCoreData(context: CoreData.shared.context)
-            newTransaction.title = "Tesco Lotus"
-            newTransaction.recordID = UUID().uuidString
-            newTransaction.date = Date().adjustedToAppCalendar
-            newTransaction.fullImageRecordID = nil
-            newTransaction.modified = Date()
-            newTransaction.flowArray = [-500,500]
-            newTransaction.note = nil
-            newTransaction.thumbnailRecordID = nil
-            newTransaction.url = "www.goldbac.com"
+           let allAccounts = CoreData.shared.allAccountsInCoreData!
+           CoreData.shared.context.delete(allAccounts[0])
             
-            let accountArray = [accountDictionary["Bofa"]!,accountDictionary["Grocery"]!]
-            newTransaction.accounts = NSOrderedSet(array: accountArray)
+//            let newTransaction = TransactionCoreData(context: CoreData.shared.context)
+//            newTransaction.title = "Tesco Lotus"
+//            newTransaction.recordID = UUID().uuidString
+//            newTransaction.date = Date().adjustedToAppCalendar
+//            newTransaction.fullImageRecordID = nil
+//            newTransaction.modified = Date()
+//            newTransaction.flowArray = [-500,500]
+//            newTransaction.note = nil
+//            newTransaction.thumbnailRecordID = nil
+//            newTransaction.url = "www.goldbac.com"
+//
+//            let accountArray = [accountDictionary["Bofa"]!,accountDictionary["Grocery"]!]
+//            newTransaction.accounts = NSOrderedSet(array: accountArray)
             
             
             CoreData.shared.saveData()
             
         case 4:
+            let allAccounts = CoreData.shared.allAccountsInCoreData!
+            CoreData.shared.context.delete(allAccounts[0])
+            
             CoreData.shared.saveData()
             
             SimulateData.shared.printAllAccountsCoreData()
             SimulateData.shared.printAllTransactionsCoreData()
-            SimulateData.shared.printAllMonthsInCoreDataFor(account: accountDictionary["Bofa"]!)
-            SimulateData.shared.printAllMonthsInCoreDataFor(account: accountDictionary["Grocery"]!)
             SimulateData.shared.printBalanceFor(monthEnd: Date().monthEnd)
             
         default:
