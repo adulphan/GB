@@ -8,9 +8,10 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
     
@@ -20,6 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         setupReachability()
+        
+//        UNUserNotificationCenter.current().delegate = self
+//        Cloudkit.shared.subscribeToPushNotification()
+//        application.registerForRemoteNotifications()
 
         let controller = ViewController()
         window?.rootViewController = controller        

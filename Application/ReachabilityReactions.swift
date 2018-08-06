@@ -13,9 +13,18 @@ extension Reachability {
     @objc func reachabilityDidChange(_ notification: Notification) {
         if self.isReachable  {
             print("Connected to the Internet")
+            Cloudkit.shared.proceedPendingsToCloudKit()
         } else {
             print("Disconnected to the Internet")
         }
     }
 
+
+    
 }
+
+
+
+
+
+
