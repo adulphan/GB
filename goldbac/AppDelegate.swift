@@ -8,10 +8,10 @@
 
 import UIKit
 import CoreData
-import UserNotifications
+import CloudKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
@@ -21,11 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         window?.makeKeyAndVisible()
         
         setupReachability()
+        Cloudkit.shared.subscribeToPushNotification()
+        application.registerForRemoteNotifications()
         
-//        UNUserNotificationCenter.current().delegate = self
-//        Cloudkit.shared.subscribeToPushNotification()
-//        application.registerForRemoteNotifications()
-
         let controller = ViewController()
         window?.rootViewController = controller        
         
@@ -43,6 +41,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         SimulateData.shared.printAllCKPendingInCoreData()
         
         return true
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        print("didReceive notification")
+        Cloudkit.shared.handleIncomingNotification()
+//        let cloudKitNotification = CKQueryNotification(fromRemoteNotificationDictionary: userInfo)
+//        let recordID = cloudKitNotification.recordID
+//        print(recordID?.recordName ?? "No record name")
+        completionHandler(.newData)
     }
     
     
