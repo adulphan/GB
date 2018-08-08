@@ -25,11 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         
         let controller = ViewController()
-        window?.rootViewController = controller        
+        window?.rootViewController = UINavigationController(rootViewController: controller)
         
         SimulateData.shared.clearAllCoreData()
-//        SimulateData.shared.simulateAccounts()
-//        SimulateData.shared.simulateTransaction()
+        SimulateData.shared.simulateAccounts()
+        SimulateData.shared.simulateTransaction()
 
 //        SimulateData.app.simulateInsertTransaction()
 //        SimulateData.app.simulateDeleteTransaciton()

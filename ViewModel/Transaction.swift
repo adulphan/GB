@@ -104,8 +104,7 @@ class Transaction {
         if let accountsForTransaction = coreData.accounts {
             let accountCoreData = accountsForTransaction.array as! [AccountCoreData]
             for data in accountCoreData {
-                let account = Account()
-                account.referenceTo(coreData: data)
+                let account = Account(coreData: data)!
                 accountArray.append(account)
             }
         }

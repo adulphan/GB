@@ -25,6 +25,19 @@ class Account {
         get{ return accountCoreData }
     }
     
+    init?(coreData: AccountCoreData) {
+        accountCoreData = coreData
+        beginBalance = coreData.beginBalance
+        endBalance = coreData.endBalance
+        imageRecordID = coreData.imageRecordID
+        name = coreData.name
+        type = coreData.type
+    }
+    
+    init() {
+        
+    }
+    
     private var accountCoreData: AccountCoreData?
     
     func addToCoreData() {
@@ -51,22 +64,6 @@ class Account {
         CoreData.shared.context.delete(account)
         CoreData.shared.saveData()
         
-//        accountCoreData = nil
-//        beginBalance = nil
-//        endBalance = nil
-//        imageRecordID = nil
-//        name = nil
-//        type = nil
-    }
-    
-    
-    func referenceTo(coreData: AccountCoreData) {
-        accountCoreData = coreData
-        beginBalance = coreData.beginBalance
-        endBalance = coreData.endBalance
-        imageRecordID = coreData.imageRecordID
-        name = coreData.name
-        type = coreData.type
     }
     
     private func getTransactionArray() -> [Transaction] {

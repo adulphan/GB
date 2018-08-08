@@ -33,6 +33,7 @@ extension SimulateData {
                 newAcount.type = Int16(type)
                 newAcount.beginBalance = 0
                 newAcount.endBalance = 0
+                newAcount.modified = Date()
                 newAcount.recordID = UUID().uuidString
                 accountsDictionary[name] = newAcount
             }

@@ -15,8 +15,7 @@ extension CoreData {
     func createAccountsFrom(coreData: [AccountCoreData]) -> [Account] {
         var accountArray:[Account] = []
         for data in coreData {
-            let account = Account()
-            account.referenceTo(coreData: data)
+            let account = Account(coreData: data)!
             accountArray.append(account)
         }
         return accountArray

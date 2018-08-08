@@ -12,7 +12,7 @@ import CloudKit
 
 extension Cloudkit {
 
-    func deleteFromCloudkit(record: CKRecord, pending:Bool, completion: @escaping (CKRecordID?) -> ()) {
+    func deleteFromCloudkit(record: CKRecord, completion: @escaping (CKRecordID?) -> ()) {
         
         guard Reachability.shared.isReachable else {
             
@@ -35,7 +35,7 @@ extension Cloudkit {
     }
     
     
-    func saveToCloudkit(record: CKRecord, pending:Bool, completion: @escaping (CKRecord?) -> ()) {
+    func saveToCloudkit(record: CKRecord, completion: @escaping (CKRecord?) -> ()) {
         
         guard Reachability.shared.isReachable else {
             let pending = CKPending(context: CoreData.shared.context)
@@ -67,7 +67,7 @@ extension Cloudkit {
         newRecord.setObject(account.beginBalance as CKRecordValue, forKey: "beginBalance")
         newRecord.setObject(account.endBalance as CKRecordValue, forKey: "endBalance")
         
-        saveToCloudkit(record: newRecord, pending:false) { (record) in
+        saveToCloudkit(record: newRecord) { (record) in
             print("Account: \(recordID.recordName) is saved to CloudKit")
         }
         
@@ -78,7 +78,7 @@ extension Cloudkit {
         let recordID = CKRecordID(recordName: recordName)
         let record = CKRecord(recordType: recordType.account.rawValue, recordID: recordID)
         
-        deleteFromCloudkit(record: record, pending: false) { (recordID) in
+        deleteFromCloudkit(record: record) { (recordID) in
             print("Account: \(recordID?.recordName ?? "No record ID") is deleted from CloudKit")
         }
         

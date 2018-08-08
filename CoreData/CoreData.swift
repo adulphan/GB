@@ -33,7 +33,10 @@ class CoreData {
     private func getAllAccounts() -> [AccountCoreData]? {
         do {
             let fetchRequest = try context.fetch(AccountCoreData.fetchRequest())
-            let accounts = fetchRequest as! [AccountCoreData]
+
+            let accounts = (fetchRequest as! [AccountCoreData]).sorted { (a1, a2) -> Bool in
+                a1.modified! > a2.modified!
+            }
             if accounts.count == 0 {
                 print("No account in CoreData")
             }

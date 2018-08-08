@@ -37,6 +37,7 @@
 		53567776211855EC001CD19D /* ProceedPending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53567775211855EC001CD19D /* ProceedPending.swift */; };
 		5356777821188234001CD19D /* SaveDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5356777721188234001CD19D /* SaveDelete.swift */; };
 		5356777A21188294001CD19D /* PushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5356777921188294001CD19D /* PushNotifications.swift */; };
+		5356777E2119C45B001CD19D /* FetchChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5356777D2119C45B001CD19D /* FetchChanges.swift */; };
 		53759D85210757FC0006C718 /* AccountCustomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D81210757FC0006C718 /* AccountCustomExtension.swift */; };
 		53759D9321080C600006C718 /* TransactionCustomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D9221080C600006C718 /* TransactionCustomExtension.swift */; };
 		53759D9621082C360006C718 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53759D9521082C360006C718 /* CoreData.swift */; };
@@ -96,6 +97,7 @@
 		53567775211855EC001CD19D /* ProceedPending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProceedPending.swift; sourceTree = "<group>"; };
 		5356777721188234001CD19D /* SaveDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveDelete.swift; sourceTree = "<group>"; };
 		5356777921188294001CD19D /* PushNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotifications.swift; sourceTree = "<group>"; };
+		5356777D2119C45B001CD19D /* FetchChanges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchChanges.swift; sourceTree = "<group>"; };
 		53759D81210757FC0006C718 /* AccountCustomExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCustomExtension.swift; sourceTree = "<group>"; };
 		53759D9221080C600006C718 /* TransactionCustomExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCustomExtension.swift; sourceTree = "<group>"; };
 		53759D9521082C360006C718 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				53ABB75421169CF9009DE57B /* CloudKit.swift */,
+				5356777D2119C45B001CD19D /* FetchChanges.swift */,
 				5356777721188234001CD19D /* SaveDelete.swift */,
 				53567775211855EC001CD19D /* ProceedPending.swift */,
 				5356777921188294001CD19D /* PushNotifications.swift */,
@@ -387,6 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5356777E2119C45B001CD19D /* FetchChanges.swift in Sources */,
 				5322ED96210C960A0094301F /* DateExtensions.swift in Sources */,
 				5353B799211465BD00ED45A6 /* TransactionCoreData+CoreDataClass.swift in Sources */,
 				534B22E9210AD7F5007F1DA6 /* SimulateChangeTransaction.swift in Sources */,

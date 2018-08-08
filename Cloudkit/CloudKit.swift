@@ -16,7 +16,9 @@ class Cloudkit {
         case account = "Account"
         case transaction = "Transaction"
     }
-
+    
+    let isActive:Bool = false
+    let lastFetchUserDefaultKey = "lastFetchUserDefaultKey"
     
 }
 

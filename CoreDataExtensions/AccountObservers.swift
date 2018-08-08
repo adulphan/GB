@@ -14,6 +14,8 @@ extension AccountCoreData {
     public override func didSave() {
         super.didSave()
         
+        guard Cloudkit.shared.isActive else {return}
+        
         if isInserted {
             Cloudkit.shared.saveToCloudKit(account: self)
         }
@@ -21,7 +23,7 @@ extension AccountCoreData {
         if isDeleted {
             Cloudkit.shared.deleteFromCloudKit(account: self)
         }
-
+        
     }
 
 }
