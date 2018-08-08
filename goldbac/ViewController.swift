@@ -18,6 +18,7 @@ class ViewController: UITableViewController {
         navigationItem.title = "Accounts"
         navigationController?.isToolbarHidden = false
         createToolbar()
+        Cloudkit.shared.tableView = tableView
  
     }
     
@@ -46,9 +47,8 @@ class ViewController: UITableViewController {
     }
     
     @objc func handleSyncButton(sender: UIButton) {
-
-    
-        
+        Cloudkit.shared.fetchChanges()
+        tableView.reloadData()        
     }
     
     @objc func handleEditButton(sender: UIButton) {

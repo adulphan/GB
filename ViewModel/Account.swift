@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CloudKit
 
 
 class Account {
@@ -16,9 +17,11 @@ class Account {
         get { return getTransactionArray() }
     }
 
+    var recordID: String?
     var beginBalance: Double?
     var endBalance: Double?
     var imageRecordID: String?
+    var modified: Date?
     var name: String?
     var type: Int16?
     var referenceAccount: AccountCoreData? {
@@ -27,11 +30,24 @@ class Account {
     
     init?(coreData: AccountCoreData) {
         accountCoreData = coreData
+        recordID = coreData.recordID
         beginBalance = coreData.beginBalance
         endBalance = coreData.endBalance
         imageRecordID = coreData.imageRecordID
+        modified = coreData.modified
         name = coreData.name
         type = coreData.type
+    }
+    
+    init?(record: CKRecord) {
+
+        recordID = record.recordID.recordName
+        beginBalance = record.value(forKey: "beginBalance") as? Double
+        endBalance = record.value(forKey: "endBalance") as? Double
+        imageRecordID = record.value(forKey: "imageRecordID") as? String
+        modified = record.modificationDate
+        name = record.value(forKey: "name") as? String
+        type = record.value(forKey: "type") as? Int16
     }
     
     init() {

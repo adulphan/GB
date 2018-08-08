@@ -28,8 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = UINavigationController(rootViewController: controller)
         
         SimulateData.shared.clearAllCoreData()
-        SimulateData.shared.simulateAccounts()
-        SimulateData.shared.simulateTransaction()
+        UserDefaults.standard.set(nil, forKey: Cloudkit.shared.lastFetchUserDefaultKey)
+        print(UserDefaults.standard.value(forKey: Cloudkit.shared.lastFetchUserDefaultKey.description) ?? "No key")
+
+//        SimulateData.shared.simulateAccounts()
+//        SimulateData.shared.simulateTransaction()
 
 //        SimulateData.app.simulateInsertTransaction()
 //        SimulateData.app.simulateDeleteTransaciton()

@@ -16,6 +16,7 @@ extension SimulateData {
     func clearAllCoreData(){
         
         isClearingData = true
+        Cloudkit.shared.isActive = false
         let context = CoreData.shared.context
         
         do {
@@ -51,6 +52,7 @@ extension SimulateData {
         
         CoreData.shared.saveData()
         isClearingData = false
+        Cloudkit.shared.isActive = true
     }
 }
 

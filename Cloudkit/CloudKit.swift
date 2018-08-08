@@ -7,6 +7,7 @@
 //
 
 import CloudKit
+import UIKit
 
 class Cloudkit {
     
@@ -17,8 +18,10 @@ class Cloudkit {
         case transaction = "Transaction"
     }
     
-    let isActive:Bool = false
+    var isActive:Bool = true
     let lastFetchUserDefaultKey = "lastFetchUserDefaultKey"
+    
+    var tableView:UITableView?
     
 }
 
