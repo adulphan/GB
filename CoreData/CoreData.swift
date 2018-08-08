@@ -32,11 +32,11 @@ class CoreData {
 
     private func getAllAccounts() -> [AccountCoreData]? {
         do {
-            let fetchRequest = try context.fetch(AccountCoreData.fetchRequest())
 
-            let accounts = (fetchRequest as! [AccountCoreData]).sorted { (a1, a2) -> Bool in
-                a1.modified! > a2.modified!
-            }
+            let fetchRequest: NSFetchRequest<AccountCoreData> = AccountCoreData.fetchRequest()
+            let sortDescriptor = NSSortDescriptor(key: "modified", ascending: false)
+            fetchRequest.sortDescriptors = [sortDescriptor]
+            let accounts = try context.fetch(fetchRequest)
             if accounts.count == 0 {
                 print("No account in CoreData")
             }
@@ -49,16 +49,17 @@ class CoreData {
 
     private func getAllTransactions() -> [TransactionCoreData]? {
         do {
-            let fetchRequest = try context.fetch(TransactionCoreData.fetchRequest())
-            let transactions = (fetchRequest as! [TransactionCoreData]).sorted { (s1, s2) -> Bool in
-                s1.date! > s2.date!
-            }
+            
+            let fetchRequest: NSFetchRequest<TransactionCoreData> = TransactionCoreData.fetchRequest()
+            let sortDescriptor = NSSortDescriptor(key: "modified", ascending: false)
+            fetchRequest.sortDescriptors = [sortDescriptor]
+            let transactions = try context.fetch(fetchRequest)
             if transactions.count == 0 {
                 print("No transaction in CoreData")
             }
             return transactions
         } catch {
-            print("Loading Account failed")
+            print("Loading Transaction failed")
             return nil
         }
     }

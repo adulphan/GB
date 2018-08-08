@@ -47,14 +47,23 @@ extension Cloudkit {
             }
             
             if let existing = existingData.first {
-                existing.recordID = record.recordID.recordName
-                existing.modified = record.modificationDate
-                existing.beginBalance = record.value(forKey: "beginBalance") as! Double
-                existing.endBalance = record.value(forKey: "endBalance") as! Double
-                existing.imageRecordID = record.value(forKey: "imageRecordID") as? String
-                existing.name = record.value(forKey: "name") as? String
-                existing.type = record.value(forKey: "type") as! Int16
-                print("\(existing.recordID?.description ?? "No ID") : is updated")
+                
+                if record.value(forKey: "isDeleted") as! Int16 == 1 {
+                    CoreData.shared.context.delete(existing)
+                    print("\(existing.recordID?.description ?? "No ID") : is deleted")
+                    
+                } else {
+                    
+                    existing.recordID = record.recordID.recordName
+                    existing.modified = record.modificationDate
+                    existing.beginBalance = record.value(forKey: "beginBalance") as! Double
+                    existing.endBalance = record.value(forKey: "endBalance") as! Double
+                    existing.imageRecordID = record.value(forKey: "imageRecordID") as? String
+                    existing.name = record.value(forKey: "name") as? String
+                    existing.type = record.value(forKey: "type") as! Int16
+                    print("\(existing.recordID?.description ?? "No ID") : is updated")
+                }
+                
             } else {
                 let newAccount = AccountCoreData(context: CoreData.shared.context)
                 newAccount.recordID = record.recordID.recordName

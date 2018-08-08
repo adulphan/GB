@@ -16,6 +16,7 @@ class Cloudkit {
     enum recordType : String {
         case account = "Account"
         case transaction = "Transaction"
+        case deleted = "DeletedRecord"
     }
     
     var isActive:Bool = true

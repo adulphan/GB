@@ -29,9 +29,10 @@ extension Cloudkit {
             if error != nil {
                 print(error!)
             } else {
-                completion(recordID)
+                completion(recordID)                
             }
         })
+
     }
     
     
