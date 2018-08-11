@@ -56,20 +56,26 @@ class Account {
     
     private var accountCoreData: AccountCoreData?
     
-    func addToCoreData() {
+    func addToCoreData(recordID: String?) {
         let account = AccountCoreData(context: CoreData.shared.context)
-        account.recordID = UUID().uuidString
-        account.beginBalance = beginBalance!
-        account.endBalance = beginBalance!
+        if let id = recordID {
+            account.recordID = id
+        } else {
+            account.recordID = UUID().uuidString
+        }     
+        account.beginBalance = beginBalance ?? 0
+        account.endBalance = beginBalance ?? 0
+        account.modified = modified
         account.imageRecordID = imageRecordID
         account.name = name
-        account.type = type!
+        account.type = type ?? 0
     }
     
     func overwriteCoreData() {
         let account = accountCoreData!
         account.beginBalance = beginBalance!
         account.endBalance = beginBalance!
+        account.modified = modified
         account.imageRecordID = imageRecordID
         account.name = name
         account.type = type!

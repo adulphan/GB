@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UITableViewController {
     
@@ -47,14 +48,31 @@ class ViewController: UITableViewController {
     }
     
     @objc func handleSyncButton(sender: UIButton) {
-        Cloudkit.shared.fetchChanges()
-        tableView.reloadData()        
+        
+        let database = Cloudkit.shared.database
+ 
+        Cloudkit.shared.isActive = false
+        Cloudkit.shared.fetchDatabaseChanges(database: database, databaseTokenKey: "private") {
+            print("Fetch complete")
+            CoreData.shared.saveData()
+            Cloudkit.shared.isActive = true
+  
+            DispatchQueue.main.sync {
+                self.tableView.reloadData()
+                let systemSoundID: SystemSoundID = 1057
+                AudioServicesPlaySystemSound (systemSoundID)
+            }
+        }
+        
+//        Cloudkit.shared.fetchChanges()
+//        tableView.reloadData()
     }
     
     @objc func handleEditButton(sender: UIButton) {
         let allAccounts = CoreData.shared.allAccountsInCoreData!
-        if let first = allAccounts.first {
-            first.modified = Date()
+        if let last = allAccounts.last {
+            last.name = "New name"
+            CoreData.shared.saveData()
             tableView.reloadData()
         }
     }

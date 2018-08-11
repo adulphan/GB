@@ -10,19 +10,31 @@ import Foundation
 import CoreData
 
 extension AccountCoreData {
+    
+    public override func willSave() {
+        super.willSave()
+        if isUpdated { wasUpdated = true }
+    }
 
     public override func didSave() {
         super.didSave()
-        
-        guard Cloudkit.shared.isActive else {return}
-        
-        if isInserted {
-            Cloudkit.shared.saveToCloudKit(account: self)
+
+        if Cloudkit.shared.isActive {
+            
+            if isInserted {
+                Cloudkit.shared.saveToCloudKit(account: self)
+            }
+            
+            if isDeleted {
+                Cloudkit.shared.deleteFromCloudKit(account: self)
+            }
+            
+            if wasUpdated {
+                Cloudkit.shared.saveEditedRecordToCloudKit(account: self)
+            }
         }
         
-        if isDeleted {
-            Cloudkit.shared.deleteFromCloudKit(account: self)
-        }
+         wasUpdated = false
         
     }
 

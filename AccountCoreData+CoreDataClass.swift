@@ -12,5 +12,6 @@ import CoreData
 
 
 public class AccountCoreData: NSManagedObject {
-    
+ 
+    var wasUpdated:Bool = false
 }

@@ -27,9 +27,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let controller = ViewController()
         window?.rootViewController = UINavigationController(rootViewController: controller)
         
-        SimulateData.shared.clearAllCoreData()
-        UserDefaults.standard.set(nil, forKey: Cloudkit.shared.lastFetchUserDefaultKey)
-        print(UserDefaults.standard.value(forKey: Cloudkit.shared.lastFetchUserDefaultKey.description) ?? "No key")
+        
+        
+        
+//        SimulateData.shared.clearAllCoreData()
+//        UserDefaults.standard.databaseChangeToken = nil
+//        UserDefaults.standard.zoneChangeToken = nil
+        
+        //UserDefaults.standard.set(nil, forKey: Cloudkit.shared.lastFetchUserDefaultKey)
+        //print(UserDefaults.standard.value(forKey: Cloudkit.shared.lastFetchUserDefaultKey.description) ?? "No key")
 
 //        SimulateData.shared.simulateAccounts()
 //        SimulateData.shared.simulateTransaction()
